@@ -1,0 +1,54 @@
+PS3 FPS Unlocker (PSUF) - Tutorial rapido ES
+
+1. Que hace PSUF
+
+PSUF busca juegos de PS3, compara Title ID/version con la base de datos y
+prepara patches de FPS cuando existe una ruta compatible. Tambien muestra
+patches extra/graficos en un menu separado.
+
+El app no modifica dev_flash, dev_blind, LV1, LV2 ni boot plugins.
+
+2. Requisitos
+
+- PS3 con CFW 4.90+ o PS3HEN.
+- HEN activado antes de abrir PSUF, si usas HEN.
+- webMAN MOD con PS3MAPI.
+- Artemis ayuda en rutas NCL temporales.
+
+3. Uso recomendado
+
+- Abre PSUF desde la XMB.
+- Usa Biblioteca > Escanear todos los juegos para crear la lista.
+- Usa Triangle en la lista para buscar por nombre, Title ID o version.
+- Usa Biblioteca > Escanear juego montado para analizar solo el juego montado.
+  Ese modo agrega/actualiza el juego actual sin borrar la biblioteca guardada.
+- La actualizacion online directa desde PS3 todavia no esta activa en esta
+  version. Para actualizar la base, usa PSUF PC Updater/importacion y despues
+  App > Actualizar con PC.
+- Usa App > Actualizar con PC despues de enviar una base desde PSUF PC Updater.
+- Usa Sistema > Verificar dependencias si el patch se instala pero no cambia nada.
+  Ese test no queda guardado.
+
+4. Estados
+
+- Disponible: ruta conocida para ese Title ID y version.
+- Aplicable: PSUF encontro una ruta local, pero sigue siendo experimental.
+- Patron encontrado, no probado: puede funcionar o puede fallar.
+- Patch para otra version: prueba solo si aceptas el riesgo.
+- Necesita actualizar: instala el update indicado y escanea otra vez.
+- Ya corre a 60 FPS: no apliques 60 FPS objetivo.
+- No disponible: no hay codigo instalable para esa opcion.
+
+5. Riesgos
+
+Un patch puede no hacer nada, congelar el juego, dar pantalla negra, romper
+animaciones, cambiar velocidad, causar fallos de audio o funcionar solo en
+algunas escenas. Prueba siempre dentro del gameplay.
+
+6. Backups
+
+PSUF crea backup cuando la ruta permite cambiar archivos. En juegos montados
+por ISO/disco, restaurar elimina scripts/NCL temporales del PSUF y no intenta
+cambiar archivos dentro de /dev_bdvd.
+
+Creditos y fuentes estan en CREDITS.txt.

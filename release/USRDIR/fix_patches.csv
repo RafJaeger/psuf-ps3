@@ -1,0 +1,25 @@
+# title_id|version|kind|status|method|label|source|payload|note|delay_seconds
+# Complementary FPS fixes and warnings.
+# If method is ncl/ncl_constant and payload is present, PSUF appends it to the selected FPS patch.
+# If method is none or payload is empty, PSUF only appends the note and never blocks applying the FPS patch.
+BLUS31201|01.03|unlock|known|none|Speed fix included|PSXPlace Confirmed / RPCS3toArtemis MAPI||O payload principal ja inclui a linha de game speed; aplicar normalmente.|120
+BLES01894|01.00|60|untested|none|Speed fix included|RPCS3toArtemis / ZEROx||O payload importado ja inclui a linha de game speed. Nao confirmado pelo PSUF neste PS3.|120
+BLUS31201|01.00|60|known|ncl_constant|Game speed fix|RPCS3toArtemis MAPI|0 01841D00 404E|Aplicado junto ao cap 60 FPS quando o patch base vier separado.|120
+BCES00226|01.60|unlock|known|none|Speed fix included|PSXPlace Confirmed / community test||O payload principal ja inclui a segunda linha usada para corrigir game speed.|120
+BLES01396|*|60|untested|none|Speed warning|RPCS3toArtemis Community Tested||Ha relato de possivel alteracao de velocidade; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BLES01402|*|60|untested|none|Speed warning|RPCS3toArtemis Community Tested||Ha relato de possivel alteracao de velocidade; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BLUS30782|*|60|untested|none|Speed warning|RPCS3toArtemis Community Tested||Ha relato de possivel alteracao de velocidade; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BCAS20071|*|60|untested|none|Speed warning|PSXPlace community report||Ha relatos conflitantes sobre velocidade 2x; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BCJS30022|*|60|untested|none|Speed warning|PSXPlace community report||Ha relatos conflitantes sobre velocidade 2x; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BLES00932|*|60|untested|none|Speed warning|PSXPlace community report||Ha relatos conflitantes sobre velocidade 2x; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BLUS30443|*|60|untested|none|Speed warning|PSXPlace community report||Ha relatos conflitantes sobre velocidade 2x; nenhum fix complementar PS3MAPI confirmado no PSUF ainda.|120
+BLES00308|*|unlock|known|none|Speed warning|PSXPlace community report||Ha relato de velocidade errada acima de 60 FPS; nenhum fix complementar confirmado. Aplicar continua liberado.|120
+BLES00309|*|60|untested|none|Speed warning|PSXPlace community report||Ha relato de velocidade errada acima de 60 FPS; nenhum fix complementar confirmado. Aplicar continua liberado.|120
+BLUS30177|*|60|untested|none|Speed warning|PSXPlace community report||Ha relato de velocidade errada acima de 60 FPS; nenhum fix complementar confirmado. Aplicar continua liberado.|120
+BLUS31036|*|unlock|known|none|FMV speed warning|PSXPlace community report||Gameplay pode ficar normal, mas FMVs/cutscenes podem acelerar. Nenhum fix complementar confirmado no PSUF ainda.|120
+BLES01780|*|60|untested|none|FMV speed warning|PSXPlace community report||Gameplay pode ficar normal, mas FMVs/cutscenes podem acelerar. Nenhum fix complementar confirmado no PSUF ainda.|120
+BLES01781|*|60|untested|none|FMV speed warning|PSXPlace community report||Gameplay pode ficar normal, mas FMVs/cutscenes podem acelerar. Nenhum fix complementar confirmado no PSUF ainda.|120
+BLJM60557|*|60|untested|none|FMV speed warning|PSXPlace community report||Gameplay pode ficar normal, mas FMVs/cutscenes podem acelerar. Nenhum fix complementar confirmado no PSUF ainda.|120
+NPUB31146|*|60|untested|none|FMV speed warning|PSXPlace community report||Gameplay pode ficar normal, mas FMVs/cutscenes podem acelerar. Nenhum fix complementar confirmado no PSUF ainda.|120
+BCES00569|*|60|untested|none|No speed fix confirmed|PSXPlace / RPCS3toArtemis||Sem fix complementar de velocidade/animacao confirmado no PSUF. O patch continua aplicavel normalmente.|120
+BCUS98114|*|60|untested|none|No speed fix confirmed|PSXPlace / RPCS3toArtemis||Sem fix complementar de velocidade/animacao confirmado no PSUF. O patch continua aplicavel normalmente.|120

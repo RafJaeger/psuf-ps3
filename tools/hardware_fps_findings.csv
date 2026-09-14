@@ -1,0 +1,5 @@
+# title_id|version|kind|status|method|label|source|payload|note|delay_seconds
+BLES00759|01.02|unlock|known|ncl|Unlock FPS / +60 (testado em PS3 real)|PS3 real lab|0 0033CA5C 38600001|Confirmado em PS3 real com webMAN PS3MAPI; Blur mudou de 30 FPS para 60 FPS.
+BLUS30485|01.02|unlock|known|ncl|Unlock FPS / +60 (testado em PS3 real)|PS3 real lab|0 00413804 38600001;0 02050FB4 00000078|Confirmado em PS3 real com webMAN PS3MAPI; RAGE mudou corretamente.
+BLUS31420|01.07|unlock|known|ncl|Unlock FPS / +60 (testado em PS3 real)|PS3 real lab|0 0024A6F8 38800000|Confirmado em PS3 real durante testes do PSUF; Far Cry 4 mudou corretamente.
+BLES01128|01.02|unlock|known|ncl|Unlock FPS / +60 (testado em PS3 real)|PS3 real lab|0 00F18840 00000000|Confirmado em PS3 real com webMAN PS3MAPI; GTA IV Complete Edition chegou a cerca de 124 FPS no menu. Modo ilimitado pode fazer overlays/interface piscarem.

@@ -1,0 +1,46 @@
+#ifndef FPSU_I18N_H
+#define FPSU_I18N_H
+
+#include "app.h"
+
+typedef enum {
+    TXT_APP_TITLE = 0,
+    TXT_MENU_SCAN_ALL,
+    TXT_MENU_SCAN_MOUNTED,
+    TXT_MENU_RESTORE,
+    TXT_MENU_ABOUT,
+    TXT_MENU_EXIT,
+    TXT_COMPAT_LINE,
+    TXT_HEN_NOTICE,
+    TXT_IDEA_BY,
+    TXT_SCAN_START,
+    TXT_SCAN_DONE,
+    TXT_NO_GAMES,
+    TXT_STATUS_AVAILABLE,
+    TXT_STATUS_UNTESTED,
+    TXT_STATUS_NOT_FOUND,
+    TXT_STATUS_PC_REQUIRED,
+    TXT_STATUS_OTHER_VERSION,
+    TXT_STATUS_APPLICABLE,
+    TXT_STATUS_UPDATE_REQUIRED,
+    TXT_ACTION_60,
+    TXT_ACTION_UNLOCK,
+    TXT_ACTION_UNLOCK_UNSAFE,
+    TXT_ACTION_BACK,
+    TXT_CONFIRM_APPLY,
+    TXT_CONFIRM_RESTORE,
+    TXT_BACKUP_REQUIRED,
+    TXT_APPLY_OK,
+    TXT_APPLY_FAIL,
+    TXT_RESTORE_OK,
+    TXT_RESTORE_FAIL,
+    TXT_NO_BACKUP,
+    TXT_NEEDS_PC,
+    TXT_ABOUT_BODY,
+    TXT_MAX
+} fpsu_text_id;
+
+fpsu_lang i18n_detect_language(void);
+const char *i18n_text(fpsu_lang lang, fpsu_text_id id);
+
+#endif
