@@ -1,0 +1,109 @@
+PS3 FPS Unlocker (PSUF) - Quick tutorial EN
+
+This app helps find PS3 games and apply FPS patches when the database has a
+known route. It does not promise perfect 60 FPS. In many games, a patch only
+removes or changes the FPS cap; the real result depends on the game, the game
+version, the installed update, and the PS3's own performance.
+
+1. Before using it
+
+- Use CFW 4.90+ or PS3HEN. On HEN, enable HEN before opening the app.
+- Do not use it on OFW.
+- Close the game before applying or restoring a patch.
+- Back up your saves. If possible, also keep a copy of the game/EBOOT.
+- Keep free space on the internal HDD. The app uses /dev_hdd0/FPSU for cache,
+  generated patches, and backups.
+- Do not turn off the PS3 while the app is writing or restoring anything.
+
+2. Where the app looks for games
+
+- Internal HDD: /dev_hdd0/game and /dev_hdd0/GAMES.
+- USB: /dev_usb000 through /dev_usb007, in game, GAMES, and PS3ISO folders.
+- Disc or mounted game: /dev_bdvd.
+- Full ISO files in PS3ISO can be identified through PARAM.SFO.
+- Split ISO files, unusual ISO layouts, or games that are not mounted may not
+  show correctly. If an ISO appears without an EBOOT to analyze, mount the game
+  and scan the mounted game, or test a folder/internal HDD copy.
+
+3. Recommended flow
+
+- Open the app from XMB.
+- Use Library > Scan all games to build the list.
+- Use App > Update with PC after sending the complete database with the PC
+  Updater. PSUF reloads FPS, graphics, native 60 FPS games, and companion fixes
+  into the saved scan without clearing the library.
+- Direct PS3 online update is not active in this version yet. To update the
+  database, use the PC Updater/import option, then App > Update with PC.
+- To test only the current game, mount it first and use Scan mounted game. This
+  updates/adds only that game and keeps the rest of the list. To avoid freezes
+  with ISO/disc games, PSUF does not read EBOOT or the full ISO in this mode.
+  It may read only the small /dev_bdvd PARAM.SFO and the installed update at
+  /dev_hdd0/game/<TITLE_ID>/PARAM.SFO to detect the version.
+- If the mounted game version is unknown, PSUF does not apply a patch tied to a
+  specific version unless that version is already known from the saved scan.
+- Split FAT32 ISOs using .iso.0/.iso.1/.iso.2... are accepted by the full scan
+  from the first .iso.0 part.
+- Select the game and check the Title ID, version, and status.
+- In the list, press Triangle to search by part of the name, Title ID, or
+  version. Press Select to clear the search and show everything again.
+- Prefer patches marked as confirmed for the same Title ID and version.
+- `Game > Actions > Extra/graphics patches (test)` shows separate visual
+  effects and general codes, such as motion blur, bloom, MLAA, DOF, overlays,
+  and visual fixes. They are not FPS patches and do not appear as 60 FPS target
+  or Unlimited FPS.
+- If you want to test at your own risk, `Game > Test > Choose/force route` can
+  show ready database routes for the same Title ID. It does not analyze EBOOT on
+  that screen. Routes without confirmed version are marked UNSAFE and may freeze
+  or do nothing.
+- Apply one option at a time and test in gameplay, not only in menus.
+- In this version, webMAN/PS3MAPI patches wait 2 minutes before applying.
+- In the PC Updater, use the FPS tab for .psufpatch and the General codes
+  (PDF style) tab for graphics/effect codes. You can paste Address /
+  Change from / Change to blocks, test them on the open game, save them locally,
+  export .psufextra, and upload the updated databases to the PS3.
+- The PC Updater live test blocks RAM read/write when PS3MAPI points to XMB/VSH.
+  Open the game first and detect the process again.
+
+4. What the statuses mean
+
+- Confirmed / available: known route for that Title ID and version.
+- Applicable: the app found local compatibility. It is still experimental.
+- Possible pattern / untested: it may work, but test carefully.
+- Patch exists for another version: update the game or use analysis carefully.
+- Update required: install the indicated official update and scan again.
+- PC required / advanced test: do not treat it as a safe PS3-side patch.
+- Unavailable / no EBOOT: the app did not find a writable file to test.
+- Already runs at 60 FPS: no need to apply the 60 FPS option.
+
+5. Tested and untested patches
+
+- Tested on real PS3 means someone validated that route on real hardware.
+- Untested means it came from a pattern, conversion, RPCS3, USERLIST, or another
+  community database and may still fail on a real PS3.
+- An untested patch can cause a black screen, freeze, audio issues, broken
+  physics, wrong speed, or no visible change.
+- Even a confirmed patch can require the exact game update. Same Title ID with a
+  different version is not a guarantee.
+
+6. Backups and restore
+
+- The app creates a backup before changing files when that route allows it.
+- New backups are stored in /dev_hdd0/FPSU/backups.
+- For mounted ISO/disc games, restore removes PSUF scripts/NCL files and does
+  not try to restore game files inside /dev_bdvd.
+- Use Backups > Restore by game or Game > Backup > Restore this game.
+- Restore also tries to remove NCL/scripts created by PSUF.
+- Do not delete /dev_hdd0/FPSU if you still need those backups.
+
+7. Important notes
+
+- PSUF does not touch dev_flash, dev_blind, LV1, LV2, or boot plugins.
+- webMAN/PS3MAPI and Artemis may help with temporary/NCL routes, depending on
+  the game and your setup.
+- Database updates in this version use the PC Updater/import option. If an
+  import fails, the current database stays in use.
+- PS2 games are not supported in this version.
+- If you get a black screen or freeze, reboot the console, remove the patch from
+  the backup/restore menu, and only try another route if you accept the risk.
+
+Credits and sources are listed in CREDITS.txt.

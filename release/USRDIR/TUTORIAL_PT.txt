@@ -1,0 +1,109 @@
+PS3 FPS Unlocker (PSUF) - Tutorial rapido PT-BR
+
+Este app ajuda a localizar jogos no PS3 e aplicar patches de FPS quando existe
+uma rota conhecida na base. Ele nao promete 60 FPS perfeito. Em muitos jogos o
+patch apenas remove ou muda o limite de FPS; o resultado real depende do jogo,
+da versao, do update instalado e do proprio desempenho do PS3.
+
+1. Antes de usar
+
+- Use CFW 4.90+ ou PS3HEN. No HEN, ative o HEN antes de abrir o app.
+- Nao use em OFW.
+- Feche o jogo antes de aplicar ou restaurar patch.
+- Faca backup dos saves. Se puder, guarde tambem uma copia do jogo/EBOOT.
+- Deixe espaco livre no HDD interno. O app usa /dev_hdd0/FPSU para cache,
+  patches gerados e backups.
+- Nao desligue o PS3 enquanto o app estiver gravando ou restaurando algo.
+
+2. Onde o app procura jogos
+
+- HDD interno: /dev_hdd0/game e /dev_hdd0/GAMES.
+- USB: /dev_usb000 ate /dev_usb007, nas pastas game, GAMES e PS3ISO.
+- Disco ou jogo montado: /dev_bdvd.
+- ISOs completas em PS3ISO podem ser identificadas pelo PARAM.SFO.
+- ISO dividida, ISO com estrutura diferente ou jogo que nao esteja montado pode
+  nao aparecer corretamente. Se uma ISO aparecer sem EBOOT para analisar, monte
+  o jogo e escaneie o jogo montado, ou teste a versao em pasta/HDD.
+
+3. Fluxo recomendado
+
+- Abra o app pelo XMB.
+- Use Biblioteca > Scanear todos os jogos para montar a lista.
+- Use App > Atualizar com PC depois de enviar o banco completo pelo PC Updater.
+  O PSUF recarrega FPS, graficos, jogos 60 FPS nativos e fixes complementares
+  no scan salvo sem apagar a biblioteca.
+- Atualizacao online direto pelo PS3 ainda nao esta ativa nesta versao. Para
+  atualizar o banco, use o PC Updater/importacao e depois App > Atualizar com PC.
+- Se quiser testar so o jogo atual, monte o jogo antes e use Scanear jogo
+  montado. Isso atualiza/adiciona apenas esse jogo e mantem o resto da lista.
+  Para evitar travamentos em ISO/disco, o PSUF nao le EBOOT nem ISO inteiro
+  nesse modo. Ele pode ler apenas o PARAM.SFO pequeno de /dev_bdvd e o update
+  instalado em /dev_hdd0/game/<TITLE_ID>/PARAM.SFO para detectar a versao.
+- Se a versao do jogo montado for desconhecida, o PSUF nao aplica patch preso a
+  uma versao especifica, a nao ser que essa versao ja exista no scan salvo.
+- ISOs divididas em FAT32 no formato .iso.0/.iso.1/.iso.2... sao aceitas
+  pelo scan geral a partir da primeira parte .iso.0.
+- Escolha o jogo na lista e confira Title ID, versao e status.
+- Na lista, aperte Triangle para buscar por parte do nome, Title ID ou versao.
+  Aperte Select para limpar a busca e voltar a mostrar tudo.
+- Prefira patches marcados como confirmados para o mesmo Title ID e versao.
+- `Jogo > Acoes > Patches extras/graficos (teste)` mostra efeitos visuais e
+  codigos gerais separados, como motion blur, bloom, MLAA, DOF, overlays e
+  correcoes visuais. Eles nao sao patches de FPS e nao aparecem como 60 FPS
+  alvo ou FPS ilimitado.
+- Se quiser testar por sua conta, `Jogo > Teste > Escolher/forcar rota` pode
+  mostrar rotas prontas do banco para o mesmo Title ID. Ele nao analisa EBOOT
+  nessa tela. Rotas sem versao confirmada aparecem como NAO SEGURO e podem
+  travar ou nao mudar nada.
+- Aplique uma opcao por vez e teste dentro do jogo, nao apenas no menu.
+- Nesta versao, os patches webMAN/PS3MAPI aguardam 2 minutos antes de aplicar.
+- No PC Updater, use a aba de FPS para .psufpatch e a aba Codigos gerais
+  (estilo PDF) para codigos de grafico/efeito. Voce pode colar blocos no estilo
+  Address / Change from / Change to, testar no jogo aberto, salvar no banco
+  local, exportar .psufextra e enviar os bancos atualizados ao PS3.
+- O teste ao vivo do PC Updater bloqueia leitura/escrita se o PS3MAPI apontar
+  para XMB/VSH. Abra o jogo primeiro e detecte o processo de novo.
+
+4. O que os estados significam
+
+- Confirmado / disponivel: rota conhecida para aquele Title ID e versao.
+- Aplicavel: o app achou compatibilidade local. Ainda e experimental.
+- Padrao possivel / nao testado: pode funcionar, mas precisa teste cuidadoso.
+- Patch existe para outra versao: atualize o jogo ou use a analise com cuidado.
+- Update necessario: instale o update oficial indicado e escaneie de novo.
+- Exige PC / teste avancado: nao trate como patch seguro no PS3.
+- Indisponivel / sem EBOOT: o app nao achou arquivo gravavel para testar.
+- Ja roda a 60 FPS: nao precisa aplicar a opcao de 60 FPS.
+
+5. Sobre patches testados e nao testados
+
+- Testado em PS3 real significa que alguem validou aquela rota em hardware real.
+- Nao testado significa que veio de padrao, conversao, RPCS3, USERLIST ou outra
+  base comunitaria e ainda pode falhar no PS3 real.
+- Um patch nao testado pode causar tela preta, travamento, audio errado,
+  fisica quebrada, velocidade errada ou nao mudar nada.
+- Mesmo patch confirmado pode depender do update correto. Title ID igual com
+  versao diferente nao e garantia.
+
+6. Backups e restauracao
+
+- O app cria backup antes de alterar arquivos quando a rota permite.
+- Backups novos ficam em /dev_hdd0/FPSU/backups.
+- Em jogo montado por ISO/disco, restaurar remove scripts/NCL do PSUF e nao
+  tenta restaurar arquivos de jogo dentro de /dev_bdvd.
+- Use Backups > Restaurar por jogo ou Jogo > Backup > Restaurar este jogo.
+- A restauracao tambem tenta remover NCL/scripts criados pelo PSUF.
+- Nao apague a pasta /dev_hdd0/FPSU se voce ainda precisa dos backups.
+
+7. Observacoes importantes
+
+- O PSUF nao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.
+- webMAN/PS3MAPI e Artemis podem ajudar em rotas temporarias/NCL, dependendo do
+  jogo e da configuracao.
+- Atualizacao de banco nesta versao e feita pelo PC Updater/importacao. Se uma
+  importacao falhar, o banco atual continua em uso.
+- Jogos de PS2 nao sao suportados nesta versao.
+- Se der tela preta ou travar, reinicie o console, remova o patch pelo menu de
+  backup/restauracao e teste outra rota somente se voce aceitar o risco.
+
+Creditos e fontes ficam em CREDITS.txt.
