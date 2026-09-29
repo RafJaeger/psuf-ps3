@@ -22,10 +22,11 @@ El app no modifica dev_flash, dev_blind, LV1, LV2 ni boot plugins.
 - Usa Triangle en la lista para buscar por nombre, Title ID o version.
 - Usa Biblioteca > Escanear juego montado para analizar solo el juego montado.
   Ese modo agrega/actualiza el juego actual sin borrar la biblioteca guardada.
-- La actualizacion online directa desde PS3 todavia no esta activa en esta
-  version. Para actualizar la base, usa PSUF PC Updater/importacion y despues
-  App > Actualizar con PC.
 - Usa App > Actualizar con PC despues de enviar una base desde PSUF PC Updater.
+- Usa App > Actualizar por internet para bajar la base actual directo desde el
+  GitHub del proyecto. PSUF valida los CSV antes de cambiar la base local.
+- Si prefieres actualizar manualmente, usa PSUF PC Updater/importacion y despues
+  App > Actualizar con PC.
 - Usa Sistema > Verificar dependencias si el patch se instala pero no cambia nada.
   Ese test no queda guardado.
 

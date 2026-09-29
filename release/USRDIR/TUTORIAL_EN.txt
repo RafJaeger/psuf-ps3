@@ -32,8 +32,11 @@ version, the installed update, and the PS3's own performance.
 - Use App > Update with PC after sending the complete database with the PC
   Updater. PSUF reloads FPS, graphics, native 60 FPS games, and companion fixes
   into the saved scan without clearing the library.
-- Direct PS3 online update is not active in this version yet. To update the
-  database, use the PC Updater/import option, then App > Update with PC.
+- Use App > Update over internet to download the current database directly from
+  the project GitHub. PSUF validates the CSV files before replacing the local
+  database.
+- If you prefer a manual update, use the PC Updater/import option, then
+  App > Update with PC.
 - To test only the current game, mount it first and use Scan mounted game. This
   updates/adds only that game and keeps the rest of the list. To avoid freezes
   with ISO/disc games, PSUF does not read EBOOT or the full ISO in this mode.
@@ -100,8 +103,8 @@ version, the installed update, and the PS3's own performance.
 - PSUF does not touch dev_flash, dev_blind, LV1, LV2, or boot plugins.
 - webMAN/PS3MAPI and Artemis may help with temporary/NCL routes, depending on
   the game and your setup.
-- Database updates in this version use the PC Updater/import option. If an
-  import fails, the current database stays in use.
+- Database updates can be done over internet or through the PC Updater. If an
+  update fails, the current database stays in use.
 - PS2 games are not supported in this version.
 - If you get a black screen or freeze, reboot the console, remove the patch from
   the backup/restore menu, and only try another route if you accept the risk.

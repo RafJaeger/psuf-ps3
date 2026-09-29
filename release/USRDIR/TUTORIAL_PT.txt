@@ -32,8 +32,10 @@ da versao, do update instalado e do proprio desempenho do PS3.
 - Use App > Atualizar com PC depois de enviar o banco completo pelo PC Updater.
   O PSUF recarrega FPS, graficos, jogos 60 FPS nativos e fixes complementares
   no scan salvo sem apagar a biblioteca.
-- Atualizacao online direto pelo PS3 ainda nao esta ativa nesta versao. Para
-  atualizar o banco, use o PC Updater/importacao e depois App > Atualizar com PC.
+- Use App > Atualizar via internet para baixar o banco atual direto do GitHub
+  do projeto. O PSUF valida os CSVs antes de trocar o banco local.
+- Se preferir atualizar manualmente, use o PC Updater/importacao e depois
+  App > Atualizar com PC.
 - Se quiser testar so o jogo atual, monte o jogo antes e use Scanear jogo
   montado. Isso atualiza/adiciona apenas esse jogo e mantem o resto da lista.
   Para evitar travamentos em ISO/disco, o PSUF nao le EBOOT nem ISO inteiro
@@ -100,8 +102,8 @@ da versao, do update instalado e do proprio desempenho do PS3.
 - O PSUF nao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.
 - webMAN/PS3MAPI e Artemis podem ajudar em rotas temporarias/NCL, dependendo do
   jogo e da configuracao.
-- Atualizacao de banco nesta versao e feita pelo PC Updater/importacao. Se uma
-  importacao falhar, o banco atual continua em uso.
+- Atualizacao de banco pode ser feita pela internet ou pelo PC Updater. Se uma
+  atualizacao falhar, o banco atual continua em uso.
 - Jogos de PS2 nao sao suportados nesta versao.
 - Se der tela preta ou travar, reinicie o console, remova o patch pelo menu de
   backup/restauracao e teste outra rota somente se voce aceitar o risco.

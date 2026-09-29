@@ -13,6 +13,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#define FPSU_DEFAULT_UPDATE_BASE_URL "https://raw.githubusercontent.com/RafJaeger/psuf-ps3/main/release/USRDIR/"
+
 typedef enum {
     DB_KIND_PIPE = 0,
     DB_KIND_NATIVE60 = 1
@@ -85,20 +87,23 @@ static int read_update_base_url(char *url, size_t url_size)
     url[0] = '\0';
     f = fopen(FPSU_UPDATE_URL_FILE, "rb");
     if (!f) {
-        return -1;
+        snprintf(url, url_size, "%s", FPSU_DEFAULT_UPDATE_BASE_URL);
+    } else {
+        if (!fgets(url, (int)url_size, f)) {
+            fclose(f);
+            snprintf(url, url_size, "%s", FPSU_DEFAULT_UPDATE_BASE_URL);
+        } else {
+            fclose(f);
+        }
     }
-    if (!fgets(url, (int)url_size, f)) {
-        fclose(f);
-        return -1;
-    }
-    fclose(f);
 
     len = strlen(url);
     while (len > 0 && (url[len - 1] == '\r' || url[len - 1] == '\n' || url[len - 1] == ' ')) {
         url[--len] = '\0';
     }
     if (!url_is_safe_for_webman_query(url)) {
-        return -1;
+        snprintf(url, url_size, "%s", FPSU_DEFAULT_UPDATE_BASE_URL);
+        len = strlen(url);
     }
 
     if (ends_with_ci(url, "patches.csv") || ends_with_ci(url, "graphics_patches.csv") ||

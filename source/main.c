@@ -7,6 +7,7 @@
 #include "paypal_qr.h"
 #include "patch_db.h"
 #include "pix_qr.h"
+#include "repo_update.h"
 #include "scanner.h"
 #include "ui.h"
 #include "webman_control.h"
@@ -25,7 +26,7 @@ static fpsu_game_result g_results[FPSU_MAX_GAMES];
 #define FPSU_MAX_FORCE_CHOICES 12
 #define FPSU_MAX_GRAPHICS_CHOICES 32
 #define FPSU_SEARCH_MAX 64
-#define FPSU_HOME_ITEMS 9
+#define FPSU_HOME_ITEMS 10
 #define FPSU_CLOCK_MIN_MHZ 300
 #define FPSU_CLOCK_STEP_MHZ 50
 #define FPSU_CLOCK_DEFAULT_GPU_MHZ 500
@@ -70,6 +71,7 @@ static const char *tr(fpsu_lang lang, const char *pt, const char *en)
         if (strcmp(pt, "webMAN > Overclock") == 0) return "webMAN > Overclock";
         if (strcmp(pt, "App > Apoiar projeto") == 0) return "App > Apoyar proyecto";
         if (strcmp(pt, "App > Atualizar com PC") == 0) return "App > Actualizar con PC";
+        if (strcmp(pt, "App > Atualizar via internet") == 0) return "App > Actualizar por internet";
         if (strcmp(pt, "App > Sair") == 0) return "App > Salir";
         if (strcmp(pt, "Lista jogos > compara patches > analisa EBOOT quando precisa.") == 0) return "Lista juegos > compara patches > analiza EBOOT cuando hace falta.";
         if (strcmp(pt, "Abre o ultimo scan salvo sem varrer o HD de novo.") == 0) return "Abre el ultimo escaneo guardado sin leer el HD de nuevo.";
@@ -171,6 +173,7 @@ static const char *tr(fpsu_lang lang, const char *pt, const char *en)
         if (strcmp(pt, "Banco online atualizado") == 0) return "Base online actualizada";
         if (strcmp(pt, "Banco online atualizado. Abra Jogos scaneados para conferir.") == 0) return "Base online actualizada. Abre Juegos escaneados para revisar.";
         if (strcmp(pt, "Banco online atualizado. Agora escaneie jogos ou abra Jogos scaneados.") == 0) return "Base online actualizada. Ahora escanea juegos o abre Juegos escaneados.";
+        if (strcmp(pt, "Recarregando bancos novos sem apagar o scan salvo.") == 0) return "Recargando bases nuevas sin borrar el escaneo guardado.";
         if (strcmp(pt, "Atualizacao online falhou") == 0) return "Fallo la actualizacion online";
         if (strcmp(pt, "update_url.txt nao esta configurado. Publique o banco no GitHub e gere o PKG de novo.") == 0) return "update_url.txt no esta configurado. Publica la base en GitHub y genera el PKG de nuevo.";
         if (strcmp(pt, "Nao baixou ou validou o banco online. O banco antigo foi mantido.") == 0) return "No se pudo bajar o validar la base online. La base anterior se mantuvo.";
@@ -485,7 +488,8 @@ static void draw_home(fpsu_lang lang, int selected)
     titles[5] = tr(lang, "webMAN > Overclock", "webMAN > Overclock");
     titles[6] = tr(lang, "App > Apoiar projeto", "App > Donate");
     titles[7] = tr(lang, "App > Atualizar com PC", "App > Update with PC");
-    titles[8] = tr(lang, "App > Sair", "App > Exit");
+    titles[8] = tr(lang, "App > Atualizar via internet", "App > Update over internet");
+    titles[9] = tr(lang, "App > Sair", "App > Exit");
 
     bodies[0] = tr(lang, "Lista jogos > compara patches > analisa EBOOT quando precisa.", "Lists games > matches patches > analyzes EBOOT when needed.");
     bodies[1] = tr(lang, "Abre o ultimo scan salvo sem varrer o HD de novo.", "Opens the last saved scan without scanning HDD again.");
@@ -496,7 +500,8 @@ static void draw_home(fpsu_lang lang, int selected)
     bodies[5] = tr(lang, "Overclock para tentar ganhar FPS; fique de olho na temperatura.", "Overclock to try gaining FPS; keep an eye on temperature.");
     bodies[6] = tr(lang, "Pix e PayPal para ajudar os proximos testes.", "Pix and PayPal to support the next tests.");
     bodies[7] = tr(lang, "Use o PSUF PC Updater para enviar bancos de FPS e graficos.", "Use PSUF PC Updater to send FPS and graphics databases.");
-    bodies[8] = tr(lang, "Fecha do jeito seguro. Evite PS/Home > Sair do jogo.", "Safe exit. Avoid PS/Home > Quit Game.");
+    bodies[8] = tr(lang, "Baixa o banco do GitHub do projeto e valida antes de trocar.", "Downloads the project database from GitHub and validates it first.");
+    bodies[9] = tr(lang, "Fecha do jeito seguro. Evite PS/Home > Sair do jogo.", "Safe exit. Avoid PS/Home > Quit Game.");
 
     ui_begin_frame();
     ui_draw_shell(i18n_text(lang, TXT_APP_TITLE), i18n_text(lang, TXT_COMPAT_LINE), tr(lang, "Projeto de RafJaeger", "Project by RafJaeger"));
@@ -3280,6 +3285,51 @@ static void update_patch_database(fpsu_lang lang)
         UI_COLOR_GREEN);
 }
 
+static void update_patch_database_online(fpsu_lang lang)
+{
+    char message[192];
+    int game_count;
+    int ret;
+
+    draw_busy_notice(lang,
+        tr(lang, "Atualizando online", "Updating online"),
+        tr(lang, "Baixando banco do GitHub e validando antes de trocar.", "Downloading the GitHub database and validating it first."));
+
+    ret = repo_update_databases(message, sizeof(message));
+    if (ret != 0) {
+        app_notice(lang,
+            tr(lang, "Atualizacao online falhou", "Online update failed"),
+            message[0] ? message : tr(lang,
+                "Nao baixou ou validou o banco online. O banco antigo foi mantido.",
+                "The online database was not downloaded or validated. The old database was kept."),
+            UI_COLOR_RED);
+        return;
+    }
+
+    game_count = cache_read_results(g_results, FPSU_MAX_GAMES);
+    game_count = dedupe_results(g_results, game_count);
+    if (game_count > 0) {
+        draw_busy_notice(lang,
+            tr(lang, "Atualizando biblioteca", "Updating library"),
+            tr(lang, "Recarregando bancos novos sem apagar o scan salvo.", "Reloading the new databases without deleting the saved scan."));
+        rebuild_cached_results(lang, game_count);
+        cache_write_results(g_results, game_count);
+        app_notice(lang,
+            tr(lang, "Banco online atualizado", "Online database updated"),
+            tr(lang,
+                "Banco online atualizado. Abra Jogos scaneados para conferir.",
+                "Online database updated. Open Scanned games to review it."),
+            UI_COLOR_GREEN);
+    } else {
+        app_notice(lang,
+            tr(lang, "Banco online atualizado", "Online database updated"),
+            tr(lang,
+                "Banco online atualizado. Agora escaneie jogos ou abra Jogos scaneados.",
+                "Online database updated. Now scan games or open Scanned games."),
+            UI_COLOR_GREEN);
+    }
+}
+
 int main(int argc, char **argv)
 {
     fpsu_lang lang;
@@ -3329,6 +3379,8 @@ int main(int argc, char **argv)
                 show_donate(lang);
             } else if (selected == 7) {
                 update_patch_database(lang);
+            } else if (selected == 8) {
+                update_patch_database_online(lang);
             } else {
                 running = 0;
             }

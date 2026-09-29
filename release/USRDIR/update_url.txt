@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/RafJaeger/ps3-fps-unlocker/main/release/USRDIR/
+https://raw.githubusercontent.com/RafJaeger/psuf-ps3/main/release/USRDIR/
