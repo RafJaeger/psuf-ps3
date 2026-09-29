@@ -195,6 +195,7 @@ class PatchDatabaseTests(unittest.TestCase):
             ("BLUS31584", "*", "60", "0 006291C8 3860003C"),
             ("NPUB30984", "01.06", "60", "0 010E42C8 60000000;0 010E42DC 60000000"),
             ("NPUB30984", "*", "60", "0 010E42C8 60000000;0 010E42DC 60000000"),
+            ("BLES00949", "01.02", "60", "0 3A3168E8 01"),
         }
         found = {(row[0], row[1], row[2], row[7]) for row in fps_rows if len(row) >= 8}
         for item in expected:
@@ -213,6 +214,9 @@ class PatchDatabaseTests(unittest.TestCase):
         gtav_graphics = [row for row in graphics_rows if row[0] == "BLES01807" and row[1] == "01.27"]
         self.assertGreaterEqual(len(gtav_graphics), 3)
         self.assertTrue(any("mnz" in row[6].lower() for row in gtav_graphics))
+
+        bo2_graphics = [row for row in graphics_rows if row[0] == "BLUS31141" and row[1] == "01.19"]
+        self.assertTrue(any(row[7] == "0 01708B40 C47A0000;0 01708C00 C47A0000;0 0170CE00 00" for row in bo2_graphics))
 
     def test_official_apply_keeps_persistent_runtime_script_and_cleans_start_trigger(self):
         text = PATCH_DB_SOURCE.read_text(encoding="utf-8", errors="ignore")
