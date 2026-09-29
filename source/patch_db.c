@@ -406,28 +406,65 @@ int patch_db_validate_file(const char *path)
     return valid;
 }
 
+static int patch_db_count_rows(const char *path)
+{
+    FILE *f;
+    char line[FPSU_MAX_PAYLOAD + 512];
+    int rows = 0;
+
+    if (!patch_db_validate_file(path)) {
+        return -1;
+    }
+    f = fopen(path, "rb");
+    if (!f) {
+        return -1;
+    }
+    while (fgets(line, sizeof(line), f)) {
+        char *p = line;
+        int pipes = 0;
+        while (*p && (*p == ' ' || *p == '\t')) {
+            ++p;
+        }
+        if (*p == '#' || *p == '\r' || *p == '\n' || *p == '\0') {
+            continue;
+        }
+        while (*p) {
+            if (*p++ == '|') {
+                ++pipes;
+            }
+        }
+        if (pipes >= 8) {
+            ++rows;
+        }
+    }
+    fclose(f);
+    return rows;
+}
+
+static const char *active_pipe_db_path(const char *bundled, const char *updated)
+{
+    int bundled_rows = patch_db_count_rows(bundled);
+    int updated_rows = patch_db_count_rows(updated);
+
+    if (updated_rows > 0 && (bundled_rows <= 0 || updated_rows >= bundled_rows)) {
+        return updated;
+    }
+    return bundled;
+}
+
 const char *patch_db_active_path(void)
 {
-    if (patch_db_validate_file(FPSU_PATCH_DB_UPDATED)) {
-        return FPSU_PATCH_DB_UPDATED;
-    }
-    return FPSU_PATCH_DB_BUNDLED;
+    return active_pipe_db_path(FPSU_PATCH_DB_BUNDLED, FPSU_PATCH_DB_UPDATED);
 }
 
 static const char *graphics_db_active_path(void)
 {
-    if (patch_db_validate_file(FPSU_GRAPHICS_DB_UPDATED)) {
-        return FPSU_GRAPHICS_DB_UPDATED;
-    }
-    return FPSU_GRAPHICS_DB;
+    return active_pipe_db_path(FPSU_GRAPHICS_DB, FPSU_GRAPHICS_DB_UPDATED);
 }
 
 static const char *fix_db_active_path(void)
 {
-    if (patch_db_validate_file(FPSU_FIX_DB_UPDATED)) {
-        return FPSU_FIX_DB_UPDATED;
-    }
-    return FPSU_FIX_DB;
+    return active_pipe_db_path(FPSU_FIX_DB, FPSU_FIX_DB_UPDATED);
 }
 
 static int native60_db_validate_file(const char *path)
@@ -1618,6 +1655,9 @@ static int write_ingame_script_for_id(const fpsu_game *game, const char *trigger
     fprintf(out, "log FPSU limpando art.txt temporario; mantendo NCL/script para reaplicar depois\n");
     fprintf(out, "del /dev_hdd0/tmp/art.txt\n");
     fprintf(out, "del /dev_hdd0/tmp/art.log\n");
+    fprintf(out, "wait 1\n");
+    fprintf(out, "del /dev_hdd0/tmp/art.txt\n");
+    fprintf(out, "del /dev_hdd0/tmp/art.log\n");
 #endif
     fprintf(out, "log FPSU %s finished; send " FPSU_CACHE_ROOT "/webman_ingame.log for support\n",
         trigger_id);
@@ -1820,6 +1860,7 @@ int patch_db_write_ncl(const fpsu_game *game, const fpsu_patch_option *option, c
     char art_txt_path[FPSU_MAX_PATH];
     char ingame_path[FPSU_MAX_PATH];
     char fallback_path[FPSU_MAX_PATH];
+    char stale_path[FPSU_MAX_PATH];
     int written_count = 0;
 
     if (!game || !option || !fpsu_method_is_ncl_write(option->method) || !out_path || out_path_size == 0) {
@@ -1835,6 +1876,13 @@ int patch_db_write_ncl(const fpsu_game *game, const fpsu_patch_option *option, c
 
     remove("/dev_hdd0/tmp/art.txt");
     remove("/dev_hdd0/tmp/art.log");
+    if (version_is_safe_file_suffix(game->version)) {
+        snprintf(stale_path, sizeof(stale_path), "/dev_hdd0/tmp/artemis/%s_%s.ncl",
+            game->title_id, game->version);
+        remove(stale_path);
+    }
+    snprintf(stale_path, sizeof(stale_path), "/dev_hdd0/tmp/artemis/%s.ncl", game->title_id);
+    remove(stale_path);
 
     remember_written_path(write_ncl_tmp_artemis(game, option, 1,
             tmp_version_path, sizeof(tmp_version_path)) == 0,

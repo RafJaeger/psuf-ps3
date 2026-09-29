@@ -38,6 +38,7 @@ PUBLIC_FILES = [
     USRDIR / "graphics_patches.csv",
     USRDIR / "fix_patches.csv",
 ]
+PATCH_DB_SOURCE = ROOT / "source" / "patch_db.c"
 
 
 def read_rows(name):
@@ -177,6 +178,48 @@ class PatchDatabaseTests(unittest.TestCase):
 
         self.assertTrue(any(row[0] == "BCUS98174" and row[1] == "01.11" and row[7] == "0 01571A6F 01" for row in fps_rows))
         self.assertTrue(any(row[0] == "BCUS98174" and row[1] == "01.11" and row[7] == "0 01571A6F 00" for row in fps_rows))
+
+    def test_2529_new_tested_fps_patches_are_present(self):
+        fps_rows = [row for _line_no, row in read_rows("patches.csv")]
+        expected = {
+            ("BLUS30612", "01.00", "60", "0 015CB94C 4800006C"),
+            ("BLUS31518", "01.02", "60", "0 01C98430 00000001"),
+            ("BLUS30538", "01.04", "unlock", "0 0001036C 38600000;0 01689708 00000000"),
+            ("NPUB30830", "01.01", "60", "0 007462A4 28050001"),
+            ("NPUB30389", "02.00", "60", "0 00730528 48000020"),
+            ("BLES00669", "01.02", "60", "0 00E6F028 38000001"),
+            ("BLES02096", "01.08", "60", "0 00077B44 42700000;0 002466E4 C0243E68;0 00C6C7B8 60000000"),
+            ("BLES02145", "*", "60", "0 0039D514 39200001"),
+            ("NPUB30560", "*", "60", "0 00C40124 00000001"),
+            ("NPUB31236", "*", "60", "0 015B5D9C 00000001"),
+            ("BLUS31584", "*", "60", "0 006291C8 3860003C"),
+            ("NPUB30984", "01.06", "60", "0 010E42C8 60000000;0 010E42DC 60000000"),
+            ("NPUB30984", "*", "60", "0 010E42C8 60000000;0 010E42DC 60000000"),
+        }
+        found = {(row[0], row[1], row[2], row[7]) for row in fps_rows if len(row) >= 8}
+        for item in expected:
+            self.assertIn(item, found)
+
+    def test_gtav_visual_profiles_are_graphics_only(self):
+        fps_rows = [row for _line_no, row in read_rows("patches.csv")]
+        graphics_rows = [row for _line_no, row in read_rows("graphics_patches.csv")]
+        bad_terms = ("shadow", "draw", "distance", "lod", "smooth fps", "lite")
+
+        for row in fps_rows:
+            if row[0] == "BLES01807":
+                text = "|".join(row).lower()
+                self.assertFalse(any(term in text for term in bad_terms), row)
+
+        gtav_graphics = [row for row in graphics_rows if row[0] == "BLES01807" and row[1] == "01.27"]
+        self.assertGreaterEqual(len(gtav_graphics), 3)
+        self.assertTrue(any("mnz" in row[6].lower() for row in gtav_graphics))
+
+    def test_official_apply_keeps_persistent_runtime_script_and_cleans_start_trigger(self):
+        text = PATCH_DB_SOURCE.read_text(encoding="utf-8", errors="ignore")
+        self.assertIn("/artemis.ps3?attach", text)
+        self.assertIn("/dev_hdd0/tmp/wm_ingame/%s.bat", text)
+        self.assertIn("runtime scripts are kept so webMAN can reapply the selected patch later", text)
+        self.assertIn("del /dev_hdd0/tmp/art.txt", text)
 
     def assert_payload_is_valid(self, payload, line_no):
         for write in split_payload(payload):

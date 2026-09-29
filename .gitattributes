@@ -1,9 +1,10 @@
-* text=auto
-*.c text eol=lf
-*.h text eol=lf
-*.py text eol=lf
-*.md text eol=lf
-*.csv text eol=lf
-*.txt text eol=lf
-*.PNG binary
+* text=auto eol=lf
+
 *.png binary
+*.PNG binary
+*.jpg binary
+*.jpeg binary
+*.bin binary
+*.pkg binary
+*.self binary
+*.elf binary

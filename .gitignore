@@ -1,32 +1,49 @@
+# Build outputs
 /build/
 /dist/
+/*.spec
+/*.elf
+/*.self
+/*.fake.self
+/*.pkg
+/*.gnpdrm.pkg
+/*.map
 
-*.elf
-*.self
-*.fake.self
-*.pkg
-*.gnpdrm.pkg
-*.map
-*.spec
-*.psufdb
-
-__pycache__/
-*.pyc
-*.pyo
-
-*.log
-*.tmp
-*.bak
-
+# Local caches and editor files
 /.env
 /.env.*
+/tools/discord_setup/.env
+/tools/discord_setup/.env.*
 /.vs/
 /.vscode/
 /.idea/
-
 /research/
-/tools/backups/
+/game.html
+/games.html
+/ps3iso.html
+/ps3_scan_cache.csv
 /PSUF_PC_Updater_Data/
+/tools/backups/
+/tools/psuf_pc_updater_config.json
+__pycache__/
+*/__pycache__/
+*.user
+*.suo
+*.tmp
+*.log
 
+# Archives and local transfer packages
+*.zip
+*.rar
+*.7z
+*.psufdb
+/PSUF-code-database-*.psufdb
+/COMPATIBLE_GAMES.md
+/DISTRIBUTION_PT_EN.md
+/PSUF_v*.md
+/docs/DISCORD_SERVER_SETUP_PT_EN.md
+/tools/discord_setup/
+
+# OS files
 Thumbs.db
 .DS_Store

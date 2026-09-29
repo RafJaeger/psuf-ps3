@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 #define FPSU_APP_ID "FPSU00001"
-#define FPSU_VERSION_LABEL "PSUF V2.5.28"
+#define FPSU_VERSION_LABEL "PSUF V2.5.29"
 #define FPSU_HEN_DIAG_BUILD 0
 #define FPSU_APP_USRDIR "/dev_hdd0/game/FPSU00001/USRDIR"
 #define FPSU_DATA_ROOT "/dev_hdd0/FPSU"

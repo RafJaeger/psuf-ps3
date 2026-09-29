@@ -188,7 +188,7 @@ static const char *tr(fpsu_lang lang, const char *pt, const char *en)
         if (strcmp(pt, "alternativa") == 0) return "alternativa";
         if (strcmp(pt, "Forcar este patch") == 0) return "Forzar este patch";
         if (strcmp(pt, "NAO SEGURO. Se der tela preta, restaure o backup ou remova o patch pelo PSUF.") == 0) return "NO SEGURO. Si da pantalla negra, restaura el backup o quita el patch con PSUF.";
-        if (strcmp(pt, "Projeto de RafJaeger.\n\nPSUF V2.5.28 para CFW 4.90+ e PS3HEN.\nNem todos os consoles sao compativeis no momento, mas estamos procurando formas de contornar isso.\nUse Sistema > Verificar dependencias se o patch aplica mas nao muda nada.\nNao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.") == 0) return "Proyecto de RafJaeger.\n\nPSUF V2.5.28 para CFW 4.90+ y PS3HEN.\nNo todas las consolas son compatibles por ahora, pero estamos buscando formas de arreglarlo.\nUsa Sistema > Verificar dependencias si el patch se instala pero no cambia nada.\nNo toca dev_flash, dev_blind, LV1, LV2 ni boot plugins.";
+        if (strcmp(pt, "Projeto de RafJaeger.\n\nPSUF V2.5.29 para CFW 4.90+ e PS3HEN.\nNem todos os consoles sao compativeis no momento, mas estamos procurando formas de contornar isso.\nUse Sistema > Verificar dependencias se o patch aplica mas nao muda nada.\nNao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.") == 0) return "Proyecto de RafJaeger.\n\nPSUF V2.5.29 para CFW 4.90+ y PS3HEN.\nNo todas las consolas son compatibles por ahora, pero estamos buscando formas de arreglarlo.\nUsa Sistema > Verificar dependencias si el patch se instala pero no cambia nada.\nNo toca dev_flash, dev_blind, LV1, LV2 ni boot plugins.";
     }
     return en;
 }
@@ -2908,8 +2908,8 @@ static void show_actions(fpsu_lang lang, fpsu_game_result *r)
 static void show_about(fpsu_lang lang)
 {
     const char *body = tr(lang,
-        "Projeto de RafJaeger.\n\nPSUF V2.5.28 para CFW 4.90+ e PS3HEN.\nNem todos os consoles sao compativeis no momento, mas estamos procurando formas de contornar isso.\nUse Sistema > Verificar dependencias se o patch aplica mas nao muda nada.\nNao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.",
-        "Project by RafJaeger.\n\nPSUF V2.5.28 for CFW 4.90+ and PS3HEN.\nNot every console is compatible right now, but we are looking for ways around that.\nUse System > Check dependencies if the patch installs but nothing changes.\nDoes not touch dev_flash, dev_blind, LV1, LV2 or boot plugins.");
+        "Projeto de RafJaeger.\n\nPSUF V2.5.29 para CFW 4.90+ e PS3HEN.\nNem todos os consoles sao compativeis no momento, mas estamos procurando formas de contornar isso.\nUse Sistema > Verificar dependencias se o patch aplica mas nao muda nada.\nNao mexe em dev_flash, dev_blind, LV1, LV2 ou boot plugins.",
+        "Project by RafJaeger.\n\nPSUF V2.5.29 for CFW 4.90+ and PS3HEN.\nNot every console is compatible right now, but we are looking for ways around that.\nUse System > Check dependencies if the patch installs but nothing changes.\nDoes not touch dev_flash, dev_blind, LV1, LV2 or boot plugins.");
     app_notice(lang, i18n_text(lang, TXT_MENU_ABOUT), body, UI_COLOR_ACCENT);
 }
 
