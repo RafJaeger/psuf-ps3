@@ -15,7 +15,7 @@
 #include <sys/types.h>
 
 #define FPSU_DEFAULT_UPDATE_BASE_URL "http://cdn.githubraw.com/RafJaeger/psuf-ps3/main/release/USRDIR/"
-#define FPSU_UPDATE_CACHE_QUERY "?psuf=20260930"
+#define FPSU_UPDATE_CACHE_QUERY "?psuf=20260930b"
 
 typedef enum {
     DB_KIND_PIPE = 0,
