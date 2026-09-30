@@ -148,6 +148,7 @@ static int send_webman_download(const char *url, const char *target)
     struct sockaddr_in server;
     char request[1500];
     char response[512];
+    int total_read = 0;
 
     if (!url || !target || strlen(url) > 1024 || strlen(target) > 256) {
         return -1;
@@ -175,7 +176,7 @@ static int send_webman_download(const char *url, const char *target)
     }
 
     snprintf(request, sizeof(request),
-        "GET /xmb.ps3/download.ps3?to=%s&url=%s HTTP/1.0\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n",
+        "GET /download.ps3?to=%s&url=%s HTTP/1.0\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n",
         target, url);
     ret = (int)write(sock, request, strlen(request));
     if (ret <= 0) {
@@ -183,7 +184,12 @@ static int send_webman_download(const char *url, const char *target)
         netDeinitialize();
         return -1;
     }
-    (void)read(sock, response, sizeof(response));
+    do {
+        ret = (int)read(sock, response, sizeof(response));
+        if (ret > 0) {
+            total_read += ret;
+        }
+    } while (ret > 0 && total_read < 4096);
     shutdown(sock, SHUT_RDWR);
     close(sock);
     netDeinitialize();
@@ -318,6 +324,7 @@ int repo_update_databases(char *message, size_t message_size)
             }
             return -1;
         }
+        sleep(2);
     }
 
     for (i = 0; i < sizeof(items) / sizeof(items[0]); ++i) {
