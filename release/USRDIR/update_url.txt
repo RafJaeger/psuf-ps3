@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/RafJaeger/psuf-ps3/main/release/USRDIR/
+http://cdn.githubraw.com/RafJaeger/psuf-ps3/main/release/USRDIR/

@@ -6,6 +6,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netdb.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -13,7 +14,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#define FPSU_DEFAULT_UPDATE_BASE_URL "https://raw.githubusercontent.com/RafJaeger/psuf-ps3/main/release/USRDIR/"
+#define FPSU_DEFAULT_UPDATE_BASE_URL "http://cdn.githubraw.com/RafJaeger/psuf-ps3/main/release/USRDIR/"
+#define FPSU_UPDATE_CACHE_QUERY "?psuf=20260930"
 
 typedef enum {
     DB_KIND_PIPE = 0,
@@ -59,12 +61,11 @@ static int ends_with_ci(const char *text, const char *suffix)
     return 1;
 }
 
-static int url_is_safe_for_webman_query(const char *url)
+static int url_is_safe_for_update(const char *url)
 {
     const char *p;
 
-    if (!url || (strncmp(url, "http://", 7) != 0 && strncmp(url, "https://", 8) != 0) ||
-        strstr(url, "REPLACE_ME") != NULL) {
+    if (!url || strncmp(url, "http://", 7) != 0 || strstr(url, "REPLACE_ME") != NULL) {
         return 0;
     }
     for (p = url; *p; ++p) {
@@ -101,7 +102,7 @@ static int read_update_base_url(char *url, size_t url_size)
     while (len > 0 && (url[len - 1] == '\r' || url[len - 1] == '\n' || url[len - 1] == ' ')) {
         url[--len] = '\0';
     }
-    if (!url_is_safe_for_webman_query(url)) {
+    if (!url_is_safe_for_update(url)) {
         snprintf(url, url_size, "%s", FPSU_DEFAULT_UPDATE_BASE_URL);
         len = strlen(url);
     }
@@ -127,30 +128,121 @@ static int build_file_url(char *out, size_t out_size, const char *base_url, cons
 {
     size_t base_len;
     size_t name_len;
+    size_t query_len;
 
     if (!out || out_size == 0 || !base_url || !name) {
         return -1;
     }
     base_len = strlen(base_url);
     name_len = strlen(name);
-    if (base_len + name_len >= out_size) {
+    query_len = strlen(FPSU_UPDATE_CACHE_QUERY);
+    if (base_len + name_len + query_len >= out_size) {
         return -1;
     }
     memcpy(out, base_url, base_len);
-    memcpy(out + base_len, name, name_len + 1);
-    return url_is_safe_for_webman_query(out) ? 0 : -1;
+    memcpy(out + base_len, name, name_len);
+    memcpy(out + base_len + name_len, FPSU_UPDATE_CACHE_QUERY, query_len + 1);
+    return url_is_safe_for_update(out) ? 0 : -1;
 }
 
-static int send_webman_download(const char *url, const char *target)
+static const char *find_header_end(const char *buffer, int len)
+{
+    int i;
+
+    for (i = 3; i < len; ++i) {
+        if (buffer[i - 3] == '\r' && buffer[i - 2] == '\n' &&
+            buffer[i - 1] == '\r' && buffer[i] == '\n') {
+            return buffer + i + 1;
+        }
+    }
+    return NULL;
+}
+
+static int parse_http_url(const char *url, char *host, size_t host_size, char *path, size_t path_size, int *port)
+{
+    const char *p;
+    const char *slash;
+    const char *colon;
+    size_t host_len;
+
+    if (!url || !host || !path || !port || strncmp(url, "http://", 7) != 0) {
+        return -1;
+    }
+    p = url + 7;
+    slash = strchr(p, '/');
+    if (!slash || slash == p) {
+        return -1;
+    }
+    colon = memchr(p, ':', (size_t)(slash - p));
+    *port = 80;
+    if (colon) {
+        host_len = (size_t)(colon - p);
+        *port = atoi(colon + 1);
+        if (*port <= 0 || *port > 65535) {
+            return -1;
+        }
+    } else {
+        host_len = (size_t)(slash - p);
+    }
+    if (host_len == 0 || host_len >= host_size || strlen(slash) >= path_size) {
+        return -1;
+    }
+    memcpy(host, p, host_len);
+    host[host_len] = '\0';
+    snprintf(path, path_size, "%s", slash);
+    return 0;
+}
+
+static int resolve_host_ipv4(const char *host, struct in_addr *addr)
+{
+    struct hostent *he;
+
+    if (!host || !addr) {
+        return -1;
+    }
+    if (inet_pton(AF_INET, host, addr) == 1) {
+        return 0;
+    }
+    he = gethostbyname(host);
+    if (!he || !he->h_addr_list || !he->h_addr_list[0]) {
+        return -1;
+    }
+    memcpy(addr, he->h_addr_list[0], sizeof(struct in_addr));
+    return 0;
+}
+
+static int write_all(int sock, const char *data, int len)
+{
+    int sent = 0;
+
+    while (sent < len) {
+        int ret = (int)write(sock, data + sent, (size_t)(len - sent));
+        if (ret <= 0) {
+            return -1;
+        }
+        sent += ret;
+    }
+    return 0;
+}
+
+static int download_http_file(const char *url, const char *target)
 {
     int sock;
     int ret;
+    int port;
+    int status_ok = 0;
+    int body_bytes = 0;
+    int header_len = 0;
+    int header_done = 0;
     struct sockaddr_in server;
+    char host[256];
+    char path[768];
     char request[1500];
-    char response[512];
-    int total_read = 0;
+    char buffer[2048];
+    char header[4096];
+    FILE *out = NULL;
 
-    if (!url || !target || strlen(url) > 1024 || strlen(target) > 256) {
+    if (!url || !target || parse_http_url(url, host, sizeof(host), path, sizeof(path), &port) != 0) {
         return -1;
     }
     if (netInitialize() != 0) {
@@ -167,8 +259,12 @@ static int send_webman_download(const char *url, const char *target)
     server.sin_len = sizeof(server);
 #endif
     server.sin_family = AF_INET;
-    server.sin_port = htons(80);
-    inet_pton(AF_INET, "127.0.0.1", &server.sin_addr);
+    server.sin_port = htons((uint16_t)port);
+    if (resolve_host_ipv4(host, &server.sin_addr) != 0) {
+        close(sock);
+        netDeinitialize();
+        return -1;
+    }
     if (connect(sock, (struct sockaddr *)&server, sizeof(server)) != 0) {
         close(sock);
         netDeinitialize();
@@ -176,48 +272,65 @@ static int send_webman_download(const char *url, const char *target)
     }
 
     snprintf(request, sizeof(request),
-        "GET /download.ps3?to=%s&url=%s HTTP/1.0\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n",
-        target, url);
-    ret = (int)write(sock, request, strlen(request));
-    if (ret <= 0) {
+        "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: PSUF\r\nConnection: close\r\n\r\n",
+        path, host);
+    if (write_all(sock, request, (int)strlen(request)) != 0) {
         close(sock);
         netDeinitialize();
         return -1;
     }
-    do {
-        ret = (int)read(sock, response, sizeof(response));
-        if (ret > 0) {
-            total_read += ret;
+
+    out = fopen(target, "wb");
+    if (!out) {
+        shutdown(sock, SHUT_RDWR);
+        close(sock);
+        netDeinitialize();
+        return -1;
+    }
+
+    while ((ret = (int)read(sock, buffer, sizeof(buffer))) > 0) {
+        if (!header_done) {
+            const char *body;
+            int copy = ret;
+            if (header_len + copy >= (int)sizeof(header)) {
+                fclose(out);
+                shutdown(sock, SHUT_RDWR);
+                close(sock);
+                netDeinitialize();
+                remove(target);
+                return -1;
+            }
+            memcpy(header + header_len, buffer, (size_t)copy);
+            header_len += copy;
+            body = find_header_end(header, header_len);
+            if (!body) {
+                continue;
+            }
+            header_done = 1;
+            header[header_len < (int)sizeof(header) ? header_len : (int)sizeof(header) - 1] = '\0';
+            status_ok = (strncmp(header, "HTTP/1.0 200", 12) == 0 || strncmp(header, "HTTP/1.1 200", 12) == 0);
+            if (!status_ok) {
+                break;
+            }
+            copy = header_len - (int)(body - header);
+            if (copy > 0) {
+                fwrite(body, 1, (size_t)copy, out);
+                body_bytes += copy;
+            }
+        } else {
+            fwrite(buffer, 1, (size_t)ret, out);
+            body_bytes += ret;
         }
-    } while (ret > 0 && total_read < 4096);
+    }
+    fclose(out);
     shutdown(sock, SHUT_RDWR);
     close(sock);
     netDeinitialize();
-    return 0;
-}
-
-static int wait_for_download(const char *path)
-{
-    struct stat st;
-    off_t previous_size = -1;
-    int stable = 0;
-    int i;
-
-    for (i = 0; i < 40; ++i) {
-        sleep(1);
-        if (stat(path, &st) == 0 && st.st_size > 32) {
-            if (st.st_size == previous_size) {
-                ++stable;
-            } else {
-                stable = 0;
-                previous_size = st.st_size;
-            }
-            if (stable >= 2) {
-                return 0;
-            }
-        }
+    if (!header_done || !status_ok || body_bytes <= 32) {
+        remove(target);
+        return -1;
     }
-    return -1;
+    return 0;
 }
 
 static int validate_native60_file(const char *path)
@@ -315,8 +428,7 @@ int repo_update_databases(char *message, size_t message_size)
     for (i = 0; i < sizeof(items) / sizeof(items[0]); ++i) {
         remove(items[i].tmp_path);
         if (build_file_url(file_url, sizeof(file_url), base_url, items[i].name) != 0 ||
-            send_webman_download(file_url, items[i].tmp_path) != 0 ||
-            wait_for_download(items[i].tmp_path) != 0 ||
+            download_http_file(file_url, items[i].tmp_path) != 0 ||
             !validate_db_file(&items[i])) {
             remove(items[i].tmp_path);
             if (message && message_size) {
