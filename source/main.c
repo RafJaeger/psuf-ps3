@@ -3287,47 +3287,12 @@ static void update_patch_database(fpsu_lang lang)
 
 static void update_patch_database_online(fpsu_lang lang)
 {
-    char message[192];
-    int game_count;
-    int ret;
-
-    draw_busy_notice(lang,
-        tr(lang, "Atualizando online", "Updating online"),
-        tr(lang, "Baixando banco do GitHub e validando antes de trocar.", "Downloading the GitHub database and validating it first."));
-
-    ret = repo_update_databases(message, sizeof(message));
-    if (ret != 0) {
-        app_notice(lang,
-            tr(lang, "Atualizacao online falhou", "Online update failed"),
-            message[0] ? message : tr(lang,
-                "Nao baixou ou validou o banco online. O banco antigo foi mantido.",
-                "The online database was not downloaded or validated. The old database was kept."),
-            UI_COLOR_RED);
-        return;
-    }
-
-    game_count = cache_read_results(g_results, FPSU_MAX_GAMES);
-    game_count = dedupe_results(g_results, game_count);
-    if (game_count > 0) {
-        draw_busy_notice(lang,
-            tr(lang, "Atualizando biblioteca", "Updating library"),
-            tr(lang, "Recarregando bancos novos sem apagar o scan salvo.", "Reloading the new databases without deleting the saved scan."));
-        rebuild_cached_results(lang, game_count);
-        cache_write_results(g_results, game_count);
-        app_notice(lang,
-            tr(lang, "Banco online atualizado", "Online database updated"),
-            tr(lang,
-                "Banco online atualizado. Abra Jogos scaneados para conferir.",
-                "Online database updated. Open Scanned games to review it."),
-            UI_COLOR_GREEN);
-    } else {
-        app_notice(lang,
-            tr(lang, "Banco online atualizado", "Online database updated"),
-            tr(lang,
-                "Banco online atualizado. Agora escaneie jogos ou abra Jogos scaneados.",
-                "Online database updated. Now scan games or open Scanned games."),
-            UI_COLOR_GREEN);
-    }
+    app_notice(lang,
+        tr(lang, "Atualizar online", "Update online"),
+        tr(lang,
+            "No PS3 esta opcao pode travar o console em alguns webMAN/HEN/CFW.\n\nUse o app de PC ou Android para atualizar online e depois envie o banco para o PS3. No console, use Atualizar com PC.",
+            "On PS3 this option can freeze the console on some webMAN/HEN/CFW setups.\n\nUse the PC or Android app to update online and then send the database to the PS3. On the console, use Update with PC."),
+        UI_COLOR_ACCENT_2);
 }
 
 int main(int argc, char **argv)
