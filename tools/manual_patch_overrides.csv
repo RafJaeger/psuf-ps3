@@ -47,9 +47,9 @@ BLUS30011|01.00|60|untested|ncl|60 FPS (PSX-Place test)|PSX-Place community|0 00
 BLUS30071|01.00|60|untested|ncl|60 FPS (PSX-Place test)|PSX-Place community|0 00606138 60|Tony Hawk's Proving Ground BLUS30071. Fonte informa alterar 41 para 60.|120
 BLUS30087|01.00|60|untested|ncl|60 FPS (PSX-Place test)|PSX-Place community|0 00AAED04 60|Oblivion GOTY BLUS30087 01.00. Fonte informa alterar 40 para 60.|120
 BLUS31319|01.00|60|untested|ncl|60 FPS (PSX-Place test)|PSX-Place community|0 00589496 0001;0 005894BA 0001;0 00589802 0001;0 0058982A 0001|Hatsune Miku Project Diva F BLUS31319. Todos os enderecos sao necessarios. Fonte informa que pode quebrar videos, mas o jogo continua jogavel.|120
-BCES00065|01.10|30|known|ncl|30 FPS|PSUF community|0 00BB4352 0002|Uncharted Drake's Fortune. Rota mantida para a opcao 30 FPS.
-BCUS98103|01.10|30|known|ncl|30 FPS|PSUF community|0 00BB4352 0002|Uncharted Drake's Fortune. Rota mantida para a opcao 30 FPS.
-BCUS98213|01.09|30|known|ncl|30 FPS|PSUF community|0 00E9C1FB 02|Uncharted 2 Among Thieves. Rota mantida para a opcao 30 FPS.
+BCES00065|01.10|30|known|ncl|30 FPS|RafJaeger|0 00BB4352 0002|Uncharted Drake's Fortune. Rota mantida para a opcao 30 FPS.
+BCUS98103|01.10|30|known|ncl|30 FPS|RafJaeger|0 00BB4352 0002|Uncharted Drake's Fortune. Rota mantida para a opcao 30 FPS.
+BCUS98213|01.09|30|known|ncl|30 FPS|RafJaeger|0 00E9C1FB 02|Uncharted 2 Among Thieves. Rota mantida para a opcao 30 FPS.
 BLUS30847|01.00|30|untested|ncl|30 FPS (MGS3 HD)|TriggerHappy / community patch|0 00BB85A4 3860000A|Metal Gear Solid 3 Snake Eater HD Edition. Ainda nao confirmado em PS3 real pelo PSUF.
 NPEB00684|01.00|30|untested|ncl|30 FPS (MGS3 HD)|TriggerHappy / community patch|0 00BCCE9C 3860000A|Metal Gear Solid 3 Snake Eater HD Edition. Ainda nao confirmado em PS3 real pelo PSUF.
 BLES00887|01.02|unlock|untested|ncl|Unlock FPS / +60 (PSXPlace test)|PSXPlace / Zolika1351 / illusion|0 00F18840 00000000|GTA IV Episodes From Liberty City. Rota comunitaria para teste; nao substitui as rotas de GTA IV ja confirmadas no PSUF. Source: RPCS3toArtemis MAPI / PSXPlace.|120
@@ -68,3 +68,4 @@ BCUS98123|01.09|60|untested|ncl|60 FPS (PSXPlace test)|PSXPlace / RPCS3toArtemis
 BCUS98123|01.09|unlock|untested|ncl|Unlock FPS / +60 (PSXPlace test)|PSXPlace / RPCS3toArtemis|0 00E9C1FB 00|Uncharted 2 US v01.09. Codigo direto de memoria; adicionado porque o Title ID US correto tambem aparece nas fontes publicas.|120
 BCUS98123|01.09|30|untested|ncl|30 FPS (PSXPlace test)|PSXPlace / RPCS3toArtemis|0 00E9C1FB 02|Uncharted 2 US v01.09. Codigo direto de memoria para voltar/travar em 30 FPS; alternativa de teste.|120
 BLES00949|01.02|60|known|ncl|60 FPS (testado por MNZ)|MNZ / PSUF community|0 3A3168E8 01|Need for Speed Hot Pursuit BLES00949 01.02. Testado e funcionando em PS3 real. Patch runtime de 1 byte que altera o flag interno CHANGEVSYNCS de 0 para 1, mudando de 2 VSyncs para 1 VSync. Observado de 30 FPS para 60 FPS em gameplay. Original esperado: 3A3168E8=00.|120
+BLJS10318|01.05|60|known|ncl|60 FPS (testado por RafJaeger)|RafJaeger|0 0142E790 3BA90002|JoJo's Bizarre Adventure Eyes of Heaven BLJS10318 01.05. Testado e funcionando em PS3 real por RafJaeger. FPS Unlock / 60 FPS. Original esperado: 0142E790=3BA90001.|120
