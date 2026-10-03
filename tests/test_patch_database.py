@@ -125,6 +125,18 @@ class PatchDatabaseTests(unittest.TestCase):
                 self.assertNotIn(key, seen, f"{file_name}:{line_no} duplicates line {seen.get(key)}")
                 seen[key] = line_no
 
+    def test_rpcs3_rows_are_hidden_when_same_version_is_tested(self):
+        fps_rows = [(line_no, row) for line_no, row in read_rows("patches.csv")]
+        tested_versions = {
+            (row[0], row[1])
+            for _line_no, row in fps_rows
+            if len(row) >= 7 and row[3] == "known" and "rpcs3" not in row[6].lower()
+        }
+
+        for line_no, row in fps_rows:
+            if len(row) >= 7 and "rpcs3" in row[6].lower():
+                self.assertNotIn((row[0], row[1]), tested_versions, line_no)
+
     def test_database_package_contains_only_expected_files(self):
         import importlib.util
 

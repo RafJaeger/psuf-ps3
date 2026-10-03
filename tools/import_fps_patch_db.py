@@ -277,6 +277,25 @@ def block_uncertain_duplicate_60s(rows):
     return rows
 
 
+def is_rpcs3_row(row):
+    if len(row) < 7:
+        return False
+    return "rpcs3" in row[6].lower()
+
+
+def drop_rpcs3_rows_when_same_version_is_tested(rows):
+    tested_versions = {
+        (row[0], row[1])
+        for row in rows
+        if len(row) >= 7 and row[3] == "known" and not is_rpcs3_row(row)
+    }
+    return [
+        row
+        for row in rows
+        if not (is_rpcs3_row(row) and (row[0], row[1]) in tested_versions)
+    ]
+
+
 def dedupe_final_rows(rows):
     deduped = []
     seen = set()
@@ -297,7 +316,9 @@ def main():
     ]
     selected_rows = [row for row in base_rows + rows if keep_current_row(row)]
     final_rows = dedupe_final_rows(
-        block_uncertain_duplicate_60s(block_uncertain_duplicate_unlocks(selected_rows))
+        drop_rpcs3_rows_when_same_version_is_tested(
+            block_uncertain_duplicate_60s(block_uncertain_duplicate_unlocks(selected_rows))
+        )
     )
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="\n") as f:
