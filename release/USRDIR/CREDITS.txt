@@ -40,7 +40,7 @@ FPS source summary from current patches.csv:
 - RPCS3toArtemis Working: 28 entries
 - PS3 real lab: 26 entries
 - Nascar1243 / PS3-FPS-Patches: 25 entries
-- RafJaeger: 19 entries
+- RafJaeger: 20 entries
 - PSX-Place community: 15 entries
 - PSX-Place / NunoRS2000: 8 entries
 - PSXPlace / Joey85 / Nascar1243: 5 entries
@@ -55,7 +55,7 @@ FPS source summary from current patches.csv:
 
 FPS status summary from current patches.csv:
 - untested: 458 entries
-- known: 194 entries
+- known: 195 entries
 - unavailable: 96 entries
 - pc: 4 entries
 - update_required: 4 entries
@@ -878,13 +878,14 @@ Source: RafJaeger
 751. BLUS30758 | 01.03 | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
 752. BLUS30557 | 01.10 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
 753. NPUB30991 | 01.00 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
+754. BLJM60020 | * | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
 
 Source: TriggerHappy / community patch
-754. BLUS30847 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
-755. NPEB00684 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
+755. BLUS30847 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
+756. NPEB00684 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
 
 Source: mnz / PSUF community
-756. BLES01807 | 01.27 | 60 | known/ncl | 60 FPS (testado por mnz) | mnz / PSUF community
+757. BLES01807 | 01.27 | 60 | known/ncl | 60 FPS (testado por mnz) | mnz / PSUF community
 
 Graphics/extra source index
 Format: Title ID | version | game | status/method | label | source
