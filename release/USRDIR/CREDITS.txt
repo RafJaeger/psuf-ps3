@@ -35,21 +35,21 @@ Important credit note:
 
 FPS source summary from current patches.csv:
 - RPCS3 converted USERLIST: 415 entries
-- PSXPlace Confirmed: 128 entries
+- PSXPlace / Joey / confirmed: 128 entries
 - ArtemisPS3 docs/codes: 70 entries
 - RPCS3toArtemis Working: 28 entries
 - PS3 real lab: 26 entries
 - Nascar1243 / PS3-FPS-Patches: 25 entries
 - RafJaeger: 21 entries
-- PSX-Place community: 15 entries
-- PSX-Place / NunoRS2000: 8 entries
+- PSX-Place / Joey / community: 15 entries
+- PSX-Place / Joey / NunoRS2000: 8 entries
 - PSXPlace / Joey85 / Nascar1243: 5 entries
-- PSXPlace / RPCS3toArtemis: 3 entries
+- PSXPlace / Joey / RPCS3toArtemis: 3 entries
 - RPCS3toArtemis MAPI: 3 entries
 - Manual research: 2 entries
 - MNZ / PSUF community: 2 entries
+- PSXPlace / Joey / Zolika1351 / illusion: 2 entries
 - PSXPlace / Joey85: 2 entries
-- PSXPlace / Zolika1351 / illusion: 2 entries
 - TriggerHappy / community patch: 2 entries
 - mnz / PSUF community: 1 entries
 
@@ -229,182 +229,182 @@ Source: PS3 real lab
 124. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
 125. BLES01128 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
 
-Source: PSX-Place / NunoRS2000
-126. BCAS20270 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / NunoRS2000
-127. BCES01584 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / NunoRS2000
-128. BCES01585 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / NunoRS2000
-129. BCUS98174 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / NunoRS2000
-130. BCAS20270 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / NunoRS2000
-131. BCES01584 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / NunoRS2000
-132. BCES01585 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / NunoRS2000
-133. BCUS98174 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / NunoRS2000
+Source: PSX-Place / Joey / NunoRS2000
+126. BCAS20270 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+127. BCES01584 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+128. BCES01585 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+129. BCUS98174 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+130. BCAS20270 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+131. BCES01584 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+132. BCES01585 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+133. BCUS98174 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
 
-Source: PSX-Place community
-134. BLUS03702 | 01.08 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place community
-135. BLUS30253 | 01.02 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place community
-136. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-137. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-138. BLUS30029 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place community
-139. BLUS30464 | 01.05 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-140. BLUS30565 | 01.01 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-141. BLUS30710 | 01.02 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-142. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-143. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-144. BLUS30117 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place community
-145. BLUS30011 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-146. BLUS30071 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-147. BLUS30087 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
-148. BLUS31319 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place community
+Source: PSX-Place / Joey / community
+134. BLUS03702 | 01.08 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / community
+135. BLUS30253 | 01.02 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+136. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+137. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+138. BLUS30029 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+139. BLUS30464 | 01.05 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+140. BLUS30565 | 01.01 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+141. BLUS30710 | 01.02 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+142. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+143. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+144. BLUS30117 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+145. BLUS30011 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+146. BLUS30071 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+147. BLUS30087 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+148. BLUS31319 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+
+Source: PSXPlace / Joey / RPCS3toArtemis
+149. BCUS98123 | 01.09 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+150. BCUS98123 | 01.09 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+151. BCUS98123 | 01.09 | 30 | untested/ncl | 30 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+
+Source: PSXPlace / Joey / Zolika1351 / illusion
+152. BLES00887 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
+153. BLUS30682 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
+
+Source: PSXPlace / Joey / confirmed
+154. BLUS30607 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+155. BLES01697 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+156. NPEB01088 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+157. BLES01455 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+158. BLUS30862 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+159. BLUS30341 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+160. BLUS30721 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+161. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+162. BLES01684 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+163. BLES00562 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+164. BLES01134 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+165. NPEB00293 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+166. BLUS30115 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+167. BLES01040 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+168. BLES01733 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+169. BLUS31053 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+170. BLES00308 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+171. BLES01789 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+172. BLUS31146 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+173. BLES00467 | * | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+174. BLUS31317 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+175. NPUB31099 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+176. BLES00231 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
+177. BLUS30117 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
+178. BLUS30720 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+179. BLUS31155 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+180. BLES01147 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+181. BLES00989 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+182. BLUS30451 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+183. BLUS30888 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+184. BLUS30178 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+185. BLES01137 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+186. NPEB01322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+187. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+188. NPEB00989 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+189. BLUS30294 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+190. MRTC00003 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+191. BCES00050 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+192. BLES01128 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+193. BLES00070 | 01.01 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+194. BLES00157 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+195. BLES00169 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+196. BLUS30094 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+197. BLES00962 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+198. NPUB30383 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+199. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
+200. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS + 59fps Cap [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
+201. BLUS30374 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+202. NPUB30606 | 01.02 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+203. NPUB30606 | 01.02 | unlock | unavailable/none | Use 60 FPS alvo | PSXPlace / Joey / confirmed
+204. BCAS20292 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+205. BCES00081 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+206. BCUS98116 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+207. BLES01525 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+208. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+209. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) | PSXPlace / Joey / confirmed
+210. BLES02197 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+211. BLJM61166 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+212. BLUS31554 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+213. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+214. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS v01.00 (RPCS3) | PSXPlace / Joey / confirmed
+215. BLUS31020 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+216. BLES00246 | 02.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+217. MRTC00014 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+218. BLES00322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+219. BCES00006 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+220. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+221. BLUS30580 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+222. BLUS30391 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+223. BLUS30754 | 01.00 | unlock | known/ncl | The Two Thrones Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+224. BLUS30754 | 01.00 | unlock | known/ncl | Warrior Within Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+225. BLES01532 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
+226. BLUS30756 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
+227. BCAS20200 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+228. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+229. BCJS30081 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+230. BCUS98175 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+231. NPEA00356 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+232. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+233. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS v01.01 (RPCS3) | PSXPlace / Joey / confirmed
+234. BCES01908 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+235. BLES01701 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+236. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+237. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+238. BLUS30855 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+239. NPEB02076 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+240. NPJB00653 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+241. NPUB31552 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+242. BLUS31444 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+243. BLES01773 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+244. NPEB00816 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+245. NPUB30648 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+246. NPEB00817 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+247. NPUB30650 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+248. BCES00226 | 01.60 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+249. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+250. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+251. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+252. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+253. BLES01050 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+254. BLES00676 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+255. NPUB31165 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+256. BLES01276 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+257. BLUS30565 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+258. BLES00460 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+259. BCES00294 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+260. BLUS31202 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+261. BLUS30927 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+262. BLES00144 | 01.20 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+263. BLUS31006 | * | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+264. BLUS30780 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+265. BLES01916 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+266. BLES00477 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+267. BCES01585 | 01.11 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+268. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+269. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+270. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+271. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+272. BLES01766 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+273. BLES01879 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+274. BLUS31025 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+275. BLUS31036 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+276. BLES00833 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+277. BLUS30357 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+278. BCES00065 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+279. BLES01347 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+280. BLUS31176 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+281. BLES00707 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
 
 Source: PSXPlace / Joey85
-149. BLUS30855 | 01.06 | unlock | untested/ncl | Unlock FPS v01.06 (PSXPlace test) | PSXPlace / Joey85
-150. BLUS31444 | 01.04 | unlock | untested/ncl | Unlock FPS v01.04 (PSXPlace test) | PSXPlace / Joey85
+282. BLUS30855 | 01.06 | unlock | untested/ncl | Unlock FPS v01.06 (PSXPlace test) | PSXPlace / Joey85
+283. BLUS31444 | 01.04 | unlock | untested/ncl | Unlock FPS v01.04 (PSXPlace test) | PSXPlace / Joey85
 
 Source: PSXPlace / Joey85 / Nascar1243
-151. BLUS30179 | 01.01 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-152. BLUS30717 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-153. BLUS30330 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-154. BCUS98120 | 01.60 | 60 | untested/ncl | 60 FPS v01.60 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-155. BLUS30094 | 01.36 | unlock | untested/ncl | Unlock FPS v01.36 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-
-Source: PSXPlace / RPCS3toArtemis
-156. BCUS98123 | 01.09 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / RPCS3toArtemis
-157. BCUS98123 | 01.09 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / RPCS3toArtemis
-158. BCUS98123 | 01.09 | 30 | untested/ncl | 30 FPS (PSXPlace test) | PSXPlace / RPCS3toArtemis
-
-Source: PSXPlace / Zolika1351 / illusion
-159. BLES00887 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Zolika1351 / illusion
-160. BLUS30682 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Zolika1351 / illusion
-
-Source: PSXPlace Confirmed
-161. BLUS30607 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-162. BLES01697 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-163. NPEB01088 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-164. BLES01455 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-165. BLUS30862 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-166. BLUS30341 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-167. BLUS30721 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-168. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-169. BLES01684 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-170. BLES00562 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-171. BLES01134 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-172. NPEB00293 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace Confirmed
-173. BLUS30115 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-174. BLES01040 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-175. BLES01733 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-176. BLUS31053 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-177. BLES00308 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-178. BLES01789 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-179. BLUS31146 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-180. BLES00467 | * | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-181. BLUS31317 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-182. NPUB31099 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-183. BLES00231 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace Confirmed
-184. BLUS30117 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace Confirmed
-185. BLUS30720 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-186. BLUS31155 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-187. BLES01147 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-188. BLES00989 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-189. BLUS30451 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-190. BLUS30888 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-191. BLUS30178 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-192. BLES01137 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-193. NPEB01322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-194. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-195. NPEB00989 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-196. BLUS30294 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-197. MRTC00003 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-198. BCES00050 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-199. BLES01128 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-200. BLES00070 | 01.01 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace Confirmed
-201. BLES00157 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-202. BLES00169 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-203. BLUS30094 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-204. BLES00962 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-205. NPUB30383 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-206. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS [Tested] (PSXPlace) | PSXPlace Confirmed
-207. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS + 59fps Cap [Tested] (PSXPlace) | PSXPlace Confirmed
-208. BLUS30374 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-209. NPUB30606 | 01.02 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace Confirmed
-210. NPUB30606 | 01.02 | unlock | unavailable/none | Use 60 FPS alvo | PSXPlace Confirmed
-211. BCAS20292 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-212. BCES00081 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-213. BCUS98116 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-214. BLES01525 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-215. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-216. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) | PSXPlace Confirmed
-217. BLES02197 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-218. BLJM61166 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-219. BLUS31554 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-220. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-221. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS v01.00 (RPCS3) | PSXPlace Confirmed
-222. BLUS31020 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-223. BLES00246 | 02.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-224. MRTC00014 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-225. BLES00322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-226. BCES00006 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-227. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-228. BLUS30580 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-229. BLUS30391 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-230. BLUS30754 | 01.00 | unlock | known/ncl | The Two Thrones Unlock FPS (PSXPlace) | PSXPlace Confirmed
-231. BLUS30754 | 01.00 | unlock | known/ncl | Warrior Within Unlock FPS (PSXPlace) | PSXPlace Confirmed
-232. BLES01532 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace Confirmed
-233. BLUS30756 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace Confirmed
-234. BCAS20200 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-235. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-236. BCJS30081 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-237. BCUS98175 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-238. NPEA00356 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-239. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-240. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS v01.01 (RPCS3) | PSXPlace Confirmed
-241. BCES01908 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-242. BLES01701 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-243. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-244. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-245. BLUS30855 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-246. NPEB02076 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-247. NPJB00653 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-248. NPUB31552 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-249. BLUS31444 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-250. BLES01773 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-251. NPEB00816 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-252. NPUB30648 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-253. NPEB00817 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-254. NPUB30650 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-255. BCES00226 | 01.60 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-256. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-257. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-258. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-259. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-260. BLES01050 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-261. BLES00676 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-262. NPUB31165 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-263. BLES01276 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-264. BLUS30565 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-265. BLES00460 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-266. BCES00294 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-267. BLUS31202 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-268. BLUS30927 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-269. BLES00144 | 01.20 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-270. BLUS31006 | * | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-271. BLUS30780 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-272. BLES01916 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-273. BLES00477 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-274. BCES01585 | 01.11 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-275. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-276. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace Confirmed
-277. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-278. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace Confirmed
-279. BLES01766 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-280. BLES01879 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-281. BLUS31025 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-282. BLUS31036 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-283. BLES00833 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-284. BLUS30357 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-285. BCES00065 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-286. BLES01347 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-287. BLUS31176 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
-288. BLES00707 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace Confirmed
+284. BLUS30179 | 01.01 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+285. BLUS30717 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+286. BLUS30330 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+287. BCUS98120 | 01.60 | 60 | untested/ncl | 60 FPS v01.60 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+288. BLUS30094 | 01.36 | unlock | untested/ncl | Unlock FPS v01.36 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
 
 Source: RPCS3 converted USERLIST
 289. BLES00875 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
