@@ -863,7 +863,7 @@ Source: RafJaeger
 736. BCES00065 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
 737. BCUS98103 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
 738. BCUS98213 | 01.09 | 30 | known/ncl | 30 FPS | RafJaeger
-739. BLJS10318 | 01.05 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+739. BLJS10318 | 01.05 | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
 740. BLUS30612 | 01.00 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
 741. BLUS31518 | 01.02 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
 742. BLUS30538 | 01.04 | unlock | known/ncl | Unlock FPS / 60 FPS (testado por RafJaeger) | RafJaeger
