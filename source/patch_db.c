@@ -371,7 +371,6 @@ int patch_db_validate_file(const char *path)
     FILE *f;
     char line[FPSU_MAX_PAYLOAD + 512];
     int valid = 0;
-    int rows = 0;
 
     if (!path) {
         return 0;
@@ -380,9 +379,13 @@ int patch_db_validate_file(const char *path)
     if (!f) {
         return 0;
     }
-    while (rows < 4 && fgets(line, sizeof(line), f)) {
+    while (fgets(line, sizeof(line), f)) {
         char *p = line;
         int pipes = 0;
+        if (!strchr(line, '\n') && !feof(f)) {
+            valid = 0;
+            break;
+        }
         while (*p && (*p == ' ' || *p == '\t')) {
             ++p;
         }
@@ -394,59 +397,23 @@ int patch_db_validate_file(const char *path)
                 ++pipes;
             }
         }
-        if (pipes >= 8) {
+        if (pipes == 8 || pipes == 9) {
             valid = 1;
-            ++rows;
         } else {
             valid = 0;
             break;
         }
     }
+    if (ferror(f)) {
+        valid = 0;
+    }
     fclose(f);
     return valid;
 }
 
-static int patch_db_count_rows(const char *path)
-{
-    FILE *f;
-    char line[FPSU_MAX_PAYLOAD + 512];
-    int rows = 0;
-
-    if (!patch_db_validate_file(path)) {
-        return -1;
-    }
-    f = fopen(path, "rb");
-    if (!f) {
-        return -1;
-    }
-    while (fgets(line, sizeof(line), f)) {
-        char *p = line;
-        int pipes = 0;
-        while (*p && (*p == ' ' || *p == '\t')) {
-            ++p;
-        }
-        if (*p == '#' || *p == '\r' || *p == '\n' || *p == '\0') {
-            continue;
-        }
-        while (*p) {
-            if (*p++ == '|') {
-                ++pipes;
-            }
-        }
-        if (pipes >= 8) {
-            ++rows;
-        }
-    }
-    fclose(f);
-    return rows;
-}
-
 static const char *active_pipe_db_path(const char *bundled, const char *updated)
 {
-    int bundled_rows = patch_db_count_rows(bundled);
-    int updated_rows = patch_db_count_rows(updated);
-
-    if (updated_rows > 0 && (bundled_rows <= 0 || updated_rows >= bundled_rows)) {
+    if (patch_db_validate_file(updated)) {
         return updated;
     }
     return bundled;

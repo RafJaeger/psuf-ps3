@@ -13,9 +13,12 @@
 #include <ctype.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <strings.h>
+#include <time.h>
 
 #define FPSU_DEFAULT_UPDATE_BASE_URL "http://cdn.githubraw.com/RafJaeger/psuf-ps3/main/release/USRDIR/"
-#define FPSU_UPDATE_CACHE_QUERY "?psuf=20260930b"
 
 typedef enum {
     DB_KIND_PIPE = 0,
@@ -129,19 +132,26 @@ static int build_file_url(char *out, size_t out_size, const char *base_url, cons
     size_t base_len;
     size_t name_len;
     size_t query_len;
+    char query[48];
+    unsigned long stamp;
+    static unsigned int request_counter = 0;
 
     if (!out || out_size == 0 || !base_url || !name) {
         return -1;
     }
     base_len = strlen(base_url);
     name_len = strlen(name);
-    query_len = strlen(FPSU_UPDATE_CACHE_QUERY);
+
+    stamp = (unsigned long)time(NULL);
+    snprintf(query, sizeof(query), "?psuf=%lu-%u", stamp, request_counter++);
+    query_len = strlen(query);
+
     if (base_len + name_len + query_len >= out_size) {
         return -1;
     }
     memcpy(out, base_url, base_len);
     memcpy(out + base_len, name, name_len);
-    memcpy(out + base_len + name_len, FPSU_UPDATE_CACHE_QUERY, query_len + 1);
+    memcpy(out + base_len + name_len, query, query_len + 1);
     return url_is_safe_for_update(out) ? 0 : -1;
 }
 
@@ -234,7 +244,10 @@ static int download_http_file(const char *url, const char *target)
     int body_bytes = 0;
     int header_len = 0;
     int header_done = 0;
+    int failed = 0;
+    long content_length = -1;
     struct sockaddr_in server;
+    struct timeval timeout;
     char host[256];
     char path[768];
     char request[1500];
@@ -253,6 +266,14 @@ static int download_http_file(const char *url, const char *target)
         netDeinitialize();
         return -1;
     }
+    timeout.tv_sec = 15;
+    timeout.tv_usec = 0;
+#ifdef SO_RCVTIMEO
+    (void)setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+#endif
+#ifdef SO_SNDTIMEO
+    (void)setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout));
+#endif
 
     memset(&server, 0, sizeof(server));
 #ifdef __PSL1GHT__
@@ -272,7 +293,8 @@ static int download_http_file(const char *url, const char *target)
     }
 
     snprintf(request, sizeof(request),
-        "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: PSUF\r\nConnection: close\r\n\r\n",
+        "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: PSUF\r\n"
+        "Cache-Control: no-cache\r\nPragma: no-cache\r\nAccept-Encoding: identity\r\nConnection: close\r\n\r\n",
         path, host);
     if (write_all(sock, request, (int)strlen(request)) != 0) {
         close(sock);
@@ -312,21 +334,57 @@ static int download_http_file(const char *url, const char *target)
             if (!status_ok) {
                 break;
             }
+            {
+                const char *field = strstr(header, "\r\n");
+                while (field && field + 2 < body) {
+                    char *end;
+                    field += 2;
+                    if (strncasecmp(field, "Content-Length:", 15) == 0) {
+                        long length = strtol(field + 15, &end, 10);
+                        if (end == field + 15 || *end != '\r' || length < 0 ||
+                            length > 8 * 1024 * 1024 ||
+                            (content_length >= 0 && content_length != length)) {
+                            failed = 1;
+                            break;
+                        }
+                        content_length = length;
+                    } else if (strncasecmp(field, "Transfer-Encoding:", 18) == 0 ||
+                               strncasecmp(field, "Content-Encoding:", 17) == 0) {
+                        /* HTTP/1.0 requests require an unencoded response body. */
+                        failed = 1;
+                        break;
+                    }
+                    field = strstr(field, "\r\n");
+                }
+            }
+            if (failed) {
+                break;
+            }
             copy = header_len - (int)(body - header);
             if (copy > 0) {
-                fwrite(body, 1, (size_t)copy, out);
+                if (fwrite(body, 1, (size_t)copy, out) != (size_t)copy) {
+                    failed = 1;
+                    break;
+                }
                 body_bytes += copy;
             }
         } else {
-            fwrite(buffer, 1, (size_t)ret, out);
+            if (body_bytes > 8 * 1024 * 1024 - ret ||
+                fwrite(buffer, 1, (size_t)ret, out) != (size_t)ret) {
+                failed = 1;
+                break;
+            }
             body_bytes += ret;
         }
     }
-    fclose(out);
+    if (fclose(out) != 0) {
+        failed = 1;
+    }
     shutdown(sock, SHUT_RDWR);
     close(sock);
     netDeinitialize();
-    if (!header_done || !status_ok || body_bytes <= 32) {
+    if (ret < 0 || failed || !header_done || !status_ok || body_bytes <= 32 ||
+        (content_length >= 0 && content_length != body_bytes)) {
         remove(target);
         return -1;
     }
@@ -430,7 +488,10 @@ int repo_update_databases(char *message, size_t message_size)
         if (build_file_url(file_url, sizeof(file_url), base_url, items[i].name) != 0 ||
             download_http_file(file_url, items[i].tmp_path) != 0 ||
             !validate_db_file(&items[i])) {
-            remove(items[i].tmp_path);
+            unsigned int j;
+            for (j = 0; j < sizeof(items) / sizeof(items[0]); ++j) {
+                remove(items[j].tmp_path);
+            }
             if (message && message_size) {
                 snprintf(message, message_size, "nao baixou banco online: %s", items[i].name);
             }
