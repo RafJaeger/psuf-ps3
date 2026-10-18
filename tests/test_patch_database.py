@@ -176,8 +176,8 @@ class PatchDatabaseTests(unittest.TestCase):
         self.assertTrue(any(row[0] == "BLUS31162" and row[2] == "Battlefield 4" for row in graphics_rows))
 
         gta_v = [row for row in fps_rows if row[0] == "BLES01807"]
-        self.assertEqual(len(gta_v), 1)
-        self.assertEqual(gta_v[0][1:8], [
+        self.assertEqual(len(gta_v), 2)
+        self.assertIn([
             "01.27",
             "60",
             "known",
@@ -185,7 +185,16 @@ class PatchDatabaseTests(unittest.TestCase):
             "60 FPS (testado por mnz)",
             "mnz / PSUF community",
             "0 004A0E34 4800006C;0 01F891B4 00000001",
-        ])
+        ], [row[1:8] for row in gta_v])
+        self.assertIn([
+            "01.27",
+            "unlock",
+            "known",
+            "ncl",
+            "FPS Unlock (Joey85)",
+            "Joey85",
+            "0 00BD3758 38800001",
+        ], [row[1:8] for row in gta_v])
         self.assertFalse(any(row[0] in {"BLJM61019", "BLUS31156"} for row in fps_rows))
 
         self.assertTrue(any(row[0] == "BCUS98174" and row[1] == "01.11" and row[7] == "0 01571A6F 01" for row in fps_rows))
