@@ -68,7 +68,7 @@ def main():
         "- Each graphics/extra entry below keeps the source value from release/USRDIR/graphics_patches.csv.",
         "- Each companion fix/warning entry below keeps the source value from release/USRDIR/fix_patches.csv.",
         "- A source is credit/provenance, not a safety guarantee. Check the status before applying.",
-        "- Entries marked untested, pc, unavailable, update_required, or tied to another game version should be treated with extra care.",
+        "- Entries marked untested, pc, update_required, or tied to another game version should be treated with extra care.",
         "- ArtemisPS3 graphics imports are limited to direct NCL writes that PSUF can apply. AoB/pattern codes and unrelated gameplay cheats are not bundled as graphics patches.",
         "- The ncl_constant method means the original NCL requested constant write mode.",
         "- When adding a new patch, keep the original author, forum thread, tool, or research source whenever possible.",

@@ -320,6 +320,7 @@ def main():
             block_uncertain_duplicate_60s(block_uncertain_duplicate_unlocks(selected_rows))
         )
     )
+    final_rows = [row for row in final_rows if len(row) < 4 or row[3] != "unavailable"]
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="\n") as f:
         f.write("# title_id|version|kind|status|method|label|source|payload|note|delay_seconds\n")
