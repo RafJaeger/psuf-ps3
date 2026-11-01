@@ -242,6 +242,11 @@ class PatchDatabaseTests(unittest.TestCase):
         bo2_graphics = [row for row in graphics_rows if row[0] == "BLUS31141" and row[1] == "01.19"]
         self.assertTrue(any(row[7] == "0 01708B40 C47A0000;0 01708C00 C47A0000;0 0170CE00 00" for row in bo2_graphics))
 
+        fight_graphics = [row for row in graphics_rows if row[0] == "BLJM60020"]
+        self.assertTrue(any(row[3] == "Quincunx" and row[7] == "0 008773A0 554A0020" for row in fight_graphics))
+        self.assertTrue(any(row[3] == "Sweat" and row[7].startswith("0 10037120 00000000;") for row in fight_graphics))
+        self.assertTrue(any(row[3] == "Spit / Impact particles" and row[7] == "0 100370F0 00000000;0 10037308 00000000;0 10037328 00000000;0 10037348 00000000" for row in fight_graphics))
+
     def test_official_apply_keeps_persistent_runtime_script_and_cleans_start_trigger(self):
         text = PATCH_DB_SOURCE.read_text(encoding="utf-8", errors="ignore")
         self.assertIn("/artemis.ps3?attach", text)

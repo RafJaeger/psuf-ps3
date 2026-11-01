@@ -72,12 +72,13 @@ Graphics/extra source summary from current graphics_patches.csv:
 - PSXPlace / Joey85: 4 entries
 - RPCS3toArtemis / vFxMz: 4 entries
 - MNZ / PSUF community: 3 entries
+- RafJaeger: 3 entries
 - ArtemisPS3 / GuitarMan: 1 entries
 - MNZ / GTAV R4L research: 1 entries
 - RPCS3 community: 1 entries
 
 Graphics/extra status summary from current graphics_patches.csv:
-- untested: 144 entries
+- untested: 147 entries
 - known: 2 entries
 
 Companion fix/warning source summary from current fix_patches.csv:
@@ -1034,15 +1035,20 @@ Source: RPCS3toArtemis / vFxMz
 137. BCES01007 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
 138. BCUS98234 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
 
+Source: RafJaeger
+139. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Quincunx | RafJaeger
+140. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Sweat | RafJaeger
+141. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Spit / Impact particles | RafJaeger
+
 Source: xan1242 / nfsc-ps3-patches
-139. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unhide Virus Vinyls | xan1242 / nfsc-ps3-patches
-140. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unlock DLC / Unlock Everything | xan1242 / nfsc-ps3-patches
-141. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Visual Treatment | xan1242 / nfsc-ps3-patches
-142. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Motion Blur | xan1242 / nfsc-ps3-patches
-143. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Collectors Edition | xan1242 / nfsc-ps3-patches
-144. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Debug Car Customize | xan1242 / nfsc-ps3-patches
-145. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Enable MSAA Ingame | xan1242 / nfsc-ps3-patches
-146. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Disable MSAA In Menus | xan1242 / nfsc-ps3-patches
+142. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unhide Virus Vinyls | xan1242 / nfsc-ps3-patches
+143. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unlock DLC / Unlock Everything | xan1242 / nfsc-ps3-patches
+144. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Visual Treatment | xan1242 / nfsc-ps3-patches
+145. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Motion Blur | xan1242 / nfsc-ps3-patches
+146. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Collectors Edition | xan1242 / nfsc-ps3-patches
+147. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Debug Car Customize | xan1242 / nfsc-ps3-patches
+148. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Enable MSAA Ingame | xan1242 / nfsc-ps3-patches
+149. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Disable MSAA In Menus | xan1242 / nfsc-ps3-patches
 
 Companion fix/warning source index
 Format: Title ID | version | kind | status/method | label | source
