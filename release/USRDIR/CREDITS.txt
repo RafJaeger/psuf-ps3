@@ -42,7 +42,7 @@ FPS source summary from current patches.csv:
 - RPCS3toArtemis Working: 28 entries
 - PS3 real lab: 19 entries
 - PSX-Place / Joey / NunoRS2000: 8 entries
-- Jaeger: 6 entries
+- Jaeger: 7 entries
 - PSXPlace / Joey85 / Nascar1243: 5 entries
 - Joey: 4 entries
 - PSXPlace / Joey / RPCS3toArtemis: 3 entries
@@ -59,7 +59,7 @@ FPS source summary from current patches.csv:
 
 FPS status summary from current patches.csv:
 - untested: 523 entries
-- known: 208 entries
+- known: 209 entries
 - pc: 4 entries
 - update_required: 4 entries
 
@@ -110,777 +110,778 @@ Source: Jaeger
 006. BLES00237 | 01.30 | unlock | known/ncl | FPS Unlock / ate 60 FPS (testado por Jaeger) | Jaeger
 007. BLES00673 | 01.01 | unlock | known/ncl | FPS Unlock / ate 60 FPS (testado por Jaeger) | Jaeger
 008. BLES00016 | 01.02 | unlock | known/ncl | FPS Unlock / ate 60 FPS (testado por Jaeger) | Jaeger
+009. BLUS31207 | 01.06 | unlock | known/ncl | VSync Off / FPS Unlock (testado por Jaeger) | Jaeger
 
 Source: Joey
-009. NPEB00342 | 01.00 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
-010. NPEB00342 | 01.01 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
-011. NPUB30312 | 01.00 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
-012. NPUB30312 | 01.01 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
+010. NPEB00342 | 01.00 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
+011. NPEB00342 | 01.01 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
+012. NPUB30312 | 01.00 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
+013. NPUB30312 | 01.01 | unlock | untested/ncl | Resident Evil 4 HD 60 FPS (Joey) | Joey
 
 Source: Joey85
-013. BLES01807 | 01.27 | unlock | known/ncl | FPS Unlock (Joey85) | Joey85
+014. BLES01807 | 01.27 | unlock | known/ncl | FPS Unlock (Joey85) | Joey85
 
 Source: MNZ / PSUF community
-014. BLES00949 | 01.02 | 60 | known/ncl | 60 FPS (testado por MNZ) | MNZ / PSUF community
+015. BLES00949 | 01.02 | 60 | known/ncl | 60 FPS (testado por MNZ) | MNZ / PSUF community
 
 Source: Manual research
-015. BCES01893 | * | unlock | known/eboot_pc | Unlock FPS | Manual research
-016. BCES01893 | * | 60 | known/eboot_pc | 60 FPS target | Manual research
+016. BCES01893 | * | unlock | known/eboot_pc | Unlock FPS | Manual research
+017. BCES01893 | * | 60 | known/eboot_pc | 60 FPS target | Manual research
 
 Source: Nascar1243 / PS3-FPS-Patches
-017. BLUS98120 | 01.60 | 60 | untested/ncl_constant | Unlock FPS | Nascar1243 / PS3-FPS-Patches
+018. BLUS98120 | 01.60 | 60 | untested/ncl_constant | Unlock FPS | Nascar1243 / PS3-FPS-Patches
 
 Source: PS3 real lab
-018. BLUS30400 | 01.00 | 60 | update_required/none | Atualize para 01.02 para 60 FPS | PS3 real lab
-019. BLUS30400 | 01.01 | 60 | update_required/none | Atualize para 01.02 para 60 FPS | PS3 real lab
-020. BLUS30400 | 01.02 | 60 | known/ncl | 60 FPS (testado em PS3 real) | PS3 real lab
-021. BLUS30400 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
-022. BLUS30687 | 01.05 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
-023. BLUS30262 | 01.00 | unlock | update_required/none | Atualize para 01.01 para desbloquear FPS | PS3 real lab
-024. BLUS30262 | 01.01 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
-025. NPUB30564 | 01.00 | unlock | known/ncl | Unlock FPS (testado em gameplay) | PS3 real lab
-026. NPUB31254 | 01.00 | unlock | update_required/none | Atualize para 01.04 para desbloquear FPS | PS3 real lab
-027. NPUB31254 | 01.04 | 60 | known/ncl | 60 FPS (testado em PS3 real) | PS3 real lab
-028. BLUS30762 | 01.09 | 60 | pc/eboot_pc | BF3 BLUS precisa analise propria | PS3 real lab
-029. NPUB30898 | 01.15 | unlock | pc/eboot_pc | Borderlands 2 NPUB precisa VBlank/analise | PS3 real lab
-030. NPUB30818 | 01.02 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
-031. NPUB30181 | 01.01 | 60 | pc/eboot_pc | Castle Crashers NPUB precisa analise propria | PS3 real lab
-032. BLUS30500 | 01.07 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
-033. BLUS30451 | 01.61 | unlock | pc/eboot_pc | Fallout 3: rota incompativel travou | PS3 real lab
-034. BLES01128 | * | unlock | known/ncl | Unlock FPS / +60 (GTA IV ISO/fallback) | PS3 real lab
-035. BLUS30485 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
-036. BLES01128 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
+019. BLUS30400 | 01.00 | 60 | update_required/none | Atualize para 01.02 para 60 FPS | PS3 real lab
+020. BLUS30400 | 01.01 | 60 | update_required/none | Atualize para 01.02 para 60 FPS | PS3 real lab
+021. BLUS30400 | 01.02 | 60 | known/ncl | 60 FPS (testado em PS3 real) | PS3 real lab
+022. BLUS30400 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
+023. BLUS30687 | 01.05 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
+024. BLUS30262 | 01.00 | unlock | update_required/none | Atualize para 01.01 para desbloquear FPS | PS3 real lab
+025. BLUS30262 | 01.01 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
+026. NPUB30564 | 01.00 | unlock | known/ncl | Unlock FPS (testado em gameplay) | PS3 real lab
+027. NPUB31254 | 01.00 | unlock | update_required/none | Atualize para 01.04 para desbloquear FPS | PS3 real lab
+028. NPUB31254 | 01.04 | 60 | known/ncl | 60 FPS (testado em PS3 real) | PS3 real lab
+029. BLUS30762 | 01.09 | 60 | pc/eboot_pc | BF3 BLUS precisa analise propria | PS3 real lab
+030. NPUB30898 | 01.15 | unlock | pc/eboot_pc | Borderlands 2 NPUB precisa VBlank/analise | PS3 real lab
+031. NPUB30818 | 01.02 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
+032. NPUB30181 | 01.01 | 60 | pc/eboot_pc | Castle Crashers NPUB precisa analise propria | PS3 real lab
+033. BLUS30500 | 01.07 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | PS3 real lab
+034. BLUS30451 | 01.61 | unlock | pc/eboot_pc | Fallout 3: rota incompativel travou | PS3 real lab
+035. BLES01128 | * | unlock | known/ncl | Unlock FPS / +60 (GTA IV ISO/fallback) | PS3 real lab
+036. BLUS30485 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
+037. BLES01128 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | PS3 real lab
 
 Source: PSX-Place / Joey / NunoRS2000
-037. BCAS20270 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-038. BCES01584 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-039. BCES01585 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-040. BCUS98174 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-041. BCAS20270 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-042. BCES01584 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-043. BCES01585 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
-044. BCUS98174 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+038. BCAS20270 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+039. BCES01584 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+040. BCES01585 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+041. BCUS98174 | 01.11 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+042. BCAS20270 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+043. BCES01584 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+044. BCES01585 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
+045. BCUS98174 | 01.11 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / NunoRS2000
 
 Source: PSX-Place / Joey / community
-045. BLUS03702 | 01.08 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / community
-046. BLUS30253 | 01.02 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
-047. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-048. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-049. BLUS30029 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
-050. BLUS30464 | 01.05 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-051. BLUS30565 | 01.01 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-052. BLUS30710 | 01.02 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-053. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-054. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-055. BLUS30117 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
-056. BLUS30011 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-057. BLUS30071 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-058. BLUS30087 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-059. BLUS31319 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
-060. BLUS30036 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-061. BLES00072 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-062. BLES00159 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-063. BLUS30090 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-064. BLES02014 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-065. BLUS31421 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-066. BLES00410 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-067. BLES00410 | 01.10 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-068. BLES01764 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-069. BLUS31066 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-070. BLES00978 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-071. BLUS30581 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-072. BLUS30065 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-073. BCES00078 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-074. BCUS98132 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-075. BCAS20016 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-076. BCES00002 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-077. BCJS30002 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-078. BLES01614 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-079. BLUS30983 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-080. BLES01392 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-081. BLUS30613 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-082. BLJS10127 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-083. BLES01039 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-084. BLUS30608 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-085. BLES01292 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-086. BLUS30755 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-087. BLES01290 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-088. BLUS30798 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-089. BLES00705 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
-090. BLUS30320 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+046. BLUS03702 | 01.08 | unlock | untested/ncl | Unlock FPS / +60 (PSX-Place test) | PSX-Place / Joey / community
+047. BLUS30253 | 01.02 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+048. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+049. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+050. BLUS30029 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+051. BLUS30464 | 01.05 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+052. BLUS30565 | 01.01 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+053. BLUS30710 | 01.02 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+054. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+055. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+056. BLUS30117 | 01.00 | 60 | untested/ncl | 60 FPS Cutscenes Only (PSX-Place test) | PSX-Place / Joey / community
+057. BLUS30011 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+058. BLUS30071 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+059. BLUS30087 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+060. BLUS31319 | 01.00 | 60 | untested/ncl | 60 FPS (PSX-Place test) | PSX-Place / Joey / community
+061. BLUS30036 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+062. BLES00072 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+063. BLES00159 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+064. BLUS30090 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+065. BLES02014 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+066. BLUS31421 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+067. BLES00410 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+068. BLES00410 | 01.10 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+069. BLES01764 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+070. BLUS31066 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+071. BLES00978 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+072. BLUS30581 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+073. BLUS30065 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+074. BCES00078 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+075. BCUS98132 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+076. BCAS20016 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+077. BCES00002 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+078. BCJS30002 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+079. BLES01614 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+080. BLUS30983 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+081. BLES01392 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+082. BLUS30613 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+083. BLJS10127 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+084. BLES01039 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+085. BLUS30608 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+086. BLES01292 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+087. BLUS30755 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+088. BLES01290 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+089. BLUS30798 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+090. BLES00705 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
+091. BLUS30320 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey / community
 
 Source: PSX-Place / Joey85
-091. BLUS30586 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-092. BLES00899 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-093. BLES01578 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-094. BLES00922 | 01.08 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-095. BLUS30144 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-096. BLES00678 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-097. BLES00061 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-098. NPUB30422 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-099. NPEB00964 | 01.24 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-100. NPUB30788 | 01.24 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-101. BLES01236 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-102. BLES00374 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-103. BLUS30120 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-104. BLES01770 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-105. BLUS30582 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-106. BLUS30511 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-107. BLES00963 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-108. NPEB01213 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-109. BLES01286 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-110. BLUS30807 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-111. BLES01329 | 02.09 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-112. NPEB00553 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-113. NPUB30452 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-114. BLUS30821 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-115. BLUS30003 | 01.08 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-116. BLES00228 | 01.11 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-117. BLUS30232 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-118. NPEB00686 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-119. BLES01936 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-120. NPUB31298 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-121. BLES00325 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-122. BLUS30130 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
-123. BLES01037 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+092. BLUS30586 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+093. BLES00899 | 01.02 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+094. BLES01578 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+095. BLES00922 | 01.08 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+096. BLUS30144 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+097. BLES00678 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+098. BLES00061 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+099. NPUB30422 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+100. NPEB00964 | 01.24 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+101. NPUB30788 | 01.24 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+102. BLES01236 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+103. BLES00374 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+104. BLUS30120 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+105. BLES01770 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+106. BLUS30582 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+107. BLUS30511 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+108. BLES00963 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+109. NPEB01213 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+110. BLES01286 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+111. BLUS30807 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+112. BLES01329 | 02.09 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+113. NPEB00553 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+114. NPUB30452 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+115. BLUS30821 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+116. BLUS30003 | 01.08 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+117. BLES00228 | 01.11 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+118. BLUS30232 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+119. NPEB00686 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+120. BLES01936 | 01.01 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+121. NPUB31298 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+122. BLES00325 | 01.03 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+123. BLUS30130 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
+124. BLES01037 | 01.00 | unlock | untested/ncl | Unlock FPS (PSX-Place test) | PSX-Place / Joey85
 
 Source: PSXPlace / Joey / RPCS3toArtemis
-124. BCUS98123 | 01.09 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
-125. BCUS98123 | 01.09 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
-126. BCUS98123 | 01.09 | 30 | untested/ncl | 30 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+125. BCUS98123 | 01.09 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+126. BCUS98123 | 01.09 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
+127. BCUS98123 | 01.09 | 30 | untested/ncl | 30 FPS (PSXPlace test) | PSXPlace / Joey / RPCS3toArtemis
 
 Source: PSXPlace / Joey / Zolika1351 / illusion
-127. BLES00887 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
-128. BLUS30682 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
+128. BLES00887 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
+129. BLUS30682 | 01.02 | unlock | untested/ncl | Unlock FPS / +60 (PSXPlace test) | PSXPlace / Joey / Zolika1351 / illusion
 
 Source: PSXPlace / Joey / confirmed
-129. BLUS30607 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-130. BLES01697 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-131. NPEB01088 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-132. BLES01455 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-133. BLUS30862 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-134. BLUS30341 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-135. BLUS30721 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-136. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-137. BLES01684 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-138. BLES00562 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-139. BLES01134 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-140. NPEB00293 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-141. BLUS30115 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-142. BLES01040 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-143. BLES01733 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-144. BLUS31053 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-145. BLES00308 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-146. BLES01789 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-147. BLUS31146 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-148. BLES00467 | * | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-149. BLUS31317 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-150. NPUB31099 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-151. BLES00231 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
-152. BLUS30117 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
-153. BLUS30720 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-154. BLUS31155 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-155. BLES01147 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-156. BLES00989 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-157. BLUS30451 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-158. BLUS30888 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-159. BLUS30178 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-160. BLES01137 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-161. NPEB01322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-162. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-163. NPEB00989 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-164. BLUS30294 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-165. MRTC00003 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-166. BCES00050 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-167. BLES01128 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-168. BLES00070 | 01.01 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-169. BLES00157 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-170. BLES00169 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-171. BLUS30094 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-172. BLES00962 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-173. NPUB30383 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-174. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
-175. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS + 59fps Cap [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
-176. BLUS30374 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-177. NPUB30606 | 01.02 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-178. BCAS20292 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-179. BCES00081 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-180. BCUS98116 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-181. BLES01525 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-182. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-183. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) | PSXPlace / Joey / confirmed
-184. BLES02197 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-185. BLJM61166 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-186. BLUS31554 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-187. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-188. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS v01.00 (RPCS3) | PSXPlace / Joey / confirmed
-189. BLUS31020 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-190. BLES00246 | 02.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-191. MRTC00014 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-192. BLES00322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-193. BCES00006 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-194. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-195. BLUS30580 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-196. BLUS30391 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-197. BLUS30754 | 01.00 | unlock | known/ncl | The Two Thrones Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-198. BLUS30754 | 01.00 | unlock | known/ncl | Warrior Within Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-199. BLES01532 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
-200. BLUS30756 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
-201. BCAS20200 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-202. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-203. BCJS30081 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-204. BCUS98175 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-205. NPEA00356 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-206. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-207. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS v01.01 (RPCS3) | PSXPlace / Joey / confirmed
-208. BCES01908 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-209. BLES01701 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-210. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-211. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-212. BLUS30855 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-213. NPEB02076 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-214. NPJB00653 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-215. NPUB31552 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-216. BLUS31444 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-217. BLES01773 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-218. NPEB00816 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-219. NPUB30648 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-220. NPEB00817 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-221. NPUB30650 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-222. BCES00226 | 01.60 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-223. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-224. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-225. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-226. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-227. BLES01050 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-228. BLES00676 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-229. NPUB31165 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-230. BLES01276 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-231. BLUS30565 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-232. BLES00460 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-233. BCES00294 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-234. BLUS31202 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-235. BLUS30927 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-236. BLES00144 | 01.20 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-237. BLUS31006 | * | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-238. BLUS30780 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-239. BLES01916 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-240. BLES00477 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-241. BCES01585 | 01.11 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-242. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-243. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
-244. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-245. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
-246. BLES01766 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-247. BLES01879 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-248. BLUS31025 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-249. BLUS31036 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-250. BLES00833 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-251. BLUS30357 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-252. BCES00065 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-253. BLES01347 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-254. BLUS31176 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
-255. BLES00707 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+130. BLUS30607 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+131. BLES01697 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+132. NPEB01088 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+133. BLES01455 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+134. BLUS30862 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+135. BLUS30341 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+136. BLUS30721 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+137. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+138. BLES01684 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+139. BLES00562 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+140. BLES01134 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+141. NPEB00293 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+142. BLUS30115 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+143. BLES01040 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+144. BLES01733 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+145. BLUS31053 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+146. BLES00308 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+147. BLES01789 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+148. BLUS31146 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+149. BLES00467 | * | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+150. BLUS31317 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+151. NPUB31099 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+152. BLES00231 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
+153. BLUS30117 | 01.00 | 60 | known/ncl | 60 FPS (RPCS3) | PSXPlace / Joey / confirmed
+154. BLUS30720 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+155. BLUS31155 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+156. BLES01147 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+157. BLES00989 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+158. BLUS30451 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+159. BLUS30888 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+160. BLUS30178 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+161. BLES01137 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+162. NPEB01322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+163. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+164. NPEB00989 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+165. BLUS30294 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+166. MRTC00003 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+167. BCES00050 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+168. BLES01128 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+169. BLES00070 | 01.01 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+170. BLES00157 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+171. BLES00169 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+172. BLUS30094 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+173. BLES00962 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+174. NPUB30383 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+175. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
+176. NPUA80638 | 01.00 | unlock | known/ncl | Unlock FPS + 59fps Cap [Tested] (PSXPlace) | PSXPlace / Joey / confirmed
+177. BLUS30374 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+178. NPUB30606 | 01.02 | 60 | known/ncl | 60 FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+179. BCAS20292 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+180. BCES00081 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+181. BCUS98116 | 01.29 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+182. BLES01525 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+183. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+184. BLUS30917 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) | PSXPlace / Joey / confirmed
+185. BLES02197 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+186. BLJM61166 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+187. BLUS31554 | 01.01 | 60 | known/ncl | 60 FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+188. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+189. MRTC00002 | 01.01 | unlock | known/ncl | Unlock FPS v01.00 (RPCS3) | PSXPlace / Joey / confirmed
+190. BLUS31020 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+191. BLES00246 | 02.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+192. MRTC00014 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+193. BLES00322 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+194. BCES00006 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+195. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+196. BLUS30580 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+197. BLUS30391 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+198. BLUS30754 | 01.00 | unlock | known/ncl | The Two Thrones Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+199. BLUS30754 | 01.00 | unlock | known/ncl | Warrior Within Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+200. BLES01532 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
+201. BLUS30756 | 01.00 | unlock | known/ncl | UnlockFPS (PSXPlace) | PSXPlace / Joey / confirmed
+202. BCAS20200 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+203. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+204. BCJS30081 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+205. BCUS98175 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+206. NPEA00356 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+207. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+208. BCUS99245 | 01.00 | unlock | known/ncl | Unlock FPS v01.01 (RPCS3) | PSXPlace / Joey / confirmed
+209. BCES01908 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+210. BLES01701 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+211. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+212. BLES00816 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+213. BLUS30855 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+214. NPEB02076 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+215. NPJB00653 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+216. NPUB31552 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+217. BLUS31444 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+218. BLES01773 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+219. NPEB00816 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+220. NPUB30648 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+221. NPEB00817 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+222. NPUB30650 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+223. BCES00226 | 01.60 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+224. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+225. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+226. BCES01118 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+227. BCUS98176 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+228. BLES01050 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+229. BLES00676 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+230. NPUB31165 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+231. BLES01276 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+232. BLUS30565 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+233. BLES00460 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+234. BCES00294 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+235. BLUS31202 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+236. BLUS30927 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+237. BLES00144 | 01.20 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+238. BLUS31006 | * | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+239. BLUS30780 | 01.02 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+240. BLES01916 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+241. BLES00477 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+242. BCES01585 | 01.11 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+243. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+244. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (RPCS3) [Tested] | PSXPlace / Joey / confirmed
+245. BLES00153 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+246. BLUS30055 | 01.10 | unlock | known/ncl | Unlock FPS (PSXPlace) [Tested] | PSXPlace / Joey / confirmed
+247. BLES01766 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+248. BLES01879 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+249. BLUS31025 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+250. BLUS31036 | 01.03 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+251. BLES00833 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+252. BLUS30357 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+253. BCES00065 | 01.01 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+254. BLES01347 | 01.05 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+255. BLUS31176 | 01.04 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
+256. BLES00707 | 01.00 | unlock | known/ncl | Unlock FPS (PSXPlace) | PSXPlace / Joey / confirmed
 
 Source: PSXPlace / Joey85
-256. BLUS30855 | 01.06 | unlock | untested/ncl | Unlock FPS v01.06 (PSXPlace test) | PSXPlace / Joey85
-257. BLUS31444 | 01.04 | unlock | untested/ncl | Unlock FPS v01.04 (PSXPlace test) | PSXPlace / Joey85
+257. BLUS30855 | 01.06 | unlock | untested/ncl | Unlock FPS v01.06 (PSXPlace test) | PSXPlace / Joey85
+258. BLUS31444 | 01.04 | unlock | untested/ncl | Unlock FPS v01.04 (PSXPlace test) | PSXPlace / Joey85
 
 Source: PSXPlace / Joey85 / Nascar1243
-258. BLUS30179 | 01.01 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-259. BLUS30717 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-260. BLUS30330 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-261. BCUS98120 | 01.60 | 60 | untested/ncl | 60 FPS v01.60 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
-262. BLUS30094 | 01.36 | unlock | untested/ncl | Unlock FPS v01.36 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+259. BLUS30179 | 01.01 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+260. BLUS30717 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+261. BLUS30330 | 01.02 | 60 | untested/ncl | 60 FPS (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+262. BCUS98120 | 01.60 | 60 | untested/ncl | 60 FPS v01.60 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
+263. BLUS30094 | 01.36 | unlock | untested/ncl | Unlock FPS v01.36 (PSXPlace test) | PSXPlace / Joey85 / Nascar1243
 
 Source: RPCS3 converted USERLIST
-263. BLES00875 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-264. BLES00875 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-265. BLJM60180 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-266. BLUS30490 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-267. BLJM60180 | 01.01 | 60 | untested/ncl | Unlock FPS v01.20 (RPCS3) | RPCS3 converted USERLIST
-268. BLES01265 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-269. NPEB00625 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-270. BLES01697 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-271. BLES01697 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-272. NPUB30308 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-273. BLES00704 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-274. BLES01232 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-275. BLES00168 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-276. BLUS30057 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-277. BLES01763 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-278. BLJM60518 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-279. BLUS31069 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-280. BLES00659 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-281. BLES00659 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-282. BLUS30408 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-283. BLES01763 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-284. BLUS31069 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-285. BLES00503 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-286. BLES00827 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-287. BLUS30515 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-288. BLES01275 | 01.00 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-289. BLUS30762 | 01.00 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-290. BLUS30762 | 01.01 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-291. BLES00261 | 01.00 | 60 | untested/ncl | 60 FPS v01.20 (RPCS3) | RPCS3 converted USERLIST
-292. BLJM61272 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-293. NPJB00726 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-294. BLJM60199 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
-295. BLJM60199 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-296. BLES01465 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-297. BLJM60405 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-298. BLUS30855 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-299. BLJM61211 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-300. BLES00759 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-301. BLUS30295 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-302. BLES01684 | 01.00 | 60 | untested/ncl | Unlock FPS v01.15 (RPCS3) | RPCS3 converted USERLIST
-303. BLES01684 | 01.01 | 60 | untested/ncl | Unlock FPS v01.15 (RPCS3) | RPCS3 converted USERLIST
-304. BLES01684 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-305. BLUS30982 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-306. NPUB30898 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-307. NPEB01144 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-308. BLES01134 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-309. BLUS30651 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-310. BLES01134 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-311. BLUS30651 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-312. NPEB00622 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-313. BLES00148 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-314. BLJS10013 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-315. BLES01032 | 01.13 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-316. BLES01032 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-317. BLJM60287 | 01.00 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
-318. BLJM60286 | 01.13 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-319. BLES00354 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-320. BLES00357 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-321. BLUS30192 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-322. BLES00354 | 01.01 | 60 | untested/ncl | Unlock FPS v01.07 (RPCS3) | RPCS3 converted USERLIST
-323. BLUS30192 | 01.01 | 60 | untested/ncl | Unlock FPS v01.07 (RPCS3) | RPCS3 converted USERLIST
-324. BLUS30115 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-325. BLES01396 | 01.05 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-326. BLES01402 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-327. BLUS30782 | 01.05 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-328. BLES01733 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-329. BLUS31053 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-330. BLES01733 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-331. BLUS31053 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-332. BLES00309 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-333. BLUS30177 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-334. BCAS20071 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
-335. BCJS30022 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
-336. BCJS30022 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-337. BLES00932 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-338. BLUS30443 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-339. BLES00044 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-340. BLUS30023 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-341. NPEB01427 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-342. BLJM61043 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-343. BLJM61043 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-344. BLES01356 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-345. BLES01356 | 01.03 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-346. BLUS30720 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-347. BLUS30720 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-348. BLES01794 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-349. BLJM61012 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-350. BLUS31155 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-351. NPUB31117 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-352. BLUS31197 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-353. BLUS31197 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-354. NPUB31251 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-355. BLUS31197 | 01.00 | 60 | untested/ncl | Unlock FPS (No User Input) v01.01 (RPCS3) | RPCS3 converted USERLIST
-356. NPUB31251 | 01.00 | 60 | untested/ncl | Unlock FPS (No User Input) v01.01 (RPCS3) | RPCS3 converted USERLIST
-357. BLUS31197 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-358. BLUS31197 | * | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-359. BLES01147 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-360. BLES01147 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-361. BLUS30615 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-362. BLES00989 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-363. BLES00989 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-364. BLUS30558 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-365. BLUS30558 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-366. BLUS30456 | 01.03 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-367. BLES01475 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-368. BLUS30178 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-369. BLUS30178 | 01.02 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-370. BLES02011 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-371. BLUS31420 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-372. BCAS20013 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-373. BCES00050 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-374. BCUS98147 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-375. BCAS20013 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-376. BCES00050 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-377. BCUS98147 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-378. BCAS25016 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
-379. BCES01741 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
-380. BCUS98232 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
-381. BCES00569 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-382. BCUS98114 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-383. BCES00569 | 01.09 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-384. BCUS98114 | 01.09 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-385. BCES00569 | 01.09 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
-386. BCUS98114 | 01.09 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
-387. BLES00229 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-388. BLES00258 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-389. BLES00229 | 01.01 | 60 | untested/ncl | Unlock FPS v01.08 (RPCS3) | RPCS3 converted USERLIST
-390. BLUS30127 | 01.01 | 60 | untested/ncl | Unlock FPS v01.08 (RPCS3) | RPCS3 converted USERLIST
-391. BLUS30127 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-392. NPEB00882 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-393. BLJM61079 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-394. BLJM61079 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-395. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-396. NPEB02013 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-397. BLJM60527 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-398. BLES00962 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-399. NPEB00476 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-400. BLES00142 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-401. BLJS10318 | 01.00 | 60 | untested/ncl | 60 FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
-402. BLJS10318 | 01.02 | 60 | untested/ncl | 60 FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
-403. BLES00517 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-404. BLES00517 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-405. BLUS30400 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-406. BLJS10220 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-407. BLJS10220 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-408. BLJS10319 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-409. NPJB00758 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-410. BLJS10319 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-411. NPJB00758 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-412. BLJS10324 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-413. BLJS10324 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-414. BLJS10262 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-415. BLJS10263 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-416. BLES01856 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-417. BLES01856 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-418. BLJS10215 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-419. BLUS31186 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-420. BCES00081 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-421. BCUS98116 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-422. NPEA00418 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-423. BLES01897 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-424. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-425. BLES02070 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-426. BLES02070 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-427. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-428. BLES01251 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-429. BLUS30710 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-430. BLES01251 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-431. BLUS30710 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-432. BLES00405 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-433. BLES01525 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) [Tested] | RPCS3 converted USERLIST
-434. BLUS30917 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) [Tested] | RPCS3 converted USERLIST
-435. BLES01525 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-436. BLUS30917 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-437. BLJS10125 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-438. BLES02197 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-439. BLJM61166 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-440. BLUS31554 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-441. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-442. BLUS31020 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-443. BLUS31020 | 01.00 | 60 | untested/ncl | Unlock FPS v01.02 (RPCS3) | RPCS3 converted USERLIST
-444. BLUS30640 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-445. BLUS30640 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-446. NPEA00366 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-447. BLES00546 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-448. BLUS30294 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-449. BLES01133 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-450. BLUS30650 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-451. BLES01462 | 01.00 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-452. BLES01462 | 01.05 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-453. BLES01462 | 01.07 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
-454. BLUS30853 | 01.00 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-455. BLUS30853 | 01.05 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-456. BLUS30853 | 01.07 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-457. BLUS30853 | 01.09 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-458. BLJM67001 | 02.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-459. BLES00246 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-460. BLUS30109 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-461. BLJM67001 | 01.03 | 60 | untested/ncl | Unlock FPS v02.00 (RPCS3) | RPCS3 converted USERLIST
-462. NPUB31633 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-463. BCES00484 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-464. BCES00484 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-465. BCES01104 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-466. BCUS98242 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-467. BCUS98155 | 01.02 | 60 | untested/ncl | 60 FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-468. BCUS98155 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-469. BLJS10273 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-470. BLES01894 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-471. BLES01894 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-472. BLES01066 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-473. BLUS30580 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-474. BLES00682 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-475. BLUS30391 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-476. BLES01303 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-477. BLUS30654 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-478. BLES00826 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-479. BLUS30481 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-480. BLUS30481 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-481. BLJM60223 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-482. NPEB01109 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-483. BLUS31604 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-484. BLUS31604 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-485. NPEB02436 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-486. NPUB31848 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-487. BLES01532 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-488. BLES01534 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-489. BLUS30756 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-490. NPEB00917 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-491. NPUB30801 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-492. BLES01532 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-493. BLUS30756 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-494. BLES01916 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-495. BLES02093 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-496. BLJM61235 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-497. BLUS31374 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-498. NPEB01797 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-499. NPUB31392 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-500. BLES01916 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-501. BLJM61235 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-502. NPEB01797 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-503. BCES00935 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-504. NPEA00439 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-505. BLES01963 | 01.00 | 60 | untested/ncl | 60 FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
-506. BLUS31387 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-507. BCES00301 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-508. BCAS20200 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-509. BCES01141 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-510. BCJS30081 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-511. BCUS98175 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-512. NPEA00356 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-513. BCAS20200 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-514. BCES01141 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-515. BCJS30081 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-516. BCUS98175 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-517. NPEA00356 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-518. BCES01594 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-519. BCUS98380 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-520. BCUS98380 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
-521. NPJA00089 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
-522. NPUA80642 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-523. BCUS98124 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-524. BCUS98124 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-525. BCUS98124 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-526. BCAS20052 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-527. NPUA80145 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-528. BCES00052 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-529. BCUS98127 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+264. BLES00875 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+265. BLES00875 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+266. BLJM60180 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+267. BLUS30490 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+268. BLJM60180 | 01.01 | 60 | untested/ncl | Unlock FPS v01.20 (RPCS3) | RPCS3 converted USERLIST
+269. BLES01265 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+270. NPEB00625 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+271. BLES01697 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+272. BLES01697 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+273. NPUB30308 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+274. BLES00704 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+275. BLES01232 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+276. BLES00168 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+277. BLUS30057 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+278. BLES01763 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+279. BLJM60518 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+280. BLUS31069 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+281. BLES00659 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+282. BLES00659 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+283. BLUS30408 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+284. BLES01763 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+285. BLUS31069 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+286. BLES00503 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+287. BLES00827 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+288. BLUS30515 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+289. BLES01275 | 01.00 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+290. BLUS30762 | 01.00 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+291. BLUS30762 | 01.01 | 60 | untested/ncl | 60 FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+292. BLES00261 | 01.00 | 60 | untested/ncl | 60 FPS v01.20 (RPCS3) | RPCS3 converted USERLIST
+293. BLJM61272 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+294. NPJB00726 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+295. BLJM60199 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
+296. BLJM60199 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+297. BLES01465 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+298. BLJM60405 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+299. BLUS30855 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+300. BLJM61211 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+301. BLES00759 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+302. BLUS30295 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+303. BLES01684 | 01.00 | 60 | untested/ncl | Unlock FPS v01.15 (RPCS3) | RPCS3 converted USERLIST
+304. BLES01684 | 01.01 | 60 | untested/ncl | Unlock FPS v01.15 (RPCS3) | RPCS3 converted USERLIST
+305. BLES01684 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+306. BLUS30982 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+307. NPUB30898 | 01.15 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+308. NPEB01144 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+309. BLES01134 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+310. BLUS30651 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+311. BLES01134 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+312. BLUS30651 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+313. NPEB00622 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+314. BLES00148 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+315. BLJS10013 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+316. BLES01032 | 01.13 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+317. BLES01032 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+318. BLJM60287 | 01.00 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
+319. BLJM60286 | 01.13 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+320. BLES00354 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+321. BLES00357 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+322. BLUS30192 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+323. BLES00354 | 01.01 | 60 | untested/ncl | Unlock FPS v01.07 (RPCS3) | RPCS3 converted USERLIST
+324. BLUS30192 | 01.01 | 60 | untested/ncl | Unlock FPS v01.07 (RPCS3) | RPCS3 converted USERLIST
+325. BLUS30115 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+326. BLES01396 | 01.05 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+327. BLES01402 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+328. BLUS30782 | 01.05 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+329. BLES01733 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+330. BLUS31053 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+331. BLES01733 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+332. BLUS31053 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+333. BLES00309 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+334. BLUS30177 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+335. BCAS20071 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
+336. BCJS30022 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
+337. BCJS30022 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+338. BLES00932 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+339. BLUS30443 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+340. BLES00044 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+341. BLUS30023 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+342. NPEB01427 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+343. BLJM61043 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+344. BLJM61043 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+345. BLES01356 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+346. BLES01356 | 01.03 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+347. BLUS30720 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+348. BLUS30720 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+349. BLES01794 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+350. BLJM61012 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+351. BLUS31155 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+352. NPUB31117 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+353. BLUS31197 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+354. BLUS31197 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+355. NPUB31251 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+356. BLUS31197 | 01.00 | 60 | untested/ncl | Unlock FPS (No User Input) v01.01 (RPCS3) | RPCS3 converted USERLIST
+357. NPUB31251 | 01.00 | 60 | untested/ncl | Unlock FPS (No User Input) v01.01 (RPCS3) | RPCS3 converted USERLIST
+358. BLUS31197 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+359. BLUS31197 | * | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+360. BLES01147 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+361. BLES01147 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+362. BLUS30615 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+363. BLES00989 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+364. BLES00989 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+365. BLUS30558 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+366. BLUS30558 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+367. BLUS30456 | 01.03 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+368. BLES01475 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+369. BLUS30178 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+370. BLUS30178 | 01.02 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+371. BLES02011 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+372. BLUS31420 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+373. BCAS20013 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+374. BCES00050 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+375. BCUS98147 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+376. BCAS20013 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+377. BCES00050 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+378. BCUS98147 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+379. BCAS25016 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
+380. BCES01741 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
+381. BCUS98232 | 01.00 | 60 | untested/ncl | Unlock FPS v01.04 (RPCS3) | RPCS3 converted USERLIST
+382. BCES00569 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+383. BCUS98114 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+384. BCES00569 | 01.09 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+385. BCUS98114 | 01.09 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+386. BCES00569 | 01.09 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
+387. BCUS98114 | 01.09 | 60 | untested/ncl | Unlock FPS v01.13 (RPCS3) | RPCS3 converted USERLIST
+388. BLES00229 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+389. BLES00258 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+390. BLES00229 | 01.01 | 60 | untested/ncl | Unlock FPS v01.08 (RPCS3) | RPCS3 converted USERLIST
+391. BLUS30127 | 01.01 | 60 | untested/ncl | Unlock FPS v01.08 (RPCS3) | RPCS3 converted USERLIST
+392. BLUS30127 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+393. NPEB00882 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+394. BLJM61079 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+395. BLJM61079 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+396. BLUS31431 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+397. NPEB02013 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+398. BLJM60527 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+399. BLES00962 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+400. NPEB00476 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+401. BLES00142 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+402. BLJS10318 | 01.00 | 60 | untested/ncl | 60 FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
+403. BLJS10318 | 01.02 | 60 | untested/ncl | 60 FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
+404. BLES00517 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+405. BLES00517 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+406. BLUS30400 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+407. BLJS10220 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+408. BLJS10220 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+409. BLJS10319 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+410. NPJB00758 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+411. BLJS10319 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+412. NPJB00758 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+413. BLJS10324 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+414. BLJS10324 | 01.04 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+415. BLJS10262 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+416. BLJS10263 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+417. BLES01856 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+418. BLES01856 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+419. BLJS10215 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+420. BLUS31186 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+421. BCES00081 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+422. BCUS98116 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+423. NPEA00418 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+424. BLES01897 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+425. BLUS31212 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+426. BLES02070 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+427. BLES02070 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+428. BLUS31460 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+429. BLES01251 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+430. BLUS30710 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+431. BLES01251 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+432. BLUS30710 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+433. BLES00405 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+434. BLES01525 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) [Tested] | RPCS3 converted USERLIST
+435. BLUS30917 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) [Tested] | RPCS3 converted USERLIST
+436. BLES01525 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+437. BLUS30917 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+438. BLJS10125 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+439. BLES02197 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+440. BLJM61166 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+441. BLUS31554 | 01.02 | 60 | untested/ncl | 60 FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+442. BLUS31554 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+443. BLUS31020 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+444. BLUS31020 | 01.00 | 60 | untested/ncl | Unlock FPS v01.02 (RPCS3) | RPCS3 converted USERLIST
+445. BLUS30640 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+446. BLUS30640 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+447. NPEA00366 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+448. BLES00546 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+449. BLUS30294 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+450. BLES01133 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+451. BLUS30650 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+452. BLES01462 | 01.00 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+453. BLES01462 | 01.05 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+454. BLES01462 | 01.07 | 60 | untested/ncl | Unlock FPS v01.09 (RPCS3) | RPCS3 converted USERLIST
+455. BLUS30853 | 01.00 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+456. BLUS30853 | 01.05 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+457. BLUS30853 | 01.07 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+458. BLUS30853 | 01.09 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+459. BLJM67001 | 02.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+460. BLES00246 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+461. BLUS30109 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+462. BLJM67001 | 01.03 | 60 | untested/ncl | Unlock FPS v02.00 (RPCS3) | RPCS3 converted USERLIST
+463. NPUB31633 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+464. BCES00484 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+465. BCES00484 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+466. BCES01104 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+467. BCUS98242 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+468. BCUS98155 | 01.02 | 60 | untested/ncl | 60 FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+469. BCUS98155 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+470. BLJS10273 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+471. BLES01894 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+472. BLES01894 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+473. BLES01066 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+474. BLUS30580 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+475. BLES00682 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+476. BLUS30391 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+477. BLES01303 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+478. BLUS30654 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+479. BLES00826 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+480. BLUS30481 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+481. BLUS30481 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+482. BLJM60223 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+483. NPEB01109 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+484. BLUS31604 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+485. BLUS31604 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+486. NPEB02436 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+487. NPUB31848 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+488. BLES01532 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+489. BLES01534 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+490. BLUS30756 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+491. NPEB00917 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+492. NPUB30801 | * | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+493. BLES01532 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+494. BLUS30756 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+495. BLES01916 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+496. BLES02093 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+497. BLJM61235 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+498. BLUS31374 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+499. NPEB01797 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+500. NPUB31392 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+501. BLES01916 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+502. BLJM61235 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+503. NPEB01797 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+504. BCES00935 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+505. NPEA00439 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+506. BLES01963 | 01.00 | 60 | untested/ncl | 60 FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
+507. BLUS31387 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+508. BCES00301 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+509. BCAS20200 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+510. BCES01141 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+511. BCJS30081 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+512. BCUS98175 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+513. NPEA00356 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+514. BCAS20200 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+515. BCES01141 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+516. BCJS30081 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+517. BCUS98175 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+518. NPEA00356 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+519. BCES01594 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+520. BCUS98380 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+521. BCUS98380 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
+522. NPJA00089 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
+523. NPUA80642 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+524. BCUS98124 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+525. BCUS98124 | 01.02 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+526. BCUS98124 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+527. BCAS20052 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+528. NPUA80145 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+529. BCES00052 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
 530. BCUS98127 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-531. BCES01908 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-532. BCES01908 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-533. BCES01594 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
-534. BCES01594 | 01.05 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-535. BLES01294 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-536. NPEB00833 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-537. NPUB30638 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-538. BLUS31012 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-539. NPUB31080 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-540. NPEB02226 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-541. BLES00485 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-542. BLUS30270 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-543. BLES00485 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-544. BLUS30491 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-545. BLES00816 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-546. BLES00816 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-547. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-548. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-549. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
-550. BLUS30491 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-551. BLUS30491 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-552. BLUS30855 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-553. BLUS31444 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-554. NPUB31518 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-555. BLES01773 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-556. BLUS31051 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
-557. BLUS31051 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-558. BCES00001 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-559. BCUS98107 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-560. NPEA00430 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-561. NPEB00299 | 01.00 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-562. NPUB30112 | 01.00 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-563. BLJM61248 | 01.01 | 60 | untested/ncl | Unlock FPS v01.02 (RPCS3) | RPCS3 converted USERLIST
-564. BLJM61248 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-565. NPJB00688 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-566. BLJM61332 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-567. NPJB00805 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-568. NPUB31165 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-569. BLUS30653 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-570. BLUS30653 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-571. BLES01446 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-572. BLUS30565 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-573. BLES01446 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-574. BLUS30565 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-575. BLJM60391 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-576. BLJM60391 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-577. BLUS30169 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-578. NPUA80136 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-579. BCAS20121 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-580. BCES00938 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-581. BCJS30052 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-582. BCUS98135 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-583. BLES01120 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-584. BLES00144 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-585. BLUS30080 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-586. BLUS30081 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-587. BLES00144 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-588. BLUS30080 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-589. BLUS30081 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-590. BLES01962 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-591. BLJS10188 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-592. BLJS10188 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-593. BLUS31397 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-594. BLUS31397 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-595. BLES01815 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-596. BLJS10120 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-597. BLUS31006 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-598. NPEB01425 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-599. BLES00058 | 01.03 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-600. BLUS30035 | 01.03 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-601. BLES00163 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-602. BLUS30087 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
-603. BLES01886 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-604. BLES01916 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-605. NPEB01797 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-606. BLES00477 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-607. BCES01584 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-608. BCES01585 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-609. BCUS98174 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-610. BCES01584 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-611. BCES01585 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-612. BCUS98174 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-613. BCAS20270 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-614. BCES01584 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-615. BCUS98174 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-616. BCAS20270 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-617. BCES01584 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-618. BCUS98174 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-619. BLES01848 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-620. BLES01879 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-621. BLES01146 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-622. BLUS30761 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-623. BLES01146 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-624. BLUS30761 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-625. BLES01780 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-626. BLES01781 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-627. BLJM60557 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-628. BLUS31036 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-629. NPUB31146 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-630. BLES01780 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-631. BLUS31036 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-632. BLES00833 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-633. BLUS30357 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-634. BCES01010 | 01.01 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
-635. BCUS98106 | 01.01 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
-636. BCES01010 | 01.00 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
-637. BCUS98106 | 01.00 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
-638. BLJS10301 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-639. BCAS20097 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-640. BCES00509 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-641. BCAS20097 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-642. BCES00509 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-643. BCES00509 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-644. BCES00509 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-645. BCES00757 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-646. BCUS98213 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-647. BCES00757 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-648. BCUS98213 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-649. BCES00757 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-650. BCES00757 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-651. NPEA00365 | 01.00 | 60 | untested/ncl | 60 FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-652. NPEA00365 | 01.00 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
-653. NPUA80698 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-654. NPUA80698 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-655. BCAS25014 | 01.15 | 60 | untested/ncl | Unlock FPS v01.19 (RPCS3) | RPCS3 converted USERLIST
-656. BCES01175 | 01.17 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-657. BCES01175 | 01.18 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
-658. BCES01175 | 01.19 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-659. BCES01670 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-660. BCAS20024 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-661. BCES00065 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-662. BCES00065 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
-663. BCUS98103 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-664. BCUS98103 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-665. BCJS30015 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-666. BCJS30035 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-667. BCJS30035 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-668. BCJS30035 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
-669. BCJS30035 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-670. NPEB00636 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-671. NPUB30543 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-672. BLUS30403 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
-673. NPEB01324 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
-674. NPEB01351 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+531. BCUS98127 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+532. BCES01908 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+533. BCES01908 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+534. BCES01594 | 01.04 | 60 | untested/ncl | Unlock FPS v01.05 (RPCS3) | RPCS3 converted USERLIST
+535. BCES01594 | 01.05 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+536. BLES01294 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+537. NPEB00833 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+538. NPUB30638 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+539. BLUS31012 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+540. NPUB31080 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+541. NPEB02226 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+542. BLES00485 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+543. BLUS30270 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+544. BLES00485 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+545. BLUS30491 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+546. BLES00816 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+547. BLES00816 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+548. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+549. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+550. BLUS30491 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
+551. BLUS30491 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+552. BLUS30491 | 02.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+553. BLUS30855 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+554. BLUS31444 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+555. NPUB31518 | 01.03 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+556. BLES01773 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+557. BLUS31051 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
+558. BLUS31051 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+559. BCES00001 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+560. BCUS98107 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+561. NPEA00430 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+562. NPEB00299 | 01.00 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+563. NPUB30112 | 01.00 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+564. BLJM61248 | 01.01 | 60 | untested/ncl | Unlock FPS v01.02 (RPCS3) | RPCS3 converted USERLIST
+565. BLJM61248 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+566. NPJB00688 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+567. BLJM61332 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+568. NPJB00805 | 01.02 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+569. NPUB31165 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+570. BLUS30653 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+571. BLUS30653 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+572. BLES01446 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+573. BLUS30565 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+574. BLES01446 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+575. BLUS30565 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+576. BLJM60391 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+577. BLJM60391 | 01.01 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+578. BLUS30169 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+579. NPUA80136 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+580. BCAS20121 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+581. BCES00938 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+582. BCJS30052 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+583. BCUS98135 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+584. BLES01120 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+585. BLES00144 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+586. BLUS30080 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+587. BLUS30081 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+588. BLES00144 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+589. BLUS30080 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+590. BLUS30081 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+591. BLES01962 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+592. BLJS10188 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+593. BLJS10188 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+594. BLUS31397 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+595. BLUS31397 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+596. BLES01815 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+597. BLJS10120 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+598. BLUS31006 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+599. NPEB01425 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+600. BLES00058 | 01.03 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+601. BLUS30035 | 01.03 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+602. BLES00163 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+603. BLUS30087 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) [Tested] | RPCS3 converted USERLIST
+604. BLES01886 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+605. BLES01916 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+606. NPEB01797 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+607. BLES00477 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+608. BCES01584 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+609. BCES01585 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+610. BCUS98174 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+611. BCES01584 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+612. BCES01585 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+613. BCUS98174 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+614. BCAS20270 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+615. BCES01584 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+616. BCUS98174 | 01.11 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+617. BCAS20270 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+618. BCES01584 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+619. BCUS98174 | 01.11 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+620. BLES01848 | * | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+621. BLES01879 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+622. BLES01146 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+623. BLUS30761 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+624. BLES01146 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+625. BLUS30761 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+626. BLES01780 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+627. BLES01781 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+628. BLJM60557 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+629. BLUS31036 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+630. NPUB31146 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+631. BLES01780 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+632. BLUS31036 | 01.01 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+633. BLES00833 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+634. BLUS30357 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+635. BCES01010 | 01.01 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
+636. BCUS98106 | 01.01 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
+637. BCES01010 | 01.00 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
+638. BCUS98106 | 01.00 | 60 | untested/ncl | 60 FPS v01.06 (RPCS3) | RPCS3 converted USERLIST
+639. BLJS10301 | 01.01 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+640. BCAS20097 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+641. BCES00509 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+642. BCAS20097 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+643. BCES00509 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+644. BCES00509 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+645. BCES00509 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+646. BCES00757 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+647. BCUS98213 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+648. BCES00757 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+649. BCUS98213 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+650. BCES00757 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+651. BCES00757 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+652. NPEA00365 | 01.00 | 60 | untested/ncl | 60 FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+653. NPEA00365 | 01.00 | 60 | untested/ncl | Unlock FPS v01.10 (RPCS3) | RPCS3 converted USERLIST
+654. NPUA80698 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+655. NPUA80698 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+656. BCAS25014 | 01.15 | 60 | untested/ncl | Unlock FPS v01.19 (RPCS3) | RPCS3 converted USERLIST
+657. BCES01175 | 01.17 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+658. BCES01175 | 01.18 | 60 | untested/ncl | Unlock FPS v01.00 (RPCS3) | RPCS3 converted USERLIST
+659. BCES01175 | 01.19 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+660. BCES01670 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+661. BCAS20024 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+662. BCES00065 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+663. BCES00065 | 01.00 | 60 | untested/ncl | Unlock FPS v01.01 (RPCS3) | RPCS3 converted USERLIST
+664. BCUS98103 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+665. BCUS98103 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+666. BCJS30015 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+667. BCJS30035 | 01.00 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+668. BCJS30035 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+669. BCJS30035 | 01.09 | 60 | untested/ncl | 60 FPS (RPCS3) | RPCS3 converted USERLIST
+670. BCJS30035 | 01.09 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+671. NPEB00636 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+672. NPUB30543 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+673. BLUS30403 | 01.00 | 60 | untested/ncl | Unlock FPS (PSXPlace) | RPCS3 converted USERLIST
+674. NPEB01324 | 01.01 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
+675. NPEB01351 | 01.00 | 60 | untested/ncl | Unlock FPS (RPCS3) | RPCS3 converted USERLIST
 
 Source: RPCS3toArtemis MAPI
-675. BLES01988 | * | 60 | untested/ncl | 60 FPS (PSXPlace test) | RPCS3toArtemis MAPI
-676. BCUS98131 | * | 60 | untested/ncl | 60 FPS (PSXPlace test) | RPCS3toArtemis MAPI
-677. BCUS98147 | 01.10 | 60 | untested/ncl | 60 FPS v01.10 (PSXPlace test) | RPCS3toArtemis MAPI
+676. BLES01988 | * | 60 | untested/ncl | 60 FPS (PSXPlace test) | RPCS3toArtemis MAPI
+677. BCUS98131 | * | 60 | untested/ncl | 60 FPS (PSXPlace test) | RPCS3toArtemis MAPI
+678. BCUS98147 | 01.10 | 60 | untested/ncl | 60 FPS v01.10 (PSXPlace test) | RPCS3toArtemis MAPI
 
 Source: RPCS3toArtemis Working
-678. BLUS30185 | 01.61 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-679. BLES01475 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-680. BCAS20013 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-681. BCES00050 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-682. BCUS98147 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-683. BLUS30127 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-684. BLUS31431 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-685. BLUS31319 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-686. BLES00517 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-687. BLUS31212 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-688. BLUS30710 | 01.02 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-689. BLUS31554 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-690. MRTC00002 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-691. BLUS30109 | * | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-692. BCUS98137 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-693. BLUS30029 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-694. BLUS30270 | 02.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-695. BCUS98176 | 01.05 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-696. BLUS30169 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-697. BLUS30253 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-698. BLUS30464 | 01.05 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-699. BLUS30087 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-700. BLUS30778 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
-701. BCAS20270 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-702. BCES01584 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-703. BCUS98174 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-704. BLUS30011 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
-705. BLUS30071 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+679. BLUS30185 | 01.61 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+680. BLES01475 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+681. BCAS20013 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+682. BCES00050 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+683. BCUS98147 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+684. BLUS30127 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+685. BLUS31431 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+686. BLUS31319 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+687. BLES00517 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+688. BLUS31212 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+689. BLUS30710 | 01.02 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+690. BLUS31554 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+691. MRTC00002 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+692. BLUS30109 | * | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+693. BCUS98137 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+694. BLUS30029 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+695. BLUS30270 | 02.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+696. BCUS98176 | 01.05 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+697. BLUS30169 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+698. BLUS30253 | 01.02 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+699. BLUS30464 | 01.05 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+700. BLUS30087 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+701. BLUS30778 | 01.00 | unlock | known/ncl_constant | Unlock FPS | RPCS3toArtemis Working
+702. BCAS20270 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+703. BCES01584 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+704. BCUS98174 | 01.11 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+705. BLUS30011 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
+706. BLUS30071 | 01.00 | 60 | known/ncl_constant | 60 FPS | RPCS3toArtemis Working
 
 Source: RafJaeger
-706. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (testado em gameplay) | RafJaeger
-707. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | RafJaeger
-708. NPUB30984 | 01.06 | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-709. BCES00065 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
-710. BCUS98103 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
-711. BCUS98213 | 01.09 | 30 | known/ncl | 30 FPS | RafJaeger
-712. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | RafJaeger
-713. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | RafJaeger
-714. BLJS10318 | 01.05 | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
-715. BLUS30612 | 01.00 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-716. BLUS31518 | 01.02 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-717. BLUS30538 | 01.04 | unlock | known/ncl | Unlock FPS / 60 FPS (testado por RafJaeger) | RafJaeger
-718. NPUB30830 | 01.01 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-719. NPUB30389 | 02.00 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-720. BLES00669 | 01.02 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-721. BLES02096 | 01.08 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-722. BLES02145 | * | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
-723. NPUB30560 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-724. NPUB31236 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-725. BLUS31584 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-726. NPUB30984 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-727. BLUS30758 | 01.03 | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
-728. BLUS30557 | 01.10 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
-729. NPUB30991 | 01.00 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
-730. BLJM60020 | * | 60 | known/ncl | FPS Unlock + Speed Fix (testado por RafJaeger) | RafJaeger
-731. NPUB30471 | 01.00 | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
-732. BLES01717 | 01.19 | unlock | known/ncl | FPS Unlock / 120 FPS Max (testado por RafJaeger) | RafJaeger
-733. BLUS30591 | 01.13 | unlock | known/ncl | FPS Unlock / Ilimitado - Multiplayer (testado por RafJaeger) | RafJaeger
-734. BLUS30591 | 01.13 | unlock | known/ncl | FPS Unlock / Ilimitado - Campanha / Zombies (testado por RafJaeger) | RafJaeger
-735. BLUS31527 | 01.07 | unlock | known/ncl | FPS Unlock - Multiplayer (testado por RafJaeger) | RafJaeger
-736. BLUS31527 | 01.07 | unlock | known/ncl | FPS Unlock - Zombies (testado por RafJaeger) | RafJaeger
+707. BLUS31201 | 01.03 | unlock | known/ncl | Unlock FPS (testado em gameplay) | RafJaeger
+708. BCES01141 | 01.03 | unlock | known/ncl | Unlock FPS (testado em PS3 real) | RafJaeger
+709. NPUB30984 | 01.06 | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+710. BCES00065 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
+711. BCUS98103 | 01.10 | 30 | known/ncl | 30 FPS | RafJaeger
+712. BCUS98213 | 01.09 | 30 | known/ncl | 30 FPS | RafJaeger
+713. BLES00759 | 01.02 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | RafJaeger
+714. BLUS31420 | 01.07 | unlock | known/ncl | Unlock FPS / +60 (testado em PS3 real) | RafJaeger
+715. BLJS10318 | 01.05 | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
+716. BLUS30612 | 01.00 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+717. BLUS31518 | 01.02 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+718. BLUS30538 | 01.04 | unlock | known/ncl | Unlock FPS / 60 FPS (testado por RafJaeger) | RafJaeger
+719. NPUB30830 | 01.01 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+720. NPUB30389 | 02.00 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+721. BLES00669 | 01.02 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+722. BLES02096 | 01.08 | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+723. BLES02145 | * | 60 | known/ncl | 60 FPS (testado por RafJaeger) | RafJaeger
+724. NPUB30560 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+725. NPUB31236 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+726. BLUS31584 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+727. NPUB30984 | * | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+728. BLUS30758 | 01.03 | 60 | known/ncl | 60 FPS (testado em PS3 real) | RafJaeger
+729. BLUS30557 | 01.10 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
+730. NPUB30991 | 01.00 | 60 | known/ncl | FPS Unlock (testado em PS3 real) | RafJaeger
+731. BLJM60020 | * | 60 | known/ncl | FPS Unlock + Speed Fix (testado por RafJaeger) | RafJaeger
+732. NPUB30471 | 01.00 | 60 | known/ncl | 60 FPS + Speed Fix (testado por RafJaeger) | RafJaeger
+733. BLES01717 | 01.19 | unlock | known/ncl | FPS Unlock / 120 FPS Max (testado por RafJaeger) | RafJaeger
+734. BLUS30591 | 01.13 | unlock | known/ncl | FPS Unlock / Ilimitado - Multiplayer (testado por RafJaeger) | RafJaeger
+735. BLUS30591 | 01.13 | unlock | known/ncl | FPS Unlock / Ilimitado - Campanha / Zombies (testado por RafJaeger) | RafJaeger
+736. BLUS31527 | 01.07 | unlock | known/ncl | FPS Unlock - Multiplayer (testado por RafJaeger) | RafJaeger
+737. BLUS31527 | 01.07 | unlock | known/ncl | FPS Unlock - Zombies (testado por RafJaeger) | RafJaeger
 
 Source: TriggerHappy / community patch
-737. BLUS30847 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
-738. NPEB00684 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
+738. BLUS30847 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
+739. NPEB00684 | 01.00 | 30 | untested/ncl | 30 FPS (MGS3 HD) | TriggerHappy / community patch
 
 Source: mnz / PSUF community
-739. BLES01807 | 01.27 | 60 | known/ncl | 60 FPS (testado por mnz) | mnz / PSUF community
+740. BLES01807 | 01.27 | 60 | known/ncl | 60 FPS (testado por mnz) | mnz / PSUF community
 
 Graphics/extra source index
 Format: Title ID | version | game | status/method | label | source
