@@ -74,14 +74,14 @@ Graphics/extra source summary from current graphics_patches.csv:
 - RPCS3toArtemis / vFxMz: 4 entries
 - MNZ / PSUF community: 3 entries
 - RafJaeger: 3 entries
+- Jaeger: 2 entries
 - ArtemisPS3 / GuitarMan: 1 entries
-- Jaeger: 1 entries
 - MNZ / GTAV R4L research: 1 entries
 - RPCS3 community: 1 entries
 
 Graphics/extra status summary from current graphics_patches.csv:
 - untested: 147 entries
-- known: 3 entries
+- known: 4 entries
 
 Companion fix/warning source summary from current fix_patches.csv:
 - PSXPlace community report: 12 entries
@@ -961,107 +961,108 @@ Source: ArtemisPS3 / illusion
 
 Source: Jaeger
 065. BLES00237 | 01.30 | Tom Clancy's Rainbow Six: Vegas 2 | known/ncl | VSync Off | Jaeger
+066. BLES00016 | 01.02 | Call of Duty 3 | known/ncl | VSync Off | Jaeger
 
 Source: MNZ / GTAV R4L research
-066. BLES01807 | 01.27 | Grand Theft Auto V | known/ncl | Smooth FPS / R4L (confirmado) | MNZ / GTAV R4L research
+067. BLES01807 | 01.27 | Grand Theft Auto V | known/ncl | Smooth FPS / R4L (confirmado) | MNZ / GTAV R4L research
 
 Source: MNZ / PSUF community
-067. BLES01807 | 01.27 | Grand Theft Auto V | untested/ncl | Intermediario (nao validado) | MNZ / PSUF community
-068. BLES01807 | 01.27 | Grand Theft Auto V | known/ncl | GTA V Lite / Maxima Performance (confirmado) | MNZ / PSUF community
-069. BLUS31141 | 01.19 | Call of Duty Black Ops II | untested/ncl | High LOD + Disable Depth of Field | MNZ / PSUF community
+068. BLES01807 | 01.27 | Grand Theft Auto V | untested/ncl | Intermediario (nao validado) | MNZ / PSUF community
+069. BLES01807 | 01.27 | Grand Theft Auto V | known/ncl | GTA V Lite / Maxima Performance (confirmado) | MNZ / PSUF community
+070. BLUS31141 | 01.19 | Call of Duty Black Ops II | untested/ncl | High LOD + Disable Depth of Field | MNZ / PSUF community
 
 Source: Nascar1243 / Graphics Patches for PS3MAPI PDF
-070. BLUS30443 | * | Demons Souls | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-071. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-072. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-073. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-074. BLUS31197 | 01.01 | Drakengard 3 | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-075. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-076. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-077. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Image Grain | Nascar1243 / Graphics Patches for PS3MAPI PDF
-078. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-079. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Enable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-080. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Lighting Effects | Nascar1243 / Graphics Patches for PS3MAPI PDF
-081. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Mesh Trimming | Nascar1243 / Graphics Patches for PS3MAPI PDF
-082. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-083. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Velocity Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-084. BLUS98111 | 01.03 | God of War III | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-085. BLUS98111 | 01.03 | God of War III | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-086. BLUS98111 | 01.03 | God of War III | untested/ncl | Color Grading | Nascar1243 / Graphics Patches for PS3MAPI PDF
-087. BLUS98111 | 01.03 | God of War III | untested/ncl | Disable Layered Fog | Nascar1243 / Graphics Patches for PS3MAPI PDF
-088. BLUS98111 | 01.03 | God of War III | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-089. BLUS98111 | 01.03 | God of War III | untested/ncl | Camera Sway Disable | Nascar1243 / Graphics Patches for PS3MAPI PDF
-090. BCUS98232 | 01.12 | God of War Ascension | untested/ncl | Disable Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-091. BCUS98232 | 01.12 | God of War Ascension | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-092. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-093. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | Disable Bubble Score FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
-094. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-095. BCES01115 | 01.01 | ICO | untested/ncl | Disable All Post-Processing (Removes Fog) | Nascar1243 / Graphics Patches for PS3MAPI PDF
-096. BCES01115 | 01.01 | ICO | untested/ncl | Disable Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-097. BCES01115 | 01.01 | ICO | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-098. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-099. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-100. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-101. BCUS98103 | * | Uncharted 1 | untested/ncl | Disable Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-102. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Dynamic Resolution Scaling | Nascar1243 / Graphics Patches for PS3MAPI PDF
-103. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-104. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Crowd Noises | Nascar1243 / Graphics Patches for PS3MAPI PDF
-105. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable Dynamic Resolution Scaling | Nascar1243 / Graphics Patches for PS3MAPI PDF
-106. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable SSAO | Nascar1243 / Graphics Patches for PS3MAPI PDF
-107. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-108. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-109. BLUS30565 | 01.01 | Silent Hill Downpour | untested/ncl | Disable Low-Resolution Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-110. BLUS30565 | 01.01 | Silent Hill Downpour | untested/ncl | Disable MLAA and FXAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-111. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable Score Bubble FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
-112. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-113. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-114. BLUS30016 | * | Need For Speed Carbon | untested/ncl | Disable Color Correction | Nascar1243 / Graphics Patches for PS3MAPI PDF
-115. BLUS30256 | * | 50 Cent Blood On The Sand | untested/ncl | Disable Motion Blur and Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-116. BLUS30059 | * | Skate | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-117. BLUS30190 | 01.06 | Midnight Club Los Angeles | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-118. BLUS30736 | 01.03 | Soulcalibur V | untested/ncl | Reduce Input Lag | Nascar1243 / Graphics Patches for PS3MAPI PDF
-119. BLUS30736 | 01.03 | Soulcalibur V | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-120. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
-121. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Blocky Depth Fix | Nascar1243 / Graphics Patches for PS3MAPI PDF
-122. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Dynamic Lights | Nascar1243 / Graphics Patches for PS3MAPI PDF
-123. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Dynamic Spotlights | Nascar1243 / Graphics Patches for PS3MAPI PDF
-124. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
-125. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Image Grain | Nascar1243 / Graphics Patches for PS3MAPI PDF
-126. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-127. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Low Resolution Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
-128. BCUS98148 | 01.30 | LittleBigPlanet | untested/ncl | Disable Score Bubble FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
-129. BCUS98148 | 01.30 | LittleBigPlanet | untested/ncl | Disable Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
-130. BLUS31197 | 01.01 | Drakengard 3 | untested/ncl | Disable Low-Res Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+071. BLUS30443 | * | Demons Souls | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+072. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+073. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+074. BLUS30721 | 01.02 | Asura's Wrath | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+075. BLUS31197 | 01.01 | Drakengard 3 | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+076. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+077. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+078. BLUS30917 | * | Lollipop Chainsaw | untested/ncl | Image Grain | Nascar1243 / Graphics Patches for PS3MAPI PDF
+079. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+080. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Enable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+081. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Lighting Effects | Nascar1243 / Graphics Patches for PS3MAPI PDF
+082. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Mesh Trimming | Nascar1243 / Graphics Patches for PS3MAPI PDF
+083. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+084. BCUS98213 | 01.09 | Uncharted 2 | untested/ncl | Velocity Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+085. BLUS98111 | 01.03 | God of War III | untested/ncl | Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+086. BLUS98111 | 01.03 | God of War III | untested/ncl | Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+087. BLUS98111 | 01.03 | God of War III | untested/ncl | Color Grading | Nascar1243 / Graphics Patches for PS3MAPI PDF
+088. BLUS98111 | 01.03 | God of War III | untested/ncl | Disable Layered Fog | Nascar1243 / Graphics Patches for PS3MAPI PDF
+089. BLUS98111 | 01.03 | God of War III | untested/ncl | Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+090. BLUS98111 | 01.03 | God of War III | untested/ncl | Camera Sway Disable | Nascar1243 / Graphics Patches for PS3MAPI PDF
+091. BCUS98232 | 01.12 | God of War Ascension | untested/ncl | Disable Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+092. BCUS98232 | 01.12 | God of War Ascension | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+093. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+094. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | Disable Bubble Score FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
+095. BCUS98362 | 01.26 | LittleBigPlanet 3 | untested/ncl | MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+096. BCES01115 | 01.01 | ICO | untested/ncl | Disable All Post-Processing (Removes Fog) | Nascar1243 / Graphics Patches for PS3MAPI PDF
+097. BCES01115 | 01.01 | ICO | untested/ncl | Disable Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+098. BCES01115 | 01.01 | ICO | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+099. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+100. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+101. BCES01115 | 01.01 | Shadow of the Colossus | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+102. BCUS98103 | * | Uncharted 1 | untested/ncl | Disable Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+103. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Dynamic Resolution Scaling | Nascar1243 / Graphics Patches for PS3MAPI PDF
+104. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+105. BCUS98155 | 01.03 | Motorstorm Pacific Rift | untested/ncl | Disable Crowd Noises | Nascar1243 / Graphics Patches for PS3MAPI PDF
+106. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable Dynamic Resolution Scaling | Nascar1243 / Graphics Patches for PS3MAPI PDF
+107. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable SSAO | Nascar1243 / Graphics Patches for PS3MAPI PDF
+108. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+109. BCUS98242 | 01.06 | Motorstorm Apocalypse | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+110. BLUS30565 | 01.01 | Silent Hill Downpour | untested/ncl | Disable Low-Resolution Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+111. BLUS30565 | 01.01 | Silent Hill Downpour | untested/ncl | Disable MLAA and FXAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+112. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable Score Bubble FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
+113. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+114. BCUS98245 | 01.33 | LittleBigPlanet 2 | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+115. BLUS30016 | * | Need For Speed Carbon | untested/ncl | Disable Color Correction | Nascar1243 / Graphics Patches for PS3MAPI PDF
+116. BLUS30256 | * | 50 Cent Blood On The Sand | untested/ncl | Disable Motion Blur and Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+117. BLUS30059 | * | Skate | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+118. BLUS30190 | 01.06 | Midnight Club Los Angeles | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+119. BLUS30736 | 01.03 | Soulcalibur V | untested/ncl | Reduce Input Lag | Nascar1243 / Graphics Patches for PS3MAPI PDF
+120. BLUS30736 | 01.03 | Soulcalibur V | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+121. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Bloom | Nascar1243 / Graphics Patches for PS3MAPI PDF
+122. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Blocky Depth Fix | Nascar1243 / Graphics Patches for PS3MAPI PDF
+123. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Dynamic Lights | Nascar1243 / Graphics Patches for PS3MAPI PDF
+124. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable Dynamic Spotlights | Nascar1243 / Graphics Patches for PS3MAPI PDF
+125. BLUS31069 | 01.01 | Army of Two Devils Cartel | untested/ncl | Disable MLAA | Nascar1243 / Graphics Patches for PS3MAPI PDF
+126. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Image Grain | Nascar1243 / Graphics Patches for PS3MAPI PDF
+127. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Motion Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+128. BLUS30653 | * | Shadows Of The Damned | untested/ncl | Disable Low Resolution Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
+129. BCUS98148 | 01.30 | LittleBigPlanet | untested/ncl | Disable Score Bubble FX | Nascar1243 / Graphics Patches for PS3MAPI PDF
+130. BCUS98148 | 01.30 | LittleBigPlanet | untested/ncl | Disable Blur | Nascar1243 / Graphics Patches for PS3MAPI PDF
+131. BLUS31197 | 01.01 | Drakengard 3 | untested/ncl | Disable Low-Res Depth of Field | Nascar1243 / Graphics Patches for PS3MAPI PDF
 
 Source: PSXPlace / Joey85
-131. BLES01587 | 02.00 | Batman Arkham City GOTY | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
-132. BLUS30978 | 01.01 | Batman Arkham City GOTY | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
-133. BLUS31147 | 01.06 | Batman Arkham Origins | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
-134. BLUS31207 | 01.06 | Batman Arkham Origins | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
+132. BLES01587 | 02.00 | Batman Arkham City GOTY | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
+133. BLUS30978 | 01.01 | Batman Arkham City GOTY | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
+134. BLUS31147 | 01.06 | Batman Arkham Origins | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
+135. BLUS31207 | 01.06 | Batman Arkham Origins | untested/ncl | Debug Menu / disable VSync | PSXPlace / Joey85
 
 Source: RPCS3 community
-135. BLUS31162 | 01.20 | Battlefield 4 | untested/ncl | Disable MLAA / visual performance mode | RPCS3 community
+136. BLUS31162 | 01.20 | Battlefield 4 | untested/ncl | Disable MLAA / visual performance mode | RPCS3 community
 
 Source: RPCS3toArtemis / vFxMz
-136. BCES00081 | 01.29 | Killzone 2 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
-137. BCUS98116 | 01.29 | Killzone 2 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
-138. BCES01007 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
-139. BCUS98234 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
+137. BCES00081 | 01.29 | Killzone 2 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
+138. BCUS98116 | 01.29 | Killzone 2 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
+139. BCES01007 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
+140. BCUS98234 | 01.14 | Killzone 3 | untested/ncl | Extended FOV (PSXPlace) [Tested] | RPCS3toArtemis / vFxMz
 
 Source: RafJaeger
-140. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Quincunx | RafJaeger
-141. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Sweat | RafJaeger
-142. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Spit / Impact particles | RafJaeger
+141. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Quincunx | RafJaeger
+142. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Sweat | RafJaeger
+143. BLJM60020 | * | Fight Night Round 3 | untested/ncl | Spit / Impact particles | RafJaeger
 
 Source: xan1242 / nfsc-ps3-patches
-143. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unhide Virus Vinyls | xan1242 / nfsc-ps3-patches
-144. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unlock DLC / Unlock Everything | xan1242 / nfsc-ps3-patches
-145. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Visual Treatment | xan1242 / nfsc-ps3-patches
-146. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Motion Blur | xan1242 / nfsc-ps3-patches
-147. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Collectors Edition | xan1242 / nfsc-ps3-patches
-148. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Debug Car Customize | xan1242 / nfsc-ps3-patches
-149. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Enable MSAA Ingame | xan1242 / nfsc-ps3-patches
-150. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Disable MSAA In Menus | xan1242 / nfsc-ps3-patches
+144. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unhide Virus Vinyls | xan1242 / nfsc-ps3-patches
+145. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Unlock DLC / Unlock Everything | xan1242 / nfsc-ps3-patches
+146. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Visual Treatment | xan1242 / nfsc-ps3-patches
+147. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Disable Motion Blur | xan1242 / nfsc-ps3-patches
+148. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Collectors Edition | xan1242 / nfsc-ps3-patches
+149. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Enable Debug Car Customize | xan1242 / nfsc-ps3-patches
+150. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Enable MSAA Ingame | xan1242 / nfsc-ps3-patches
+151. BLUS30016 | * | Need for Speed Carbon | untested/ncl | Force Disable MSAA In Menus | xan1242 / nfsc-ps3-patches
 
 Companion fix/warning source index
 Format: Title ID | version | kind | status/method | label | source

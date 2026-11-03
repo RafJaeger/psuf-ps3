@@ -253,6 +253,7 @@ class PatchDatabaseTests(unittest.TestCase):
         self.assertTrue(any(row[3] == "Sweat" and row[7].startswith("0 10037120 00000000;") for row in fight_graphics))
         self.assertTrue(any(row[3] == "Spit / Impact particles" and row[7] == "0 100370F0 00000000;0 10037308 00000000;0 10037328 00000000;0 10037348 00000000" for row in fight_graphics))
         self.assertTrue(any(row[0] == "BLES00237" and row[1] == "01.30" and row[3] == "VSync Off" and row[6] == "Jaeger" and row[7] == "0 1009B360 00" for row in graphics_rows))
+        self.assertTrue(any(row[0] == "BLES00016" and row[1] == "01.02" and row[3] == "VSync Off" and row[6] == "Jaeger" and row[7] == "0 005C72BC 38600001;0 005C72F0 38600001" for row in graphics_rows))
 
     def test_official_apply_keeps_persistent_runtime_script_and_cleans_start_trigger(self):
         text = PATCH_DB_SOURCE.read_text(encoding="utf-8", errors="ignore")
