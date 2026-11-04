@@ -228,6 +228,7 @@ class PatchDatabaseTests(unittest.TestCase):
             ("BLES00016", "01.02", "unlock", "0 1011339C 00000001"),
             ("BLUS31207", "01.06", "unlock", "0 0178F990 00000000"),
             ("NPUB30589", "01.01", "unlock", "0 00E7128C 0000003C;0 006EB5D8 3C8000C7;0 006EB5E0 C044CD30;0 006EBD08 3C6000C7;0 006EBD18 C023CD30"),
+            ("BLUS31065", "01.00", "unlock", "0 001E8058 60000000"),
         }
         found = {(row[0], row[1], row[2], row[7]) for row in fps_rows if len(row) >= 8}
         for item in expected:
