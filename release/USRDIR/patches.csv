@@ -741,3 +741,42 @@ BLUS30591|01.13|unlock|known|ncl|FPS Unlock / Ilimitado - Multiplayer (testado p
 BLUS30591|01.13|unlock|known|ncl|FPS Unlock / Ilimitado - Campanha / Zombies (testado por RafJaeger)|RafJaeger|0 0039F960 39200000;0 0039FF84 39200000;0 006D21CC 4800005C|Call of Duty: Black Ops BLUS30591 01.13 USA, modos Campanha e Zombies. Confirmado em PS3 real por RafJaeger. Remove o limite aproximado de 60 FPS e permite ultrapassar os 60 FPS originais. O resultado depende do hardware e das condicoes do jogo. Originais: 0039F960=813F0018, 0039FF84=892C0018, 006D21CC=419E005C.|120
 BLUS31527|01.07|unlock|known|ncl|FPS Unlock - Multiplayer (testado por RafJaeger)|RafJaeger|0 005C07A8 3BE00078;0 003C6CE8 48000014;0 003C6DA0 4800004C|Call of Duty: Black Ops III BLUS31527 01.07 USA, modo Multiplayer. Confirmado em PS3 real por RafJaeger. Remove o limite aproximado de 60 FPS e permite ultrapassar os 60 FPS originais; resultado observado de 60 FPS para mais de 100 FPS. O desempenho depende do hardware e das condicoes do jogo. Originais: 005C07A8=607F0000, 003C6CE8=41820014, 003C6DA0=4182004C.|120
 BLUS31527|01.07|unlock|known|ncl|FPS Unlock - Zombies (testado por RafJaeger)|RafJaeger|0 005B5210 3BE00078;0 003C6288 48000014;0 003C6340 4800004C|Call of Duty: Black Ops III BLUS31527 01.07 USA, modo Zombies. Confirmado em PS3 real por RafJaeger. Remove o limite aproximado de 60 FPS e permite ultrapassar os 60 FPS originais; resultado observado de 60 FPS para mais de 100 FPS. O desempenho depende do hardware e das condicoes do jogo. Originais: 005B5210=607F0000, 003C6288=41820014, 003C6340=4182004C.|120
+BLES01017|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0028D410 3B800001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30198|01.20|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0040CC40 39200000;0 001FCDC0 428000C0|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30198|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0040CC40 39200000;0 001FCDC0 428000C0|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCES01121|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 004006E4 42800010;0 004006BC 42800134;0 004006BC 60000000;0 003F89D4 42800054;0 003F8BA4 42800054;0 003F4B9C 38600001;0 0040053C 38600001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place. Mantém as duas escritas no mesmo endereço na ordem publicada.|120
+BLES00191|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 004690A0 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+NPUB31079|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 004208EC 38C00001;0 004208C8 38C00001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30795|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0056155C 38C00001;0 00561538 38C00001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00222|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0132D408 39290002|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30776|01.06|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0092027C 38600001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00329|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00982980 42800028|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCUS98164|02.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 007C6C10 39200001;0 007C6C04 428000D8|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00090|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 003E9DF4 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+NPHA80264|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0011A700 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00221|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 000C9344 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES01999|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00585B88 38600001;0 00585B58 38600001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES02247|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 008F62FC 38000001;0 008F633C 39200001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30214|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 001D4168 3BA00001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00840|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0054D3FC 38000001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+NPEB01306|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00881AA8 60000000;0 00881AB8 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES01157|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00A3EFF4 28030001;0 00A3F164 28030001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30499|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0024AD04 2C030000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00780|01.04|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0084EA74 39200001;0 00855428 39200001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES01982|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 024160EC 00000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30521|01.05|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 003F2BC4 38000001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES01153|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00832F9C 48000004;0 007E82F0 28030000;0 007E8304 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00187|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0090BF10 60000000;0 0090BF24 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCES00727|01.09|60|untested|ncl|60 FPS (RPCS3)|RPCS3 / Joey85|0 00E9C1FB 01|Pesquisa do RPCS3 publicada por Joey85 no PSX-Place. Aplicar em memória com o jogo aberto.|120
+BCES00727|01.09|unlock|untested|ncl|FPS ilimitado (RPCS3)|RPCS3 / Joey85|0 00E9C1FB 00|Pesquisa do RPCS3 publicada por Joey85 no PSX-Place. Aplicar em memória com o jogo aberto.|120
+BLUS30298|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0009D098 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30268|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 018A0C3C 60000000;0 018A0D34 60000000;0 018A0D38 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS31180|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00762F20 28030001;0 00763068 28030001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30340|01.02|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00013AE8 60000000;0 00024200 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30003|01.00|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00187C74 60000000;0 00187C8C 42800014;0 00189FE0 38600001|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES00963|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00C2D188 60000000;0 00C2D198 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCUS98132|01.10|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0078E500 42800010|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCES01007|01.14|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 000658E4 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLUS30145|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00730B48 42800020|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BLES01294|01.01|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 0059DC10 60000000|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
+BCUS98106|01.06|unlock|untested|ncl|FPS Unlock (Joey85)|Joey85|0 00689348 42800008;0 006892DC 42800020|Publicado por Joey85 no tópico 60/Unlock FPS Patches do PSX-Place.|120
