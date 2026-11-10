@@ -1,0 +1,4 @@
+# title_id|version|kind|status|method|label|source|payload|note|delay_seconds
+# Explicit pre-patches only. A row is applied before the selected FPS route
+# only when Title ID, version, kind and status=known/applicable all match.
+# Keep this file empty until a pre-patch is confirmed on real PS3 hardware.
