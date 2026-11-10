@@ -1,6 +1,10 @@
 import csv
 import json
+import os
 import re
+import shutil
+import struct
+import subprocess
 import tempfile
 import unittest
 import zipfile
@@ -37,6 +41,7 @@ PUBLIC_FILES = [
     USRDIR / "patches.csv",
     USRDIR / "graphics_patches.csv",
     USRDIR / "fix_patches.csv",
+    USRDIR / "pre_patches.csv",
 ]
 PATCH_DB_SOURCE = ROOT / "source" / "patch_db.c"
 
@@ -57,6 +62,211 @@ def split_payload(payload):
 
 
 class PatchDatabaseTests(unittest.TestCase):
+    def test_offline_pkg_database_precedes_older_saved_database(self):
+        compiler = shutil.which("cc") or shutil.which("gcc")
+        if not compiler:
+            self.skipTest("Host C compiler required")
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            bundled = work / "bundled"
+            updated = work / "updated"
+            bundled.mkdir()
+            updated.mkdir()
+            sample = "BCES00129|01.03|unlock|known|ncl|Jaeger|Jaeger|0 30473370 00000001|test|120\n"
+            for root in (bundled, updated):
+                (root / "patches.csv").write_text(sample, encoding="utf-8")
+                (root / "native60.csv").write_text("BCES00129|test\n", encoding="utf-8")
+            harness = work / "precedence.c"
+            harness.write_text(
+                '#include <stdio.h>\n#include <sys/stat.h>\n#include <dirent.h>\n'
+                '#ifdef _WIN32\n#include <direct.h>\n#include <io.h>\n'
+                '#define mkdir(path, mode) _mkdir(path)\n#define fsync _commit\n#endif\n'
+                '#include "patch_db.c"\n'
+                'int backup_path_is_safe_target(const char *path) { (void)path; return 0; }\n'
+                'int backup_copy_file(const char *id, const char *source, char *out, size_t size) '
+                '{ (void)id; (void)source; (void)out; (void)size; return -1; }\n'
+                'fpsu_lang i18n_detect_language(void) { return 0; }\n'
+                'const char *i18n_text(fpsu_lang lang, fpsu_text_id id) '
+                '{ (void)lang; (void)id; return ""; }\n'
+                'int main(void) { puts(patch_db_active_path()); '
+                'puts(native60_db_active_path()); return 0; }\n',
+                encoding="utf-8",
+            )
+            binary = work / "precedence"
+            subprocess.run(
+                [compiler, "-std=gnu99", "-ffunction-sections", "-Wl,--gc-sections",
+                 "-I", str(ROOT / "include"), "-I", str(ROOT / "source"),
+                 f'-DFPSU_APP_USRDIR="{bundled.as_posix()}"',
+                 f'-DFPSU_DATA_ROOT="{updated.as_posix()}"',
+                 str(harness), "-o", str(binary)],
+                check=True,
+            )
+
+            def selected():
+                return subprocess.check_output([str(binary)], text=True).splitlines()
+
+            for root, stamp in ((bundled, 1700000200), (updated, 1700000100)):
+                for name in ("patches.csv", "native60.csv"):
+                    os.utime(root / name, (stamp, stamp))
+            self.assertEqual(selected(), [(bundled / "patches.csv").as_posix(),
+                                          (bundled / "native60.csv").as_posix()])
+            for name in ("patches.csv", "native60.csv"):
+                os.utime(updated / name, (1700000300, 1700000300))
+            self.assertEqual(selected(), [(updated / "patches.csv").as_posix(),
+                                          (updated / "native60.csv").as_posix()])
+            (updated / "patches.csv").write_text("invalid\n", encoding="utf-8")
+            self.assertEqual(selected()[0], (bundled / "patches.csv").as_posix())
+
+    def test_legacy_runtime_scripts_migrate_when_rename_cannot_replace(self):
+        compiler = shutil.which("cc") or shutil.which("gcc")
+        if not compiler:
+            self.skipTest("Host C compiler required")
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            harness = work / "migrate.c"
+            harness.write_text(
+                '#include <stdio.h>\n#include <sys/stat.h>\n#include <string.h>\n'
+                '#ifdef _WIN32\n#include <dirent.h>\n#include <direct.h>\n#include <io.h>\n'
+                '#define mkdir(path, mode) _mkdir(path)\n#define fsync _commit\n#endif\n'
+                'static int gameos_rename(const char *, const char *);\n'
+                '#define rename gameos_rename\n#include "patch_db.c"\n#undef rename\n'
+                'int backup_path_is_safe_target(const char *path) { (void)path; return 0; }\n'
+                'int backup_copy_file(const char *id, const char *source, char *out, size_t size) '
+                '{ (void)id; (void)source; (void)out; (void)size; return -1; }\n'
+                'static int fail_publish;\n'
+                'static int gameos_rename(const char *src, const char *dst) {\n'
+                '    struct stat st;\n'
+                '    if (stat(dst, &st) == 0) { errno = EEXIST; return -1; }\n'
+                '    if (fail_publish && strstr(src, ".psuf-tmp")) return -1;\n'
+                '    return rename(src, dst);\n'
+                '}\n'
+                'fpsu_lang i18n_detect_language(void) { return 0; }\n'
+                'const char *i18n_text(fpsu_lang lang, fpsu_text_id id) { return "PSUF"; }\n'
+                'int main(int argc, char **argv) {\n'
+                '    fail_publish = argc > 1;\n'
+                '    guard_saved_ingame_scripts();\n'
+                '    return 0;\n'
+                '}\n',
+                encoding="utf-8",
+            )
+            binary = work / "migrate"
+            subprocess.run(
+                [compiler, "-std=gnu99", "-ffunction-sections", "-Wl,--gc-sections",
+                 "-I", str(ROOT / "include"), "-I", str(ROOT / "source"),
+                 f'-DFPSU_WM_INGAME_ROOT="{work.as_posix()}"', str(harness), "-o", str(binary)],
+                check=True,
+            )
+            script = work / "NPEA00280.bat"
+            previous = work / "NPEA00280.bat.psuf-prev"
+            original = ("# PS3 FPS Unlocker auto apply\n"
+                        "logfile /dev_hdd0/FPSU/cache/webman_ingame.log\n"
+                        "wait 9\nwrite 00161554 38800001\n")
+            script.write_bytes(original.encode("ascii"))
+            subprocess.run([str(binary), "fail"], check=True)
+            self.assertEqual(script.read_text(), original)
+            self.assertFalse(previous.exists())
+
+            script.rename(previous)
+            subprocess.run([str(binary)], check=True)
+            migrated = script.read_text()
+            self.assertIn("auto apply (compatible)", migrated)
+            self.assertIn("if titleid NPEA00280", migrated)
+            self.assertIn("write 00161554 38800001", migrated)
+            self.assertNotIn("wait 9", migrated)
+            self.assertFalse(previous.exists())
+
+            guarded = work / "BLES01128.bat"
+            guarded.write_bytes(
+                b"# PS3 FPS Unlocker auto apply (guarded)\n"
+                b"logfile /dev_hdd0/FPSU/cache/webman_ingame.log\n"
+                b"abort if xmb\nabort if not titleid BLES01128\n"
+                b"wait 2\nabort if xmb\nabort if not titleid BLES01128\n"
+                b"write 00161554 38800001\n"
+            )
+            subprocess.run([str(binary)], check=True)
+            upgraded = guarded.read_text()
+            self.assertIn("auto apply (compatible)", upgraded)
+            self.assertNotIn("abort if not titleid", upgraded)
+            self.assertIn("write 00161554 38800001", upgraded)
+            self.assertEqual(script.read_text(), migrated)
+
+            def reaches_write(script_text, title, legacy):
+                commands = script_text.splitlines()
+                labels = {line[1:]: i for i, line in enumerate(commands) if line.startswith(":")}
+
+                def condition(text):
+                    if text == "xmb":
+                        return title is None
+                    if text == "exist /dev_hdd0":
+                        return True
+                    wanted = text.removeprefix("titleid ")
+                    return legacy is not None and len(title or "") >= len(wanted) and (
+                        (title[:len(wanted)] == wanted) != legacy
+                    )
+
+                i = 0
+                while i < len(commands):
+                    line = commands[i]
+                    if line.startswith("write "):
+                        return True
+                    if line.startswith("abort if ") and condition(line[9:]):
+                        return False
+                    if line.startswith("if ") and not condition(line[3:]):
+                        i = commands.index("end if", i + 1)
+                    elif line.startswith("goto "):
+                        i = labels[line[5:]]
+                    i += 1
+                return False
+
+            for body, expected in [(migrated, "NPEA00280"), (upgraded, "BLES01128")]:
+                for legacy in (False, True, None):
+                    with self.subTest(title=expected, legacy=legacy):
+                        self.assertEqual(reaches_write(body, expected, legacy), legacy is not None)
+                        for other in ("", "NPUB31254", None):
+                            self.assertFalse(reaches_write(body, other, legacy))
+
+    def test_disc_patch_version_uses_app_ver_when_present(self):
+        compiler = shutil.which("cc") or shutil.which("gcc")
+        if not compiler:
+            self.skipTest("Host C compiler required")
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            harness = work / "sfo_check.c"
+            harness.write_text(
+                '#include <stdio.h>\n#include "sfo.h"\n'
+                'int main(int argc, char **argv) {\n'
+                '    fpsu_game game;\n'
+                '    if (argc != 2 || sfo_read_game(argv[1], &game) != 0) return 1;\n'
+                '    puts(game.version);\n'
+                '    return 0;\n}\n',
+                encoding="utf-8",
+            )
+            binary = work / "sfo_check.exe"
+            subprocess.run(
+                [compiler, "-I", str(ROOT / "include"), str(harness),
+                 str(ROOT / "source/sfo.c"), "-o", str(binary)],
+                check=True,
+            )
+            for app_ver, expected in [(None, "01.00"), ("00.00", "01.00"), ("01.01", "01.01")]:
+                with self.subTest(app_ver=app_ver):
+                    fields = {"CATEGORY": "DG", "TITLE_ID": "NPEA00280", "VERSION": "01.00"}
+                    if app_ver:
+                        fields["APP_VER"] = app_ver
+                    keys, values, entries = bytearray(), bytearray(), bytearray()
+                    for name, value in fields.items():
+                        encoded = value.encode("ascii") + b"\0"
+                        entries += struct.pack("<HHIII", len(keys), 0x0204,
+                                               len(encoded), len(encoded), len(values))
+                        keys += name.encode("ascii") + b"\0"
+                        values += encoded
+                    key_table = 20 + len(entries)
+                    sfo = work / "PARAM.SFO"
+                    sfo.write_bytes(struct.pack("<4sIIII", b"\0PSF", 0x101, key_table,
+                                                key_table + len(keys), len(fields))
+                                    + entries + keys + values)
+                    result = subprocess.check_output([str(binary), str(sfo)], text=True)
+                    self.assertEqual(result.strip(), expected)
+
     def test_fps_patch_rows_are_valid(self):
         for line_no, row in read_rows("patches.csv"):
             self.assertIn(len(row), {PATCH_FIELDS - 1, PATCH_FIELDS}, line_no)
@@ -155,7 +365,7 @@ class PatchDatabaseTests(unittest.TestCase):
 
             with zipfile.ZipFile(out) as archive:
                 names = set(archive.namelist())
-                self.assertEqual(names, {"manifest.json", "patches.csv", "graphics_patches.csv", "native60.csv", "fix_patches.csv"})
+                self.assertEqual(names, {"manifest.json", "patches.csv", "graphics_patches.csv", "native60.csv", "fix_patches.csv", "pre_patches.csv"})
                 manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
                 self.assertEqual(manifest["format"], "PSUF database update v1")
 
@@ -260,10 +470,11 @@ class PatchDatabaseTests(unittest.TestCase):
 
     def test_official_apply_keeps_persistent_runtime_script_and_cleans_start_trigger(self):
         text = PATCH_DB_SOURCE.read_text(encoding="utf-8", errors="ignore")
-        self.assertIn("/artemis.ps3?attach", text)
-        self.assertIn("/dev_hdd0/tmp/wm_ingame/%s.bat", text)
+        self.assertNotIn("/artemis.ps3?attach", text)
+        self.assertIn("/setmem.ps3mapi?addr=", text)
+        self.assertIn('#define FPSU_WM_INGAME_ROOT "/dev_hdd0/tmp/wm_ingame"', text)
+        self.assertIn('FPSU_WM_INGAME_ROOT "/%s.bat"', text)
         self.assertIn("runtime scripts are kept so webMAN can reapply the selected patch later", text)
-        self.assertIn("del /dev_hdd0/tmp/art.txt", text)
 
     def assert_payload_is_valid(self, payload, line_no):
         for write in split_payload(payload):

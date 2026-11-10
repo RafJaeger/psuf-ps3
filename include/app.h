@@ -5,10 +5,14 @@
 #include <stdint.h>
 
 #define FPSU_APP_ID "FPSU00001"
-#define FPSU_VERSION_LABEL "PSUF V2.5.30"
+#define FPSU_VERSION_LABEL "PSUF V3"
 #define FPSU_HEN_DIAG_BUILD 0
+#ifndef FPSU_APP_USRDIR
 #define FPSU_APP_USRDIR "/dev_hdd0/game/FPSU00001/USRDIR"
+#endif
+#ifndef FPSU_DATA_ROOT
 #define FPSU_DATA_ROOT "/dev_hdd0/FPSU"
+#endif
 #define FPSU_PATCH_DB_BUNDLED FPSU_APP_USRDIR "/patches.csv"
 #define FPSU_PATCH_DB_UPDATED FPSU_DATA_ROOT "/patches.csv"
 #define FPSU_PATCH_DB FPSU_PATCH_DB_BUNDLED
@@ -18,6 +22,8 @@
 #define FPSU_NATIVE60_DB_UPDATED FPSU_DATA_ROOT "/native60.csv"
 #define FPSU_FIX_DB FPSU_APP_USRDIR "/fix_patches.csv"
 #define FPSU_FIX_DB_UPDATED FPSU_DATA_ROOT "/fix_patches.csv"
+#define FPSU_PRE_DB FPSU_APP_USRDIR "/pre_patches.csv"
+#define FPSU_PRE_DB_UPDATED FPSU_DATA_ROOT "/pre_patches.csv"
 #define FPSU_UPDATE_URL_FILE FPSU_APP_USRDIR "/update_url.txt"
 #define FPSU_UPDATE_TMP FPSU_DATA_ROOT "/patches.download"
 #define FPSU_BACKUP_ROOT FPSU_DATA_ROOT "/backups"
@@ -29,6 +35,7 @@
 #define FPSU_MAX_PATH 768
 #define FPSU_MAX_TITLE 128
 #define FPSU_MAX_GAMES 256
+#define FPSU_HOME_ITEMS 11
 #define FPSU_SCAN_CHUNK 65536
 #define FPSU_EBOOT_SCAN_LIMIT (128u * 1024u * 1024u)
 #define FPSU_MAX_PAYLOAD 8192
@@ -93,6 +100,10 @@ typedef struct {
     char note[160];
     char source[64];
     char payload[FPSU_MAX_PAYLOAD];
+    /* Optional, explicit pre-patch route. Empty means no pre-patch. */
+    char pre_payload[FPSU_MAX_PAYLOAD];
+    char pre_label[64];
+    int pre_delay_seconds;
     int delay_seconds;
 } fpsu_patch_option;
 

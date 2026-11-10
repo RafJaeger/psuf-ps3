@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 USRDIR = ROOT / "release" / "USRDIR"
-FILES = ["patches.csv", "graphics_patches.csv", "native60.csv", "fix_patches.csv"]
+FILES = ["patches.csv", "graphics_patches.csv", "native60.csv", "fix_patches.csv", "pre_patches.csv"]
 
 
 def main():

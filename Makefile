@@ -15,7 +15,7 @@ SOURCES     := source
 DATA        := data
 INCLUDES    := include
 
-TITLE       := PSUF
+TITLE       := PSUF V3
 APPID       := FPSU00001
 CONTENTID   := UP0001-$(APPID)_00-0000000000000000
 PKGFILES    := release
@@ -23,7 +23,7 @@ PKGFILES    := release
 CFLAGS      = -O2 -Wall -Wextra -mcpu=cell $(MACHDEP) $(INCLUDE) -std=gnu99 -fno-strict-aliasing
 CXXFLAGS    = $(CFLAGS)
 LDFLAGS     = $(MACHDEP) -Wl,-Map,$(notdir $@).map
-LIBS        := -lrsx -lgcm_sys -lio -lsysutil -laudio -lrt -llv2 -lnet -lsysmodule -lm
+LIBS        := -lrsx -lgcm_sys -lio -lsysutil -laudio -lrt -llv2 -lnet -lsysmodule -lpngdec -ljpgdec -lm
 LIBDIRS     :=
 
 ifneq ($(BUILD),$(notdir $(CURDIR)))

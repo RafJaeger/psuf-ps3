@@ -71,7 +71,8 @@ int sfo_parse_game_buffer(const unsigned char *buf, size_t size, fpsu_game *game
     key_table = read_le32(buf + 8);
     data_table = read_le32(buf + 12);
     count = read_le32(buf + 16);
-    if (count > 256 || key_table < 20 || data_table <= key_table || data_table >= size) {
+    if (count > 256 || key_table < 20 || data_table <= key_table || data_table >= size ||
+        count > (key_table - 20) / sizeof(sfo_index_entry)) {
         return -1;
     }
 
@@ -99,7 +100,8 @@ int sfo_parse_game_buffer(const unsigned char *buf, size_t size, fpsu_game *game
         key_pos = (size_t)key_table + key_off;
         data_pos = (size_t)data_table + data_off;
 
-        if (key_pos >= size || data_pos >= size || len > size - data_pos) {
+        if (key_pos >= data_table || !memchr(buf + key_pos, '\0', data_table - key_pos) ||
+            data_pos < data_table || data_pos >= size || len > size - data_pos) {
             continue;
         }
         key = (const char *)(buf + key_pos);
@@ -118,9 +120,7 @@ int sfo_parse_game_buffer(const unsigned char *buf, size_t size, fpsu_game *game
         set_sfo_value(game, key, value, len);
     }
 
-    if (strcmp(game->category, "DG") == 0 && version_value[0] != '\0') {
-        safe_copy(game->version, sizeof(game->version), version_value, strlen(version_value));
-    } else if (app_ver[0] != '\0') {
+    if (app_ver[0] != '\0' && strcmp(app_ver, "00.00") != 0) {
         safe_copy(game->version, sizeof(game->version), app_ver, strlen(app_ver));
     } else if (version_value[0] != '\0') {
         safe_copy(game->version, sizeof(game->version), version_value, strlen(version_value));

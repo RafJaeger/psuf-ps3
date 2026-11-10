@@ -1,12 +1,24 @@
 #include "patch_db.h"
 #include "backup.h"
+#include "i18n.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <dirent.h>
+#include <errno.h>
 #include <sys/stat.h>
+#include <unistd.h>
+
+#ifndef FPSU_WM_INGAME_ROOT
+#define FPSU_WM_INGAME_ROOT "/dev_hdd0/tmp/wm_ingame"
+#endif
+#define FPSU_WM_SCRIPT_HEADER "# PS3 FPS Unlocker auto apply (compatible)\n"
+/* Leave room for the newline and terminator webMAN adds to the script. */
+#define FPSU_WM_SCRIPT_MAX_BYTES (64 * 1024 - 2)
+#define FPSU_WM_SCRIPT_MAX_LINES 999
+#define FPSU_WM_VERBOSE_PAYLOAD_LIMIT 1024
 
 static int ensure_dir(const char *path)
 {
@@ -411,9 +423,24 @@ int patch_db_validate_file(const char *path)
     return valid;
 }
 
+static int updated_db_is_current(const char *bundled, const char *updated)
+{
+    struct stat bundled_stat;
+    struct stat updated_stat;
+
+    if (stat(updated, &updated_stat) != 0) {
+        return 0;
+    }
+    if (stat(bundled, &bundled_stat) != 0) {
+        return 1;
+    }
+    /* A new PKG must supersede a database left by an older installation. */
+    return updated_stat.st_mtime > bundled_stat.st_mtime;
+}
+
 static const char *active_pipe_db_path(const char *bundled, const char *updated)
 {
-    if (patch_db_validate_file(updated)) {
+    if (updated_db_is_current(bundled, updated) && patch_db_validate_file(updated)) {
         return updated;
     }
     return bundled;
@@ -432,6 +459,11 @@ static const char *graphics_db_active_path(void)
 static const char *fix_db_active_path(void)
 {
     return active_pipe_db_path(FPSU_FIX_DB, FPSU_FIX_DB_UPDATED);
+}
+
+static const char *pre_db_active_path(void)
+{
+    return active_pipe_db_path(FPSU_PRE_DB, FPSU_PRE_DB_UPDATED);
 }
 
 static int native60_db_validate_file(const char *path)
@@ -471,7 +503,8 @@ static int native60_db_validate_file(const char *path)
 
 static const char *native60_db_active_path(void)
 {
-    if (native60_db_validate_file(FPSU_NATIVE60_DB_UPDATED)) {
+    if (updated_db_is_current(FPSU_NATIVE60_DB, FPSU_NATIVE60_DB_UPDATED) &&
+        native60_db_validate_file(FPSU_NATIVE60_DB_UPDATED)) {
         return FPSU_NATIVE60_DB_UPDATED;
     }
     return FPSU_NATIVE60_DB;
@@ -694,6 +727,97 @@ static void apply_fix_db_to_option(const fpsu_game *game, fpsu_patch_option *opt
     fclose(f);
 }
 
+/* Pre-patches are deliberately opt-in. A route exists only when the separate
+   pre_patches.csv database contains a matching, confirmed row. Ordinary FPS
+   and fix rows never become pre-patches implicitly. */
+static void apply_pre_db_to_option(const fpsu_game *game, fpsu_patch_option *option)
+{
+    FILE *f;
+    static char line[FPSU_MAX_PAYLOAD + 512];
+
+    if (!game || !option || option->kind == FPSU_PATCH_NONE ||
+        !option_is_installable_ncl(option)) {
+        return;
+    }
+
+    f = fopen(pre_db_active_path(), "r");
+    if (!f) return;
+
+    while (fgets(line, sizeof(line), f)) {
+        size_t len = strlen(line);
+        char *cursor;
+        char *title_id;
+        char *version;
+        char *kind_s;
+        char *status_s;
+        char *method_s;
+        char *label;
+        char *source;
+        char *payload;
+        char *note;
+        char *delay_s;
+        fpsu_patch_method method;
+        int delay;
+        int appended = 0;
+
+        if (len == 0 || line[0] == '#') continue;
+        while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+            line[--len] = '\0';
+
+        cursor = line;
+        title_id = next_field(&cursor);
+        version = next_field(&cursor);
+        kind_s = next_field(&cursor);
+        status_s = next_field(&cursor);
+        method_s = next_field(&cursor);
+        label = next_field(&cursor);
+        source = next_field(&cursor);
+        payload = next_field(&cursor);
+        note = next_field(&cursor);
+        delay_s = next_field(&cursor);
+        (void)source;
+        (void)note;
+
+        if (!title_id || !version || !kind_s || !status_s || !method_s ||
+            !label || !payload || strcmp(title_id, game->title_id) != 0 ||
+            !version_matches(version, game->version) ||
+            (strcmp(kind_s, "*") != 0 && parse_kind(kind_s) != option->kind) ||
+            (strcmp(status_s, "known") != 0 && strcmp(status_s, "applicable") != 0)) {
+            continue;
+        }
+
+        method = parse_method(method_s);
+        if (!fpsu_method_is_ncl_write(method) || payload[0] == '\0') continue;
+        {
+            char *write_cursor = payload;
+            char *token;
+            while ((token = write_cursor) != NULL) {
+                char *semi = strchr(write_cursor, ';');
+                if (semi) {
+                    *semi = '\0';
+                    write_cursor = semi + 1;
+                } else {
+                    write_cursor = NULL;
+                }
+                if (starts_with(token, "0 ") &&
+                    append_payload_write(option->pre_payload,
+                        sizeof(option->pre_payload), token)) {
+                    appended = 1;
+                }
+            }
+        }
+        if (appended && option->pre_label[0] == '\0')
+            copy_text(option->pre_label, sizeof(option->pre_label), label);
+        if (delay_s && delay_s[0]) {
+            delay = atoi(delay_s);
+            if (delay < 0) delay = 0;
+            if (delay > 60) delay = 60;
+            if (delay > option->pre_delay_seconds) option->pre_delay_seconds = delay;
+        }
+    }
+    fclose(f);
+}
+
 static int fill_force_option_from_line(fpsu_patch_option *opt, const fpsu_game *game, char *line)
 {
     char *cursor = line;
@@ -764,7 +888,9 @@ static int fill_force_option_from_line(fpsu_patch_option *opt, const fpsu_game *
 
 static int same_option_payload(const fpsu_patch_option *a, const fpsu_patch_option *b)
 {
-    return a && b && a->kind == b->kind && strcmp(a->payload, b->payload) == 0;
+    return a && b && a->kind == b->kind &&
+        strcmp(a->payload, b->payload) == 0 &&
+        strcmp(a->pre_payload, b->pre_payload) == 0;
 }
 
 static int append_collected_option(fpsu_patch_option *options, int count, int max_options,
@@ -832,6 +958,7 @@ int patch_db_collect_game_options(const fpsu_game *game, fpsu_patch_option *opti
         }
         if (fill_force_option_from_line(&candidate, game, line)) {
             apply_fix_db_to_option(game, &candidate);
+            apply_pre_db_to_option(game, &candidate);
             count = append_collected_option(options, count, max_options, &candidate);
         }
     }
@@ -1218,6 +1345,9 @@ int patch_db_match_game(const fpsu_game *game, fpsu_game_result *result)
     apply_fix_db_to_option(game, &result->fps60);
     apply_fix_db_to_option(game, &result->unlock);
     apply_fix_db_to_option(game, &result->fps30);
+    apply_pre_db_to_option(game, &result->fps60);
+    apply_pre_db_to_option(game, &result->unlock);
+    apply_pre_db_to_option(game, &result->fps30);
     return matches;
 }
 
@@ -1246,7 +1376,7 @@ static int write_ncl_file(FILE *out, const fpsu_patch_option *option)
         }
     }
     fprintf(out, "#\n");
-    return 0;
+    return ferror(out) ? -1 : 0;
 }
 
 static int write_ncl_path(const fpsu_game *game, const fpsu_patch_option *option,
@@ -1254,6 +1384,7 @@ static int write_ncl_path(const fpsu_game *game, const fpsu_patch_option *option
 {
     char backup_path[FPSU_MAX_PATH];
     FILE *out;
+    int result;
 
     if (!game || !option || !final_path || !out_path || out_path_size == 0) {
         return -1;
@@ -1273,8 +1404,8 @@ static int write_ncl_path(const fpsu_game *game, const fpsu_patch_option *option
     if (!out) {
         return -1;
     }
-    write_ncl_file(out, option);
-    fclose(out);
+    result = write_ncl_file(out, option);
+    if (fclose(out) != 0 || result != 0) return -1;
 
     snprintf(out_path, out_path_size, "%s", final_path);
     return 0;
@@ -1461,18 +1592,18 @@ static void normalize_webman_patch_addr(const char *input, char *short_addr, siz
     snprintf(prefixed_addr, prefixed_size, "0x%s", clean);
 }
 
-static int script_write_direct_setmem(FILE *out, const fpsu_patch_option *option)
+static int script_write_direct_setmem_payload(FILE *out, const char *patch_payload, int compact)
 {
     char payload[FPSU_MAX_PAYLOAD];
     char *cursor;
     char *token;
     int written = 0;
 
-    if (!out || !option) {
+    if (!out || !patch_payload || patch_payload[0] == '\0') {
         return 0;
     }
 
-    copy_text(payload, sizeof(payload), option->payload);
+    copy_text(payload, sizeof(payload), patch_payload);
     cursor = payload;
     while ((token = cursor) != NULL) {
         char *semi = strchr(cursor, ';');
@@ -1498,9 +1629,11 @@ static int script_write_direct_setmem(FILE *out, const fpsu_patch_option *option
                 continue;
             }
 
-            fprintf(out, "log FPSU write setmem addr=%s val=%s\n", short_addr, value);
-            fprintf(out, "/setmem.ps3mapi?addr=%s&val=%s\n", short_addr, value);
-            fprintf(out, "log FPSU write patch alias addr=%s val=%s\n", prefixed_addr, value);
+            if (!compact) {
+                fprintf(out, "log FPSU write setmem addr=%s val=%s\n", short_addr, value);
+                fprintf(out, "/setmem.ps3mapi?addr=%s&val=%s\n", short_addr, value);
+                fprintf(out, "log FPSU write patch alias addr=%s val=%s\n", prefixed_addr, value);
+            }
             fprintf(out, "/patch.ps3?addr=%s&val=%s\n", prefixed_addr, value);
             ++written;
         }
@@ -1509,40 +1642,107 @@ static int script_write_direct_setmem(FILE *out, const fpsu_patch_option *option
     return written;
 }
 
-static void script_write_wait_seconds(FILE *out, int seconds)
+static int script_write_direct_setmem(FILE *out, const fpsu_patch_option *option, int compact)
 {
-    if (!out || seconds <= 0) {
-        return;
-    }
+    return option ? script_write_direct_setmem_payload(out, option->payload, compact) : 0;
+}
+
+static int script_valid_title_id(const char *id)
+{
+    return strlen(id) == 9 && strspn(id, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 4 &&
+        strspn(id + 4, "0123456789") == 5;
+}
+
+static void script_check_running_title(FILE *out, const char *title_id)
+{
+    long label = ftell(out);
+
+    /* Older webMAN returns true on a mismatch and only negates file tests.
+       The impossible ID distinguishes that parser from a missing Title ID. */
+    fprintf(out,
+        "abort if xmb\n"
+        "if titleid %s\ngoto psuf_match_%lx\nend if\n"
+        "if titleid !!!!!!!!!\ngoto psuf_ok_%lx\nend if\n"
+        "abort if exist /dev_hdd0\n"
+        ":psuf_match_%lx\nabort if titleid !!!!!!!!!\n:psuf_ok_%lx\n",
+        title_id, (unsigned long)label, (unsigned long)label,
+        (unsigned long)label, (unsigned long)label);
+}
+
+static void script_write_wait_seconds(FILE *out, int seconds, const char *title_id)
+{
     while (seconds > 0) {
-        int chunk = seconds > 9 ? 9 : seconds;
-        fprintf(out, "wait %d\n", chunk);
+        int chunk = seconds > 2 ? 2 : seconds;
+        fprintf(out, "wait %d\nabort if xmb\n", chunk);
         seconds -= chunk;
     }
+    script_check_running_title(out, title_id);
+}
+
+static int publish_ingame_script(const char *temp, const char *path, const char *previous)
+{
+    struct stat st;
+
+    if (rename(temp, path) == 0) return 0;
+    /* GameOS may reject replacing an existing destination. */
+    if (stat(previous, &st) == 0 || errno != ENOENT || rename(path, previous) != 0)
+        return -1;
+    if (rename(temp, path) != 0) {
+        rename(previous, path);
+        return -1;
+    }
+    remove(previous);
+    return 0;
+}
+
+static int script_fits_webman(FILE *out)
+{
+    long size = ftell(out);
+    int ch, lines = 0;
+
+    if (size < 0 || size > FPSU_WM_SCRIPT_MAX_BYTES ||
+        fflush(out) != 0 || fseek(out, 0, SEEK_SET) != 0) return 0;
+    while ((ch = fgetc(out)) != EOF) {
+        if (ch == '\n' && ++lines > FPSU_WM_SCRIPT_MAX_LINES) return 0;
+    }
+    return !ferror(out);
 }
 
 static int write_ingame_script_for_id(const fpsu_game *game, const char *trigger_id,
     const fpsu_patch_option *option, char *out_path, size_t out_path_size)
 {
     char final_path[FPSU_MAX_PATH];
+    char temp[sizeof(final_path) + 9], previous[sizeof(final_path) + 10];
     FILE *out;
     int delay_seconds;
+    int pre_lines = 0;
+    int total_lines;
+    int pre_compact;
     int direct_lines;
+    int failed;
+    int compact;
+    const char *running_id;
+    fpsu_lang lang = i18n_detect_language();
 
     if (!game || !trigger_id || trigger_id[0] == '\0' || !option || !out_path || out_path_size == 0) {
         return -1;
     }
+    running_id = script_valid_title_id(trigger_id) ? trigger_id : game->title_id;
+    if (!script_valid_title_id(running_id)) return -1;
 
     if (ensure_dir_recursive(FPSU_CACHE_ROOT) != 0) {
         return -1;
     }
 
-    if (ensure_dir_recursive("/dev_hdd0/tmp/wm_ingame") != 0) {
+    if (ensure_dir_recursive(FPSU_WM_INGAME_ROOT) != 0) {
         return -1;
     }
 
-    snprintf(final_path, sizeof(final_path), "/dev_hdd0/tmp/wm_ingame/%s.bat", trigger_id);
-    out = fopen(final_path, "wb");
+    if (snprintf(final_path, sizeof(final_path), FPSU_WM_INGAME_ROOT "/%s.bat", trigger_id)
+        >= (int)sizeof(final_path)) return -1;
+    snprintf(temp, sizeof(temp), "%s.psuf-tmp", final_path);
+    snprintf(previous, sizeof(previous), "%s.psuf-prev", final_path);
+    out = fopen(temp, "w+b");
     if (!out) {
         return -1;
     }
@@ -1554,86 +1754,93 @@ static int write_ingame_script_for_id(const fpsu_game *game, const char *trigger
         delay_seconds = 600;
     }
 
-    fprintf(out, "# PS3 FPS Unlocker auto attach\n");
+    fputs(FPSU_WM_SCRIPT_HEADER, out);
     fprintf(out, "logfile " FPSU_CACHE_ROOT "/webman_ingame.log\n");
+    fprintf(out, "log FPSU trigger title=%s\n", running_id);
+    script_check_running_title(out, running_id);
     fprintf(out, "log FPSU -------- inicio --------\n");
-    fprintf(out, "log FPSU %s auto attach title=%s version=%s kind=%d method=%d label=%s\n",
+    fprintf(out, "log FPSU %s auto apply title=%s version=%s kind=%d method=%d label=%s\n",
         trigger_id, game->title_id, game->version, option->kind, option->method, option->label);
     fprintf(out, "log FPSU build=%s trigger=%s base=%s sfo=%s eboot=%s iso=%d disc=%d\n",
         FPSU_VERSION_LABEL, trigger_id, game->base_path, game->sfo_path, game->eboot_path,
         game->is_iso, game->is_disc_folder);
-    fprintf(out, "log FPSU payload=%s\n", option->payload);
+    compact = strlen(option->payload) > FPSU_WM_VERBOSE_PAYLOAD_LIMIT;
+    if (compact) {
+        fputs("log FPSU compact patch script\n", out);
+    } else {
+        fprintf(out, "log FPSU payload=%s\n", option->payload);
+    }
     fprintf(out, "log FPSU log path " FPSU_CACHE_ROOT "/webman_ingame.log\n");
 #if FPSU_HEN_DIAG_BUILD
     fprintf(out, "log FPSU se nao aparecer popup no jogo: script webMAN nao disparou\n");
-    fprintf(out, "log FPSU se aparecer popup mas FPS nao mudar: suspeita=attach/memoria/patch\n");
+    fprintf(out, "log FPSU se aparecer popup mas FPS nao mudar: suspeita=memoria/endereco/patch\n");
     fprintf(out, "popup PSUF: diagnostico iniciou. Aguarde 2 min.\n");
 #else
-    fprintf(out, "popup PSUF: patch pronto. Aguarde 2 min.\n");
+    fprintf(out, "popup PSUF: %s\n", i18n_text(lang, TXT_RUNTIME_PATCH_READY));
 #endif
-    fprintf(out, "del /dev_hdd0/tmp/art.txt\n");
-    fprintf(out, "del /dev_hdd0/tmp/art.log\n");
     fprintf(out, "log FPSU tentando iniciar PS3MAPI pelo webMAN\n");
     fprintf(out, "/netstatus.ps3?start-ps3mapi\n");
-    if (version_is_safe_file_suffix(game->version)) {
-        fprintf(out, "log FPSU copiando NCL: /dev_hdd0/tmp/artemis/%s_%s.ncl -> /dev_hdd0/tmp/art.txt\n",
-            game->title_id, game->version);
-        fprintf(out, "fcopy /dev_hdd0/tmp/artemis/%s_%s.ncl=/dev_hdd0/tmp/art.txt\n",
-            game->title_id, game->version);
-    } else {
-        fprintf(out, "log FPSU copiando NCL: /dev_hdd0/tmp/artemis/%s.ncl -> /dev_hdd0/tmp/art.txt\n",
-            game->title_id);
-        fprintf(out, "fcopy /dev_hdd0/tmp/artemis/%s.ncl=/dev_hdd0/tmp/art.txt\n",
-            game->title_id);
-    }
 #if FPSU_HEN_DIAG_BUILD
     fprintf(out, "popup PSUF: patch preparado. Espere carregar.\n");
 #endif
-    script_write_wait_seconds(out, delay_seconds);
+    script_write_wait_seconds(out, delay_seconds, running_id);
 #if FPSU_HEN_DIAG_BUILD
     fprintf(out, "popup PSUF: tentando aplicar agora.\n");
 #else
-    fprintf(out, "popup PSUF: aplicando patch.\n");
+    fprintf(out, "popup PSUF: %s\n", i18n_text(lang, TXT_RUNTIME_PATCH_APPLYING));
 #endif
     fprintf(out, "/ps3mapi.ps3?PROCESS%%20GETCURRENTPID\n");
-    fprintf(out, "wait 1\n");
-    direct_lines = script_write_direct_setmem(out, option);
+    script_write_wait_seconds(out, 1, running_id);
+    if (option->pre_payload[0] != '\0') {
+        pre_compact = strlen(option->pre_payload) > FPSU_WM_VERBOSE_PAYLOAD_LIMIT;
+        if (pre_compact) {
+            fprintf(out, "log FPSU prepatch label=%s compact\n",
+                option->pre_label[0] ? option->pre_label : "explicit route");
+        } else {
+            fprintf(out, "log FPSU prepatch label=%s payload=%s\n",
+                option->pre_label[0] ? option->pre_label : "explicit route", option->pre_payload);
+        }
+        pre_lines = script_write_direct_setmem_payload(out, option->pre_payload, pre_compact);
+        if (pre_lines > 0) {
+            fprintf(out, "log FPSU prepatch applied lines=%d\n", pre_lines);
+            script_write_wait_seconds(out, option->pre_delay_seconds, running_id);
+        }
+    }
+    direct_lines = script_write_direct_setmem(out, option, compact);
+    total_lines = pre_lines + direct_lines;
     if (direct_lines > 0) {
         fprintf(out, "log FPSU %s PS3MAPI direct setmem round 1\n", trigger_id);
     }
-    fprintf(out, "log FPSU tentando Artemis attach 1\n");
-    fprintf(out, "/artemis.ps3?attach\n");
-    fprintf(out, "wait 4\n");
-    if (script_write_direct_setmem(out, option) > 0) {
-        fprintf(out, "log FPSU %s PS3MAPI direct setmem round 2\n", trigger_id);
-    }
-    fprintf(out, "wait 2\n");
-    fprintf(out, "log FPSU tentando Artemis attach 2\n");
-    fprintf(out, "/artemis.ps3?attach\n");
-    fprintf(out, "wait 2\n");
-    if (script_write_direct_setmem(out, option) > 0) {
-        fprintf(out, "log FPSU %s PS3MAPI direct setmem round 3\n", trigger_id);
+    if (!compact) {
+        script_write_wait_seconds(out, 4, running_id);
+        if (script_write_direct_setmem(out, option, 0) > 0) {
+            fprintf(out, "log FPSU %s PS3MAPI direct setmem round 2\n", trigger_id);
+        }
+        script_write_wait_seconds(out, 2, running_id);
+        if (script_write_direct_setmem(out, option, 0) > 0) {
+            fprintf(out, "log FPSU %s PS3MAPI direct setmem round 3\n", trigger_id);
+        }
     }
 #if FPSU_HEN_DIAG_BUILD
-    fprintf(out, "popup PSUF: se nao mudou, aperte START no jogo para forcar Artemis.\n");
-    fprintf(out, "log FPSU diagnostico: mantendo /dev_hdd0/tmp/art.txt para forcar com START pelo Artemis\n");
+    fprintf(out, "popup PSUF: se nao mudou, confirme o processo do jogo e a memoria.\n");
+    fprintf(out, "log FPSU diagnostico: aplicacao feita por PS3MAPI direto\n");
     fprintf(out, "log FPSU linhas diretas escritas=%d\n", direct_lines);
 #else
-    fprintf(out, "log FPSU limpando art.txt temporario; mantendo NCL/script para reaplicar depois\n");
-    fprintf(out, "del /dev_hdd0/tmp/art.txt\n");
-    fprintf(out, "del /dev_hdd0/tmp/art.log\n");
-    fprintf(out, "wait 1\n");
-    fprintf(out, "del /dev_hdd0/tmp/art.txt\n");
-    fprintf(out, "del /dev_hdd0/tmp/art.log\n");
+    fprintf(out, "log FPSU mantendo NCL/script para reaplicar depois\n");
 #endif
     fprintf(out, "log FPSU %s finished; send " FPSU_CACHE_ROOT "/webman_ingame.log for support\n",
         trigger_id);
-    fprintf(out, "log FPSU se apareceu esta linha e nao mudou FPS, o script rodou; investigar attach, endereco ou metodo\n");
+    fprintf(out, "log FPSU se apareceu esta linha e nao mudou FPS, o script rodou; investigar memoria, endereco ou metodo\n");
     fprintf(out, "log FPSU -------- fim --------\n");
 #if FPSU_HEN_DIAG_BUILD
     fprintf(out, "popup PSUF: mande " FPSU_CACHE_ROOT "/webman_ingame.log\n");
 #endif
-    fclose(out);
+    if (compact) fputc('\n', out);
+    failed = total_lines == 0 || ferror(out) || !script_fits_webman(out) || fsync(fileno(out)) != 0;
+    if (fclose(out) != 0 || failed || publish_ingame_script(temp, final_path, previous) != 0) {
+        remove(temp);
+        return -1;
+    }
 
     copy_text(out_path, out_path_size, final_path);
     return 0;
@@ -1646,7 +1853,8 @@ static void remember_script_variant(const fpsu_game *game, const fpsu_patch_opti
     if (!trigger_id || trigger_id[0] == '\0' || strchr(trigger_id, '/') || strchr(trigger_id, '\\')) {
         return;
     }
-    if (write_ingame_script_for_id(game, trigger_id, option, script_path, script_path_size) == 0) {
+    if (write_ingame_script_for_id(game, trigger_id, option, script_path, script_path_size) == 0 &&
+        script_valid_title_id(trigger_id)) {
         if (!*ok) {
             copy_text(out_path, out_path_size, script_path);
         }
@@ -1801,6 +2009,10 @@ static void append_apply_setup_log(const fpsu_game *game, const fpsu_patch_optio
         option ? option->method : 0, option ? option->delay_seconds : 0,
         option && option->source[0] ? option->source : "");
     fprintf(log, "payload=%s\n", option ? option->payload : "");
+    fprintf(log, "prepatch=%s delay=%d payload=%s\n",
+        option && option->pre_label[0] ? option->pre_label : "none",
+        option ? option->pre_delay_seconds : 0,
+        option ? option->pre_payload : "");
     fprintf(log, "written_count=%d\n", written_count);
     fprintf(log, "tmp_version=%s\n", tmp_version_path ? tmp_version_path : "");
     fprintf(log, "tmp_title=%s\n", tmp_title_path ? tmp_title_path : "");
@@ -1813,11 +2025,23 @@ static void append_apply_setup_log(const fpsu_game *game, const fpsu_patch_optio
     fprintf(log, "fallback=%s\n", fallback_path ? fallback_path : "");
     fprintf(log, "if webman_ingame.log is missing, webMAN did not run the ingame script.\n");
 #if FPSU_HEN_DIAG_BUILD
-    fprintf(log, "for HEN test: open the game and press START when Artemis asks to attach.\n");
+    fprintf(log, "for HEN test: open the game and verify the PS3MAPI runtime log.\n");
 #else
     fprintf(log, "runtime scripts are kept so webMAN can reapply the selected patch later.\n");
 #endif
     fclose(log);
+}
+
+static int payload_has_low_address(const char *payload)
+{
+    const char *code = payload;
+    while (code) {
+        unsigned long long address;
+        if (sscanf(code, "0 %llx", &address) == 1 && address < 0x10000) return 1;
+        code = strchr(code, ';');
+        if (code) ++code;
+    }
+    return 0;
 }
 
 int patch_db_write_ncl(const fpsu_game *game, const fpsu_patch_option *option, char *out_path, size_t out_path_size)
@@ -1833,13 +2057,16 @@ int patch_db_write_ncl(const fpsu_game *game, const fpsu_patch_option *option, c
     if (!game || !option || !fpsu_method_is_ncl_write(option->method) || !out_path || out_path_size == 0) {
         return -1;
     }
+    out_path[0] = '\0';
+    /* webMAN's implicit-PID writes clamp these addresses to 0x10000. */
+    if (payload_has_low_address(option->payload) || payload_has_low_address(option->pre_payload))
+        return FPSU_PATCH_UNSAFE_ADDRESS;
 
     tmp_version_path[0] = '\0';
     tmp_title_path[0] = '\0';
     art_txt_path[0] = '\0';
     ingame_path[0] = '\0';
     fallback_path[0] = '\0';
-    out_path[0] = '\0';
 
     remove("/dev_hdd0/tmp/art.txt");
     remove("/dev_hdd0/tmp/art.log");
@@ -1876,10 +2103,8 @@ int patch_db_write_ncl(const fpsu_game *game, const fpsu_patch_option *option, c
     append_apply_setup_log(game, option, tmp_version_path, tmp_title_path,
         art_txt_path, ingame_path, fallback_path, written_count);
 
-    if (written_count > 0) {
-        return 0;
-    }
-    return -1;
+    if (ingame_path[0]) return FPSU_PATCH_SCRIPT_READY;
+    return written_count > 0 ? FPSU_PATCH_NCL_ONLY : -1;
 }
 
 static int remove_if_exists(const char *path)
@@ -1895,12 +2120,94 @@ static int remove_if_exists(const char *path)
     return remove(path) == 0 ? 1 : 0;
 }
 
+static void guard_saved_ingame_scripts(void)
+{
+    static const char root[] = FPSU_WM_INGAME_ROOT;
+    static const char previous_suffix[] = ".bat.psuf-prev";
+    DIR *dir = opendir(root);
+    struct dirent *entry;
+    fpsu_lang lang;
+    if (!dir) return;
+    lang = i18n_detect_language();
+    while ((entry = readdir(dir)) != NULL) {
+        char id[10], path[sizeof(root) + 14], temp[sizeof(path) + 9];
+        char previous[sizeof(path) + 10], line[2048], old_guard[40];
+        FILE *in, *out;
+        struct stat st;
+        int seconds, failed, guarded, pending_check = 0;
+        char extra;
+        size_t name_len = strlen(entry->d_name);
+
+        if (name_len < 13 || (strcmp(entry->d_name + 9, ".bat") != 0 &&
+                             strcmp(entry->d_name + 9, previous_suffix) != 0))
+            continue;
+        snprintf(id, sizeof(id), "%.9s", entry->d_name);
+        if (!script_valid_title_id(id)) continue;
+        snprintf(path, sizeof(path), "%s/%s.bat", root, id);
+        snprintf(previous, sizeof(previous), "%s/%s%s", root, id, previous_suffix);
+        if (name_len != 13 &&
+            (stat(path, &st) == 0 || errno != ENOENT || rename(previous, path) != 0))
+            continue;
+        in = fopen(path, "rb");
+        if (!in) continue;
+        if (!fgets(line, sizeof(line), in)) {
+            fclose(in);
+            continue;
+        }
+        guarded = strcmp(line, "# PS3 FPS Unlocker auto apply (guarded)\n") == 0;
+        if ((!guarded && strcmp(line, "# PS3 FPS Unlocker auto apply\n") != 0) ||
+            !fgets(line, sizeof(line), in) ||
+            strcmp(line, "logfile " FPSU_CACHE_ROOT "/webman_ingame.log\n") != 0) {
+            fclose(in);
+            continue;
+        }
+        snprintf(temp, sizeof(temp), "%s.psuf-tmp", path);
+        out = fopen(temp, "wb");
+        if (!out) {
+            fclose(in);
+            continue;
+        }
+        fputs(FPSU_WM_SCRIPT_HEADER, out);
+        fputs(line, out);
+        fprintf(out, "log FPSU trigger title=%s\n", id);
+        if (!guarded) script_check_running_title(out, id);
+        snprintf(old_guard, sizeof(old_guard), "abort if not titleid %s\n", id);
+        while (fgets(line, sizeof(line), in)) {
+            if (guarded && strcmp(line, old_guard) == 0) {
+                pending_check = 1;
+                continue;
+            }
+            if (pending_check && strncmp(line, "wait ", 5) != 0 &&
+                strcmp(line, "abort if xmb\n") != 0) {
+                script_check_running_title(out, id);
+                pending_check = 0;
+            }
+            if (!guarded && sscanf(line, "wait %d %c", &seconds, &extra) == 1 &&
+                seconds > 0 && seconds <= 9) {
+                script_write_wait_seconds(out, seconds, id);
+            } else if (strcmp(line, "popup PSUF: patch pronto. Aguarde 2 min.\n") == 0) {
+                fprintf(out, "popup PSUF: %s\n", i18n_text(lang, TXT_RUNTIME_PATCH_READY));
+            } else if (strcmp(line, "popup PSUF: aplicando patch.\n") == 0) {
+                fprintf(out, "popup PSUF: %s\n", i18n_text(lang, TXT_RUNTIME_PATCH_APPLYING));
+            } else {
+                fputs(line, out);
+            }
+        }
+        failed = ferror(in) || ferror(out) || fflush(out) != 0 || fsync(fileno(out)) != 0;
+        fclose(in);
+        if (fclose(out) != 0 || failed || publish_ingame_script(temp, path, previous) != 0)
+            remove(temp);
+    }
+    closedir(dir);
+}
+
 int patch_db_cleanup_runtime_artifacts(void)
 {
     int removed = 0;
 
     removed += remove_if_exists("/dev_hdd0/tmp/art.txt");
     removed += remove_if_exists("/dev_hdd0/tmp/art.log");
+    guard_saved_ingame_scripts();
     return removed;
 }
 
@@ -1922,7 +2229,7 @@ static int remove_ingame_script(const char *trigger_id)
     if (!trigger_id || trigger_id[0] == '\0') {
         return 0;
     }
-    snprintf(final_path, sizeof(final_path), "/dev_hdd0/tmp/wm_ingame/%s.bat", trigger_id);
+    snprintf(final_path, sizeof(final_path), FPSU_WM_INGAME_ROOT "/%s.bat", trigger_id);
     return remove_if_exists(final_path);
 }
 

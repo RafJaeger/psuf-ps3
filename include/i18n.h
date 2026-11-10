@@ -36,6 +36,8 @@ typedef enum {
     TXT_RESTORE_FAIL,
     TXT_NO_BACKUP,
     TXT_NEEDS_PC,
+    TXT_RUNTIME_PATCH_READY,
+    TXT_RUNTIME_PATCH_APPLYING,
     TXT_ABOUT_BODY,
     TXT_MAX
 } fpsu_text_id;

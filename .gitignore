@@ -24,6 +24,7 @@
 /ps3_scan_cache.csv
 /PSUF_PC_Updater_Data/
 /tools/backups/
+/backup-*/
 /tools/psuf_pc_updater_config.json
 __pycache__/
 */__pycache__/

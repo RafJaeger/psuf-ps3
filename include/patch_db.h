@@ -3,6 +3,10 @@
 
 #include "app.h"
 
+#define FPSU_PATCH_SCRIPT_READY 0
+#define FPSU_PATCH_NCL_ONLY 1
+#define FPSU_PATCH_UNSAFE_ADDRESS (-2)
+
 void patch_db_default_options(fpsu_game_result *result);
 int patch_db_match_game(const fpsu_game *game, fpsu_game_result *result);
 int patch_db_collect_game_options(const fpsu_game *game, fpsu_patch_option *options, int max_options);

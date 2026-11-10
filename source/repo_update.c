@@ -22,7 +22,8 @@
 
 typedef enum {
     DB_KIND_PIPE = 0,
-    DB_KIND_NATIVE60 = 1
+    DB_KIND_NATIVE60 = 1,
+    DB_KIND_PRE = 2
 } db_kind;
 
 typedef struct {
@@ -111,7 +112,8 @@ static int read_update_base_url(char *url, size_t url_size)
     }
 
     if (ends_with_ci(url, "patches.csv") || ends_with_ci(url, "graphics_patches.csv") ||
-        ends_with_ci(url, "native60.csv") || ends_with_ci(url, "fix_patches.csv")) {
+        ends_with_ci(url, "native60.csv") || ends_with_ci(url, "fix_patches.csv") ||
+        ends_with_ci(url, "pre_patches.csv")) {
         slash = strrchr(url, '/');
         if (!slash || slash < url + 8) {
             return -1;
@@ -434,6 +436,25 @@ static int validate_db_file(const db_item *item)
     if (item->kind == DB_KIND_NATIVE60) {
         return validate_native60_file(item->tmp_path);
     }
+    if (item->kind == DB_KIND_PRE) {
+        FILE *f = fopen(item->tmp_path, "rb");
+        char line[FPSU_MAX_PAYLOAD + 512];
+        int valid = f != NULL;
+        if (f) {
+            while (fgets(line, sizeof(line), f)) {
+                char *p = line;
+                int pipes = 0;
+                if (!strchr(line, '\n') && !feof(f)) { valid = 0; break; }
+                while (*p == ' ' || *p == '\t') ++p;
+                if (*p == '#' || *p == '\r' || *p == '\n' || *p == '\0') continue;
+                while (*p) if (*p++ == '|') ++pipes;
+                if (pipes != 9) { valid = 0; break; }
+            }
+            if (ferror(f)) valid = 0;
+            fclose(f);
+        }
+        return valid;
+    }
     return patch_db_validate_file(item->tmp_path);
 }
 
@@ -461,7 +482,8 @@ int repo_update_databases(char *message, size_t message_size)
         { "patches.csv", FPSU_DATA_ROOT "/patches.csv.download", FPSU_PATCH_DB_UPDATED, DB_KIND_PIPE },
         { "graphics_patches.csv", FPSU_DATA_ROOT "/graphics_patches.csv.download", FPSU_GRAPHICS_DB_UPDATED, DB_KIND_PIPE },
         { "native60.csv", FPSU_DATA_ROOT "/native60.csv.download", FPSU_NATIVE60_DB_UPDATED, DB_KIND_NATIVE60 },
-        { "fix_patches.csv", FPSU_DATA_ROOT "/fix_patches.csv.download", FPSU_FIX_DB_UPDATED, DB_KIND_PIPE }
+        { "fix_patches.csv", FPSU_DATA_ROOT "/fix_patches.csv.download", FPSU_FIX_DB_UPDATED, DB_KIND_PIPE },
+        { "pre_patches.csv", FPSU_DATA_ROOT "/pre_patches.csv.download", FPSU_PRE_DB_UPDATED, DB_KIND_PRE }
     };
     char base_url[1024];
     char file_url[1200];

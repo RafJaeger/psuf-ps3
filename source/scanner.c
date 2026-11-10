@@ -1,6 +1,7 @@
 #include "scanner.h"
 #include "sfo.h"
 #include "iso9660.h"
+#include "webman_control.h"
 
 #include <dirent.h>
 #include <stdio.h>
@@ -168,11 +169,6 @@ static const char *g_iso_roots[] = {
     "/pvd_usb003/PS3ISO"
 };
 
-static const char *g_webman_sfo_roots[] = {
-    "/dev_hdd0/tmp/wmtmp",
-    "/dev_hdd0/tmp/mmtmp"
-};
-
 static int file_exists(const char *path)
 {
     struct stat st;
@@ -257,22 +253,6 @@ static int same_text_ci(const char *a, const char *b)
     return 1;
 }
 
-static int ends_with_ci_suffix(const char *text, const char *suffix)
-{
-    size_t text_len;
-    size_t suffix_len;
-
-    if (!text || !suffix) {
-        return 0;
-    }
-    text_len = strlen(text);
-    suffix_len = strlen(suffix);
-    if (suffix_len > text_len) {
-        return 0;
-    }
-    return same_text_ci(text + text_len - suffix_len, suffix);
-}
-
 static int iso_tail_is_supported(const char *tail)
 {
     const char *p;
@@ -299,21 +279,6 @@ static int iso_tail_is_supported(const char *tail)
     }
 
     return same_text_ci(tail + 1, "ntfs") || same_text_ci(tail + 1, "enc");
-}
-
-static int strip_sfo_suffix_path(char *path)
-{
-    size_t len;
-
-    if (!path) {
-        return 0;
-    }
-    len = strlen(path);
-    if (len < 4 || !ends_with_ci_suffix(path, ".sfo")) {
-        return 0;
-    }
-    path[len - 4] = '\0';
-    return 1;
 }
 
 static void enrich_game_from_installed_update(fpsu_game *game)
@@ -351,15 +316,135 @@ static void enrich_game_from_installed_update(fpsu_game *game)
 
 static int scanner_game_should_list(const fpsu_game *game)
 {
+    static const char *tool_ids[] = {
+        "BLES80608", "FPSU00001", "PKGLAUNCH", "NP00PKGI3", "UPDWEBMOD", "UNOSTORES"
+    };
+    unsigned int i;
+
     if (!game || game->title_id[0] == '\0') {
         return 0;
     }
+    for (i = 0; i < sizeof(tool_ids) / sizeof(tool_ids[0]); ++i) {
+        if (strcmp(game->title_id, tool_ids[i]) == 0) {
+            return 0;
+        }
+    }
     if (strcmp(game->category, "GD") == 0 ||
         strcmp(game->category, "SD") == 0 ||
-        strcmp(game->category, "PP") == 0) {
+        strcmp(game->category, "PP") == 0 ||
+        strcmp(game->category, "SF") == 0 ||
+        strcmp(game->category, "CB") == 0 ||
+        strcmp(game->category, "HM") == 0) {
         return 0;
     }
     return 1;
+}
+
+static int scanner_is_webman_ntfs_root(const char *path)
+{
+    return path && strncmp(path, "/dev_ntfs", 9) == 0;
+}
+
+static int scanner_hex_digit(int c)
+{
+    if (c >= '0' && c <= '9') return c - '0';
+    if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+    if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+    return -1;
+}
+
+static int scanner_url_decode_path(const char *src, char *out, size_t out_size)
+{
+    size_t used = 0;
+    if (!src || !out || out_size == 0) return -1;
+    while (*src && used + 1 < out_size) {
+        if (*src == '+') {
+            out[used++] = ' ';
+            ++src;
+        } else if (*src == '%' && src[1] && src[2]) {
+            int hi = scanner_hex_digit((unsigned char)src[1]);
+            int lo = scanner_hex_digit((unsigned char)src[2]);
+            if (hi < 0 || lo < 0) return -1;
+            out[used++] = (char)((hi << 4) | lo);
+            src += 3;
+        } else {
+            out[used++] = *src++;
+        }
+    }
+    if (*src || used + 1 >= out_size) return -1;
+    out[used] = '\0';
+    return 0;
+}
+
+static int scanner_scan_webman_ntfs_entry(const char *path, fpsu_game *out)
+{
+    char sfo[FPSU_MAX_PATH];
+    const char *suffix;
+    size_t path_len;
+
+    if (!path || !out || strncmp(path, "/dev_hdd0/tmp/wmtmp/", 20) != 0) {
+        return -1;
+    }
+    suffix = strstr(path, ".ntfs[PS3ISO]");
+    if (!suffix) return -1;
+    path_len = (size_t)(suffix - path);
+    if (path_len + strlen(".SFO") + 1 > sizeof(sfo)) return -1;
+    memcpy(sfo, path, path_len);
+    memcpy(sfo + path_len, ".SFO", strlen(".SFO") + 1);
+    if (sfo_read_game(sfo, out) != 0) return -1;
+
+    snprintf(out->base_path, sizeof(out->base_path), "%s", path);
+    snprintf(out->sfo_path, sizeof(out->sfo_path), "%s", sfo);
+    out->eboot_path[0] = '\0';
+    out->is_disc_folder = 1;
+    out->is_iso = 1;
+    enrich_game_from_installed_update(out);
+    return scanner_game_should_list(out) ? 0 : -1;
+}
+
+static int scanner_scan_webman_ntfs(fpsu_game *games, int *found, int max_games,
+    fpsu_scan_progress_cb cb, void *user)
+{
+    char response[32768];
+    const char *cursor;
+    int added = 0;
+
+    if (!games || !found || *found >= max_games ||
+        webman_get_ntfs_index(response, sizeof(response)) != 0) {
+        return 0;
+    }
+
+    cursor = response;
+    while (*cursor && *found < max_games) {
+        const char *start = strstr(cursor, "href=\"/dev_hdd0/tmp/wmtmp/");
+        const char *end;
+        char encoded[FPSU_MAX_PATH];
+        char path[FPSU_MAX_PATH];
+        fpsu_game game;
+        size_t length;
+
+        if (!start) break;
+        start += strlen("href=\"");
+        end = strchr(start, '\"');
+        if (!end) break;
+        length = (size_t)(end - start);
+        if (length >= sizeof(encoded)) {
+            cursor = end + 1;
+            continue;
+        }
+        memcpy(encoded, start, length);
+        encoded[length] = '\0';
+        cursor = end + 1;
+        if (strstr(encoded, ".ntfs[PS3ISO]") == NULL ||
+            scanner_url_decode_path(encoded, path, sizeof(path)) != 0 ||
+            scanner_scan_webman_ntfs_entry(path, &game) != 0) {
+            continue;
+        }
+        games[(*found)++] = game;
+        ++added;
+        if (cb && cb(path, *found, user)) break;
+    }
+    return added;
 }
 
 static int ends_with_iso(const char *name)
@@ -552,6 +637,13 @@ int scanner_scan_mounted_iso_metadata(const char *mounted_path, fpsu_game *out)
         return -1;
     }
 
+    /* NTFS games exposed by webMAN are virtual entries in wmtmp. Their
+       companion SFO is local and is safe to read without touching the external
+       ISO or waiting on /dev_bdvd. */
+    if (scanner_scan_webman_ntfs_entry(mounted_path, out) == 0) {
+        return 0;
+    }
+
     have_name = scanner_scan_iso_name_only(mounted_path, &name_game) == 0;
     have_bdvd = scanner_scan_path("/dev_bdvd", &bdvd_game) == 0;
 
@@ -569,31 +661,6 @@ int scanner_scan_mounted_iso_metadata(const char *mounted_path, fpsu_game *out)
     }
 
     return -1;
-}
-
-static int scanner_scan_cached_sfo(const char *sfo_path, fpsu_game *out)
-{
-    char base[FPSU_MAX_PATH];
-
-    if (!sfo_path || !out || !ends_with_ci_suffix(sfo_path, ".sfo")) {
-        return -1;
-    }
-    if (sfo_read_game(sfo_path, out) != 0) {
-        return -1;
-    }
-
-    snprintf(base, sizeof(base), "%s", sfo_path);
-    strip_sfo_suffix_path(base);
-    snprintf(out->base_path, sizeof(out->base_path), "%s", base);
-    snprintf(out->sfo_path, sizeof(out->sfo_path), "%s", sfo_path);
-    out->eboot_path[0] = '\0';
-    out->is_disc_folder = 1;
-    out->is_iso = ends_with_iso(base) || strstr(base, ".iso.") != NULL || strstr(base, ".ISO.") != NULL;
-    if (out->category[0] == '\0') {
-        snprintf(out->category, sizeof(out->category), "%s", "DG");
-    }
-    enrich_game_from_installed_update(out);
-    return 0;
 }
 
 int scanner_scan_path(const char *path, fpsu_game *out)
@@ -651,6 +718,10 @@ int scanner_scan_all(fpsu_game *games, int max_games, fpsu_scan_progress_cb cb, 
         struct dirent *entry;
         fpsu_game mounted;
 
+        if (scanner_is_webman_ntfs_root(root)) {
+            continue;
+        }
+
         if (cb && cb(root, found, user)) {
             break;
         }
@@ -698,6 +769,10 @@ int scanner_scan_all(fpsu_game *games, int max_games, fpsu_scan_progress_cb cb, 
         DIR *dir;
         struct dirent *entry;
 
+        if (scanner_is_webman_ntfs_root(root)) {
+            continue;
+        }
+
         if (cb && cb(root, found, user)) {
             break;
         }
@@ -730,38 +805,8 @@ int scanner_scan_all(fpsu_game *games, int max_games, fpsu_scan_progress_cb cb, 
         closedir(dir);
     }
 
-    for (root_i = 0; root_i < sizeof(g_webman_sfo_roots) / sizeof(g_webman_sfo_roots[0]) && !cancel; ++root_i) {
-        const char *root = g_webman_sfo_roots[root_i];
-        DIR *dir;
-        struct dirent *entry;
-
-        if (cb && cb(root, found, user)) {
-            break;
-        }
-        dir = opendir(root);
-        if (!dir) {
-            continue;
-        }
-        while ((entry = readdir(dir)) != NULL) {
-            char candidate[FPSU_MAX_PATH];
-            fpsu_game game;
-
-            if (found >= max_games) {
-                break;
-            }
-            if (entry->d_name[0] == '.' || !ends_with_ci_suffix(entry->d_name, ".sfo")) {
-                continue;
-            }
-            join_path(candidate, sizeof(candidate), root, entry->d_name);
-            if (scanner_scan_cached_sfo(candidate, &game) == 0 && scanner_game_should_list(&game)) {
-                games[found++] = game;
-                if (cb && cb(candidate, found, user)) {
-                    cancel = 1;
-                    break;
-                }
-            }
-        }
-        closedir(dir);
+    if (!cancel) {
+        scanner_scan_webman_ntfs(games, &found, max_games, cb, user);
     }
 
     return found;
