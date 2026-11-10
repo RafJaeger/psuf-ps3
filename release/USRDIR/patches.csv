@@ -1,4 +1,5 @@
 # title_id|version|kind|status|method|label|source|payload|note|delay_seconds
+BCES00129|01.03|unlock|known|ncl|FPS Unlock + Fixes (testado por Jaeger)|Jaeger|0 30473370 00000001;0 00407D8C 38C00001;0 00368798 ED8C6028;0 0036879C ED6B5828;0 003687A0 ED4A5028;0 003DA474 38000000;0 003DA478 901A09C0;0 003DA47C E8410028;0 003DA480 4BF80924;0 003DA484 38000000;0 003DA488 901A09C0;0 003DA48C E8410028;0 003DA490 4BF81468;0 0035ADA0 4807F6D4;0 0035B8F4 4807EB90|MotorStorm: Pacific Rift BCES00129 01.03 Europe/PAL. Testado em PS3 real por Jaeger. Aplicar no menu, antes da corrida. FPS Unlock + Fixes.|120
 BCES01893|*|unlock|known|eboot_pc|Unlock FPS|Manual research||Known-compatible class, PC app required for safe EBOOT work.
 BCES01893|*|60|known|eboot_pc|60 FPS target|Manual research||Known-compatible class, PC app required for safe EBOOT work.
 BLUS30400|01.00|60|update_required|none|Atualize para 01.02 para 60 FPS|PS3 real lab||Patch 60 FPS conhecido exige o update oficial 01.02. Atualize o jogo, abra novamente e escaneie de novo.
