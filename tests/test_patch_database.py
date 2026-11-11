@@ -118,7 +118,7 @@ class PatchDatabaseTests(unittest.TestCase):
             self.assertEqual(selected()[0], (bundled / "patches.csv").as_posix())
 
     def test_other_region_of_manual_entry_shows_other_version(self):
-        """NPEB01283 (GTA V, PSN Europe) must point to the BLES01807 patches as another version."""
+        """NPUB31154 (GTA V, PSN USA) must point to the BLES01807 patches as another version."""
         compiler = shutil.which("cc") or shutil.which("gcc")
         if not compiler:
             self.skipTest("Host C compiler required")
@@ -172,7 +172,7 @@ class PatchDatabaseTests(unittest.TestCase):
                 fps60, unlock, note = out.split("|", 2)
                 return int(fps60), int(unlock), note
 
-            fps60, unlock, note = match("NPEB01283", "01.27", "Grand Theft Auto V")
+            fps60, unlock, note = match("NPUB31154", "01.27", "Grand Theft Auto V")
             self.assertEqual(fps60, 4)  # FPSU_STATUS_OTHER_VERSION
             self.assertEqual(unlock, 4)
             self.assertIn("BLES01807", note)
