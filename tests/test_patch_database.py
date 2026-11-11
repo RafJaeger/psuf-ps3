@@ -117,6 +117,134 @@ class PatchDatabaseTests(unittest.TestCase):
             (updated / "patches.csv").write_text("invalid\n", encoding="utf-8")
             self.assertEqual(selected()[0], (bundled / "patches.csv").as_posix())
 
+    def test_other_region_of_manual_entry_shows_other_version(self):
+        """NPEB01283 (GTA V, PSN Europe) must point to the BLES01807 patches as another version."""
+        compiler = shutil.which("cc") or shutil.which("gcc")
+        if not compiler:
+            self.skipTest("Host C compiler required")
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            bundled = work / "bundled"
+            updated = work / "updated"
+            bundled.mkdir()
+            updated.mkdir()
+            for name in ("patches.csv", "graphics_patches.csv", "fix_patches.csv",
+                         "pre_patches.csv", "native60.csv"):
+                shutil.copy(USRDIR / name, bundled / name)
+            harness = work / "cross.c"
+            harness.write_text(
+                '#include <stdio.h>\n#include <sys/stat.h>\n#include <dirent.h>\n'
+                '#ifdef _WIN32\n#include <direct.h>\n#include <io.h>\n'
+                '#define mkdir(path, mode) _mkdir(path)\n#define fsync _commit\n#endif\n'
+                '#include "patch_db.c"\n'
+                'int backup_path_is_safe_target(const char *path) { (void)path; return 0; }\n'
+                'int backup_copy_file(const char *id, const char *source, char *out, size_t size) '
+                '{ (void)id; (void)source; (void)out; (void)size; return -1; }\n'
+                'fpsu_lang i18n_detect_language(void) { return 0; }\n'
+                'const char *i18n_text(fpsu_lang lang, fpsu_text_id id) '
+                '{ (void)lang; (void)id; return ""; }\n'
+                'int main(int argc, char **argv) {\n'
+                '    fpsu_game game; static fpsu_game_result result;\n'
+                '    if (argc < 4) return 2;\n'
+                '    memset(&game, 0, sizeof(game));\n'
+                '    snprintf(game.title_id, sizeof(game.title_id), "%s", argv[1]);\n'
+                '    snprintf(game.version, sizeof(game.version), "%s", argv[2]);\n'
+                '    snprintf(game.title, sizeof(game.title), "%s", argv[3]);\n'
+                '    patch_db_match_game(&game, &result);\n'
+                '    printf("%d|%d|%s\\n", (int)result.fps60.status, (int)result.unlock.status,\n'
+                '        result.fps60.note);\n'
+                '    return 0;\n'
+                '}\n',
+                encoding="utf-8",
+            )
+            binary = work / "cross"
+            subprocess.run(
+                [compiler, "-std=gnu99", "-ffunction-sections", "-Wl,--gc-sections",
+                 "-I", str(ROOT / "include"), "-I", str(ROOT / "source"),
+                 f'-DFPSU_APP_USRDIR="{bundled.as_posix()}"',
+                 f'-DFPSU_DATA_ROOT="{updated.as_posix()}"',
+                 str(harness), "-o", str(binary)],
+                check=True,
+            )
+
+            def match(title_id, version, title):
+                out = subprocess.check_output([str(binary), title_id, version, title], text=True)
+                fps60, unlock, note = out.split("|", 2)
+                return int(fps60), int(unlock), note
+
+            fps60, unlock, note = match("NPEB01283", "01.27", "Grand Theft Auto V")
+            self.assertEqual(fps60, 4)  # FPSU_STATUS_OTHER_VERSION
+            self.assertEqual(unlock, 4)
+            self.assertIn("BLES01807", note)
+            # The disc it comes from still gets the real patch.
+            self.assertEqual(match("BLES01807", "01.27", "Grand Theft Auto V")[0], 1)
+            # Only the exact name links titles: a longer name is a different game.
+            self.assertEqual(match("NPEB09999", "01.00", "Grand Theft Auto V Premium Edition")[0], 0)
+
+    def test_matching_a_game_reads_each_database_only_a_few_times(self):
+        """Scanning must not reopen a database for every line (the PS3 scan looked frozen)."""
+        compiler = shutil.which("cc") or shutil.which("gcc")
+        if not compiler:
+            self.skipTest("Host C compiler required")
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            bundled = work / "bundled"
+            updated = work / "updated"
+            bundled.mkdir()
+            updated.mkdir()
+            names = ("patches.csv", "graphics_patches.csv", "fix_patches.csv",
+                     "pre_patches.csv", "native60.csv")
+            for name in names:
+                shutil.copy(USRDIR / name, bundled / name)
+                shutil.copy(USRDIR / name, updated / name)
+                os.utime(bundled / name, (1700000100, 1700000100))
+                os.utime(updated / name, (1700000200, 1700000200))  # online copy is newer
+            harness = work / "opens.c"
+            harness.write_text(
+                '#include <stdio.h>\n#include <sys/stat.h>\n#include <dirent.h>\n'
+                '#ifdef _WIN32\n#include <direct.h>\n#include <io.h>\n'
+                '#define mkdir(path, mode) _mkdir(path)\n#define fsync _commit\n#endif\n'
+                'static int g_opens;\n'
+                'static FILE *counted_fopen(const char *path, const char *mode) '
+                '{ ++g_opens; return fopen(path, mode); }\n'
+                '#define fopen counted_fopen\n'
+                '#include "patch_db.c"\n'
+                '#undef fopen\n'
+                'int backup_path_is_safe_target(const char *path) { (void)path; return 0; }\n'
+                'int backup_copy_file(const char *id, const char *source, char *out, size_t size) '
+                '{ (void)id; (void)source; (void)out; (void)size; return -1; }\n'
+                'fpsu_lang i18n_detect_language(void) { return 0; }\n'
+                'const char *i18n_text(fpsu_lang lang, fpsu_text_id id) '
+                '{ (void)lang; (void)id; return ""; }\n'
+                'int main(void) {\n'
+                '    fpsu_game game; static fpsu_game_result result; int i;\n'
+                '    for (i = 0; i < 3; ++i) {\n'
+                '        memset(&game, 0, sizeof(game));\n'
+                '        snprintf(game.title_id, sizeof(game.title_id), "%s", i ? "NPEB01283" : "BLES99999");\n'
+                '        snprintf(game.version, sizeof(game.version), "01.27");\n'
+                '        snprintf(game.title, sizeof(game.title), "%s", i ? "Grand Theft Auto V" : "Jogo Teste");\n'
+                '        g_opens = 0;\n'
+                '        patch_db_match_game(&game, &result);\n'
+                '        printf("%d\\n", g_opens);\n'
+                '    }\n'
+                '    return 0;\n'
+                '}\n',
+                encoding="utf-8",
+            )
+            binary = work / "opens"
+            subprocess.run(
+                [compiler, "-std=gnu99", "-ffunction-sections", "-Wl,--gc-sections",
+                 "-I", str(ROOT / "include"), "-I", str(ROOT / "source"),
+                 f'-DFPSU_APP_USRDIR="{bundled.as_posix()}"',
+                 f'-DFPSU_DATA_ROOT="{updated.as_posix()}"',
+                 str(harness), "-o", str(binary)],
+                check=True,
+            )
+            opens = [int(n) for n in subprocess.check_output([str(binary)], text=True).split()]
+            # A few opens per database per game; the frozen scan reopened a file per line (hundreds).
+            for count in opens:
+                self.assertLess(count, 40, opens)
+
     def test_legacy_runtime_scripts_migrate_when_rename_cannot_replace(self):
         compiler = shutil.which("cc") or shutil.which("gcc")
         if not compiler:

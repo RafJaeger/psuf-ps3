@@ -1229,6 +1229,103 @@ static void mark_other_version(fpsu_patch_option *opt, fpsu_patch_kind kind, fps
     }
 }
 
+/* Game names by title ID, taken from the graphics database (its third column). Manual FPS
+   entries carry no "Source file:" name, so this is how another region or the digital release of
+   the same game is recognised (e.g. NPEB01283 finding the BLES01807 patches of GTA V). */
+#define GAME_NAME_CACHE_MAX 1024
+static struct { char title_id[16]; char key[96]; } g_game_names[GAME_NAME_CACHE_MAX];
+static int g_game_name_count = -1;
+static char g_game_names_path[256];
+static time_t g_game_names_mtime;
+static off_t g_game_names_size;
+
+/* Called once per scanned game. Reloads only when the active file is another one or changed
+   (an online update can replace it while PSUF is open). */
+static void load_game_names(void)
+{
+    const char *path = graphics_db_active_path();
+    static char line[FPSU_MAX_PAYLOAD + 512];
+    struct stat st;
+    FILE *f;
+    if (stat(path, &st) != 0) {
+        st.st_mtime = 0;
+        st.st_size = 0;
+    }
+    if (g_game_name_count >= 0 && strcmp(g_game_names_path, path) == 0 &&
+        g_game_names_mtime == st.st_mtime && g_game_names_size == st.st_size) {
+        return;
+    }
+    g_game_name_count = 0;
+    g_game_names_mtime = st.st_mtime;
+    g_game_names_size = st.st_size;
+    copy_text(g_game_names_path, sizeof(g_game_names_path), path);
+    f = fopen(path, "r");
+    if (!f) {
+        return;
+    }
+    while (fgets(line, sizeof(line), f) && g_game_name_count < GAME_NAME_CACHE_MAX) {
+        char *cursor = line;
+        char *title_id, *version, *name;
+        int i, seen = 0;
+        if (line[0] == '#') {
+            continue;
+        }
+        title_id = next_field(&cursor);
+        version = next_field(&cursor);
+        name = next_field(&cursor);
+        (void)version;
+        if (!title_id || !name || !title_id[0] || strlen(title_id) >= sizeof(g_game_names[0].title_id)) {
+            continue;
+        }
+        for (i = 0; i < g_game_name_count; ++i) {
+            if (strcmp(g_game_names[i].title_id, title_id) == 0) {
+                seen = 1;
+                break;
+            }
+        }
+        if (seen) {
+            continue;
+        }
+        normalize_key(g_game_names[g_game_name_count].key, sizeof(g_game_names[0].key), name);
+        if (strlen(g_game_names[g_game_name_count].key) < 5) {
+            continue;
+        }
+        copy_text(g_game_names[g_game_name_count].title_id, sizeof(g_game_names[0].title_id), title_id);
+        ++g_game_name_count;
+    }
+    fclose(f);
+}
+
+/* game_key: the scanned game's normalized title. load_game_names() must have run before:
+   it is called once per game, never per database line (each call checks the active file). */
+static int game_name_known(const char *game_key)
+{
+    int i;
+    if (!game_key || strlen(game_key) < 5) {
+        return 0;
+    }
+    for (i = 0; i < g_game_name_count; ++i) {
+        if (strcmp(g_game_names[i].key, game_key) == 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static int same_game_by_title_id(const char *game_key, const char *title_id)
+{
+    int i;
+    if (!game_key || strlen(game_key) < 5 || !title_id || !title_id[0]) {
+        return 0;
+    }
+    for (i = 0; i < g_game_name_count; ++i) {
+        if (strcmp(g_game_names[i].title_id, title_id) == 0) {
+            return strcmp(g_game_names[i].key, game_key) == 0;
+        }
+    }
+    return 0;
+}
+
 int patch_db_match_game(const fpsu_game *game, fpsu_game_result *result)
 {
     FILE *f;
@@ -1245,10 +1342,15 @@ int patch_db_match_game(const fpsu_game *game, fpsu_game_result *result)
     static char cross_payload[3][FPSU_MAX_PAYLOAD];
     char other_label[3][64];
     char cross_label[3][64];
+    char game_key[96];
+    int name_known;
 
     if (!game || !result) {
         return 0;
     }
+    normalize_key(game_key, sizeof(game_key), game->title);
+    load_game_names();
+    name_known = game_name_known(game_key);
 
     memset(result, 0, sizeof(*result));
     result->game = *game;
@@ -1300,7 +1402,8 @@ int patch_db_match_game(const fpsu_game *game, fpsu_game_result *result)
                         copy_text(other_payload[idx], sizeof(other_payload[idx]), line_payload);
                         copy_text(other_label[idx], sizeof(other_label[idx]), line_label);
                     }
-                } else if (idx >= 0 && same_game_name(game, line_note, line_label)) {
+                } else if (idx >= 0 && (same_game_name(game, line_note, line_label) ||
+                        (name_known && same_game_by_title_id(game_key, line_title)))) {
                     int installable = fpsu_method_is_ncl_write(line_method) && line_payload[0] != '\0';
                     int current_installable = fpsu_method_is_ncl_write(cross_method[idx]) &&
                         cross_payload[idx][0] != '\0';

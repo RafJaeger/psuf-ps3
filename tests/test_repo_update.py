@@ -1,3 +1,4 @@
+import os
 import http.server
 import shutil
 import subprocess
@@ -43,6 +44,9 @@ class OnlineUpdateTests(unittest.TestCase):
         bundled.write_text(ROW * 6)
         if updated is not None:
             downloaded.write_text(updated)
+            # A downloaded database is used only when it is newer than the one from the PKG.
+            os.utime(bundled, (1700000100, 1700000100))
+            os.utime(downloaded, (1700000200, 1700000200))
         result = self.run_harness("active", bundled, downloaded)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.strip(), str(downloaded if expected_updated else bundled))
