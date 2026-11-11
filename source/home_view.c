@@ -59,7 +59,6 @@ void home_view_draw(fpsu_lang lang, int selected, int full_frame)
 
     if (full_frame) {
         ui_draw_panel(48, 112, 322, 524, 24, 0xff102631u, 0xff203a45u);
-        ui_draw_text(72, 130, lang == FPSU_LANG_PT ? "Seu PlayStation, sem limites." : lang == FPSU_LANG_ES ? "Tu PlayStation, sin límites." : "Your PlayStation, unlocked.", UI_COLOR_MUTED, 1);
         ui_draw_panel(394, 112, 838, 524, 28, 0xff122c38u, 0xff294551u);
         ui_draw_round_rect(432, 324, 760, 214, 22, 0xff0a1d28u);
         ui_draw_round_rect(448, 340, 728, 182, 20, 0xff0d2330u);
